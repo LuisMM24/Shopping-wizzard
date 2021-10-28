@@ -2,60 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping wizzard</title>
-    <link rel="stylesheet" href="/assets/style.css">
-<script src="/assets/script.js" defer></script>
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script src="/assets/script.js" defer></script>
+    <script src="/assets/galery.js" defer></script>
 </head>
 
 <body>
-<header></header>
+    <header class="sidebar">
+        <img src="assets\logo.png" class="logo" />
+    </header>
 
     <main>
-        <section id="step-line" >
-
-        </section>
+        <section id="step-line"></section>
 
         <!-- Product page -->
         <section id="product-page">
-
-
+            <img id="galeria" src="https://picsum.photos/id/200/400/400" alt="">
+            <nav class="galery">
+                <ul>
+                    <li>
+                        <a onclick="cargarfoto(201,0)"><img src="assets\blue.jpg" alt="" /></a>
+                    </li>
+                    <li>
+                        <a onclick="cargarfoto(202,1)"><img src="assets\blue1.jpg" alt="" /></a>
+                    </li>
+                    <li>
+                        <a onclick="cargarfoto(203,2)"><img src="assets\blue2.jpg" alt="" /></a>
+                    </li>
+                    <li>
+                        <a onclick="cargarfoto(204,3)"><img src="assets\blue3.jpg" alt="" /></a>
+                    </li>
+                    <li>
+                        <a onclick="cargarfoto(204,3)"><img src="assets\blue-boy.jpg" alt="" /></a>
+                    </li>
+                    <li>
+                        <a onclick="cargarfoto(204,3)"><img src="assets\blue-girl.jpg" alt="" /></a>
+                    </li>
+                </ul>
+            </nav>
         </section>
         <!-- Product page -->
 
         <!-- Profile page -->
-        <section id="Profile-page">
-
-        </section>
+        <section id="Profile-page"></section>
         <!-- Profile page -->
 
         <!-- Address page -->
-        <section id="Address-page">
-
-        </section>
+        <section id="Address-page"></section>
         <!-- Address page -->
 
         <!-- Shipping page -->
-        <section id="Shipping-page">
-
-        </section>
+        <section id="Shipping-page"></section>
         <!-- Shipping page -->
 
         <!-- finish page -->
-        <section id="Finish-page">
-
-        </section>
+        <section id="Finish-page"></section>
         <!-- finish page -->
-
-
-
     </main>
 
-
-<footer></footer>
-
+    <footer></footer>
 </body>
 
 </html>
