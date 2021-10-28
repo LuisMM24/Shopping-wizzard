@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping wizzard</title>
-    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/script.js" defer></script>
-    <script src="/assets/galery.js" defer></script>
-  </head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
 
   <body>
     <header class="sidebar">
@@ -50,34 +51,65 @@
       <section id="Profile-page"></section>
       <!-- Profile page -->
 
-      <!-- Address page -->
-      <section id="Address-page"></section>
-      <!-- Address page -->
+        <!-- Address page -->
+        <section id="Address-page"></section>
+            <h1>Address</h1>
+            <label for="birthday">birthday</label>
+            <input type="text" name="birthday" id="birthday">
 
-      <!-- Shipping page -->
-      <section id="Shipping-page">
-        <h1>Shipping</h1>
-        <h3>Shipping type</h3>
-        <input type="checkbox" name="free-shipping" id="free-shipping" />
-        <label for="free-shipping">Free shipping (72h)</label>
-        <input type="checkbox" name="extra-shipping" id="extra-shipping" />
-        <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
-        <input type="checkbox" name="premium-shipping" id="premium-shipping" />
-        <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
-        <input type="checkbox" name="gift-selector" id="gift-selector" />
-        <label for="gift-selector">Is it a gift?</label>
-        <label for="gift-msg">Gift message</label>
-        <textarea
-          name="gift-msg"
-          id="gift-msg"
-          cols="30"
-          rows="10"
-          maxlength="200"
-        ></textarea>
-        <span>Gift wrapper image</span>
-        <button>Select image</button>
-      </section>
-      <!-- Shipping page -->
+            <label for="Address 1">Address 1</label>
+            <input type="text" name="Address 1" id="Address 1">
+
+            <label for="Address 2">Address 2</label>
+            <input type="text" name="Address 2" id="Address 2">
+
+            <label for="Postal Code">Postal Code</label>
+            <input type="text" name="Postal Code" id="Postal Code">
+
+            <label for="Country">Country</label>
+            <input type="text" name="Country" id="Country">
+
+            <label for="Phone">Phone</label>
+            <input type="text" name="Phone" id="Phone">
+
+            <input type="checkbox" name="regular-address" id="regular-address">
+            <label for="regular-address">This is my regular address</label>
+
+
+        <!-- Address page -->
+
+        <!-- Shipping page -->
+        <section id="Shipping-page">
+            <h1>Shipping</h1>
+            <h3>Shipping type</h3>
+            <form action="">
+                <input type="radio" name="free-shipping" id="free-shipping">
+                <label for="free-shipping">Free shipping (72h)</label>
+                <input type="radio" name="extra-shipping" id="extra-shipping">
+                <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
+                <input type="radio" name="premium-shipping" id="premium-shipping">
+                <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
+                <input type="checkbox" name="gift-selector" id="gift-selector">
+                <label for="gift-selector">Is it a gift?</label>
+                <label for="gift-msg">Gift message</label>
+                <textarea name="gift-msg" id="gift-msg" cols="30" rows="10" maxlength="200"></textarea>
+                <span>Gift wrapper image</span>
+                <button>Select image</button>
+            </form>
+            <input type="radio" name="free-shipping" id="free-shipping">
+            <label for="free-shipping">Free shipping (72h)</label>
+            <input type="radio" name="extra-shipping" id="extra-shipping">
+            <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
+            <input type="radio" name="premium-shipping" id="premium-shipping">
+            <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
+            <input type="checkbox" name="gift-selector" id="gift-selector">
+            <label for="gift-selector">Is it a gift?</label>
+            <label for="gift-msg">Gift message</label>
+            <textarea name="gift-msg" id="gift-msg" cols="30" rows="10" maxlength="200"></textarea>
+            <span>Gift wrapper image</span>
+            <button>Select image<span class="material-icons-outlined">insert_drive_file</span></button>
+        </section>
+        <!-- Shipping page -->
 
       <!-- finish page -->
       <section id="Finish-page"></section>
