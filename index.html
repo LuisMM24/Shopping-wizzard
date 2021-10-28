@@ -80,10 +80,10 @@
         <!-- Profile page -->
         <!-- Address page -->
         <section id="Address-page"></section>
-        <h1>Address</h1>
-
-        <label for="First name">First name</label>
-        <input type="text" name="First name" id="First name" required maxlength="20">
+            <h1>Address</h1>
+        <form action="">
+            <label for="First name">First name</label>
+            <input type="text" name="First name" id="First name" required maxlength="20">
 
         <label for="Last name">Last name</label>
         <input type="text" name="Last name" id="Last name" required maxlength="20">
@@ -100,20 +100,30 @@
         <label for="Postal Code">Postal Code</label>
         <input type="numbers" name="Postal Code" id="Postal Code" required maxlength="5">
 
-        <label for="Country">Country</label>
-        <select name="Country" id="Country">
-            <option value="andorra">Andorra</option>
-            <option value="españa">España</option>
-            <option value="francia">Francia</option>
-            <option value="alemania">Alemania</option>
-            <option value="grecia">Grecia</option>
-        </select>
+            <label for="Country">Country</label>
+            <select name="Country" id="Country" required>
+                <option value="andorra">Andorra</option>
+                <option value="españa">España</option>
+                <option value="francia">Francia</option>
+                <option value="alemania">Alemania</option>
+                <option value="grecia">Grecia</option>
+            </select>
 
-        <label for="Phone">Phone</label>
-        <input type="text" name="Phone" id="Phone">
+            <label for="Country">Phone country code</label>
+            <select name="Country" id="Country" required>
+                <option id="PCCandorra" value="+376">376 - AND</option>
+                <option id="PCCespaña" value="+34">34 - ESP</option>
+                <option id="PCCfrancia" value="+33">33 - FRA</option>
+                <option id="PCCalemania" value="+49">49 - DEU</option>
+                <option id="PCCgrecia" value="+30">30 - GRC</option>
+            </select>
 
-        <input type="checkbox" name="regular-address" id="regular-address">
-        <label for="regular-address">This is my regular address</label>
+            <label for="Phone">Phone</label>
+            <input type="tel" name="Phone" id="Phone" required maxlength="9">
+
+            <input type="checkbox" name="regular-address" id="regular-address">
+            <label for="regular-address">This is my regular address</label>
+        </form>
 
         <!-- Button reset and next -->
         <input type="reset" name="reset-form">
