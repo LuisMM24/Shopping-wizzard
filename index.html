@@ -1,63 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping wizzard</title>
     <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/script.js" defer></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-  <body>
+<body>
     <header class="sidebar">
         <img src="assets\img\logo.png" class="logo" />
     </header>
 
     <main>
-      <section id="step-line"></section>
+        <section id="step-line">
+            <div class="step 1"></div>
+            <div class="step 2"></div>
+            <div class="step 3"></div>
+            <div class="step 4"></div>
+        </section>
+
 
         <!-- Product page -->
         <section id="product-page">
-            <img id="galeria" src="https://picsum.photos/id/200/400/400" alt="">
-            <nav class="galery">
+            <nav class="galery col-left">
+                <img id="galeria" src="assets\img\blue1.jpg" alt="">
                 <ul>
-                    <li>
-                        <a onclick="cargarfoto(201,0)"><img src="assets\img\blue.jpg" alt="" /></a>
-                    </li>
-                    <li>
-                        <a onclick="cargarfoto(202,1)"><img src="assets\img\blue1.jpg" alt="" /></a>
-                    </li>
-                    <li>
-                        <a onclick="cargarfoto(203,2)"><img src="assets\img\blue2.jpg" alt="" /></a>
-                    </li>
-                    <li>
-                        <a onclick="cargarfoto(204,3)"><img src="assets\img\blue3.jpg" alt="" /></a>
-                    </li>
-                    <li>
-                        <a onclick="cargarfoto(204,3)"><img src="assets\img\blue-boy.jpg" alt="" /></a>
-                    </li>
-                    <li>
-                        <a onclick="cargarfoto(204,3)"><img src="assets\img\blue-girl.jpg" alt="" /></a>
-                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
             </nav>
+            <article class="col-right">
+                <h1>Gafas de Sol super Azul Plus 3000</h1>
+                <h2>Descripcion</h2>
+                <p>Descripción bla bla bla....</p>
+                <h2>Características</h2>
+                <details>
+                    <summary>Lentes</summary>
+                    <p>Colors</p>
+                </details>
+                <details>
+                    <summary>Sizes</summary>
+                    <p>Sizes</p>
+                </details>
+            </article>
         </section>
         <!-- Product page -->
 
         <!-- Profile page -->
         <section id="Profile-page">
             <form action="">
+
                 <label for="username">Username:</label>
-                <input type="text" id="username">
+                <input type="text" name="username" id="username">
+
                 <label for="email">Email:</label>
-                <input type="text" id="email">
+                <input type="text" name="email" id="email">
+
                 <label for="pass">Password:</label>
-                <input type="password" id="pass">
+                <input type="password" name="pass" id="pass">
+
                 <label for="Confirmpass">Confirm password:</label>
-                <input type="password" id="Confirmpass">
+                <input type="password" name="confirmpass" id="Confirmpass">
+
+                <!-- Button reset and next -->
+                <input type="reset" name="reset-form">
+                <button id="nextPage">Next</button>
             </form>
 
         </section>
@@ -69,20 +85,20 @@
             <label for="First name">First name</label>
             <input type="text" name="First name" id="First name" required maxlength="20">
 
-            <label for="Last name">Last name</label>
-            <input type="text" name="Last name" id="Last name" required maxlength="20">
+        <label for="Last name">Last name</label>
+        <input type="text" name="Last name" id="Last name" required maxlength="20">
 
-            <label for="birthday">birthday</label>
-            <input type="date" name="birthday" id="birthday" required>
+        <label for="birthday">birthday</label>
+        <input type="date" name="birthday" id="birthday" required>
 
-            <label for="Address 1">Address 1</label>
-            <input type="text" name="Address 1" id="Address 1" required maxlength="50">
+        <label for="Address 1">Address 1</label>
+        <input type="text" name="Address 1" id="Address 1" required maxlength="50">
 
-            <label for="Address 2">Address 2</label>
-            <input type="text" name="Address 2" id="Address 2" maxlength="50">
+        <label for="Address 2">Address 2</label>
+        <input type="text" name="Address 2" id="Address 2" maxlength="50">
 
-            <label for="Postal Code">Postal Code</label>
-            <input type="numbers" name="Postal Code" id="Postal Code" required maxlength="5">
+        <label for="Postal Code">Postal Code</label>
+        <input type="numbers" name="Postal Code" id="Postal Code" required maxlength="5">
 
             <label for="Country">Country</label>
             <select name="Country" id="Country" required>
@@ -109,6 +125,9 @@
             <label for="regular-address">This is my regular address</label>
         </form>
 
+        <!-- Button reset and next -->
+        <input type="reset" name="reset-form">
+        <button id="nextPage">Next</button>
 
         <!-- Address page -->
 
@@ -117,11 +136,11 @@
             <h1>Shipping</h1>
             <h3>Shipping type</h3>
             <form action="">
-                <input type="radio" name="free-shipping" id="free-shipping">
+                <input type="radio" name="shipping-option" id="free-shipping">
                 <label for="free-shipping">Free shipping (72h)</label>
-                <input type="radio" name="extra-shipping" id="extra-shipping">
+                <input type="radio" name="shipping-option" id="extra-shipping">
                 <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
-                <input type="radio" name="premium-shipping" id="premium-shipping">
+                <input type="radio" name="shipping-option" id="premium-shipping">
                 <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
                 <input type="checkbox" name="gift-selector" id="gift-selector">
                 <label for="gift-selector">Is it a gift?</label>
@@ -129,15 +148,20 @@
                 <textarea name="gift-msg" id="gift-msg" cols="30" rows="10" maxlength="200"></textarea>
                 <span>Gift wrapper image</span>
                 <button>Select image</button>
+                <!-- Button reset and next -->
+                <input type="reset" name="reset-form">
+                <button id="nextPage">Next</button>
+
             </form>
         </section>
         <!-- Shipping page -->
 
-      <!-- finish page -->
-      <section id="Finish-page"></section>
-      <!-- finish page -->
+        <!-- finish page -->
+        <section id="Finish-page"></section>
+        <!-- finish page -->
     </main>
 
     <footer></footer>
-  </body>
+</body>
+
 </html>
