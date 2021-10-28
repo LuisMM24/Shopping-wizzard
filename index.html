@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping wizzard</title>
-    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/script.js" defer></script>
-    <script src="/assets/galery.js" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 
-<body>
+  <body>
     <header class="sidebar">
         <img src="assets\img\logo.png" class="logo" />
     </header>
 
     <main>
-        <section id="step-line"></section>
+      <section id="step-line"></section>
 
         <!-- Product page -->
         <section id="product-page">
@@ -48,9 +48,20 @@
         <!-- Product page -->
 
         <!-- Profile page -->
-        <section id="Profile-page"></section>
-        <!-- Profile page -->
+        <section id="Profile-page">
+            <form action="">
+                <label for="username">Username:</label>
+                <input type="text" id="username">
+                <label for="email">Email:</label>
+                <input type="text" id="email">
+                <label for="pass">Password:</label>
+                <input type="password" id="pass">
+                <label for="Confirmpass">Confirm password:</label>
+                <input type="password" id="Confirmpass">
+            </form>
 
+        </section>
+        <!-- Profile page -->
         <!-- Address page -->
         <section id="Address-page"></section>
             <h1>Address</h1>
@@ -89,27 +100,40 @@
         <section id="Shipping-page">
             <h1>Shipping</h1>
             <h3>Shipping type</h3>
-            <input type="checkbox" name="free-shipping" id="free-shipping">
+            <form action="">
+                <input type="radio" name="free-shipping" id="free-shipping">
+                <label for="free-shipping">Free shipping (72h)</label>
+                <input type="radio" name="extra-shipping" id="extra-shipping">
+                <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
+                <input type="radio" name="premium-shipping" id="premium-shipping">
+                <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
+                <input type="checkbox" name="gift-selector" id="gift-selector">
+                <label for="gift-selector">Is it a gift?</label>
+                <label for="gift-msg">Gift message</label>
+                <textarea name="gift-msg" id="gift-msg" cols="30" rows="10" maxlength="200"></textarea>
+                <span>Gift wrapper image</span>
+                <button>Select image</button>
+            </form>
+            <input type="radio" name="free-shipping" id="free-shipping">
             <label for="free-shipping">Free shipping (72h)</label>
-            <input type="checkbox" name="extra-shipping" id="extra-shipping">
+            <input type="radio" name="extra-shipping" id="extra-shipping">
             <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
-            <input type="checkbox" name="premium-shipping" id="premium-shipping">
+            <input type="radio" name="premium-shipping" id="premium-shipping">
             <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
             <input type="checkbox" name="gift-selector" id="gift-selector">
             <label for="gift-selector">Is it a gift?</label>
             <label for="gift-msg">Gift message</label>
             <textarea name="gift-msg" id="gift-msg" cols="30" rows="10" maxlength="200"></textarea>
             <span>Gift wrapper image</span>
-            <button>Select image</button>
+            <button>Select image<span class="material-icons-outlined">insert_drive_file</span></button>
         </section>
         <!-- Shipping page -->
 
-        <!-- finish page -->
-        <section id="Finish-page"></section>
-        <!-- finish page -->
+      <!-- finish page -->
+      <section id="Finish-page"></section>
+      <!-- finish page -->
     </main>
 
     <footer></footer>
-</body>
-
+  </body>
 </html>
