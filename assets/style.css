@@ -1,4 +1,14 @@
+:root {
+  --main-bg-color: #fff;
+  --main-text-color: rgb(60, 60, 60);
+  --secondary-text-color: rgb(120, 120, 120);
+  --main-color: rgb(115,155,224);
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+
 body {
+  font-family: 'Roboto', sans-serif;
   width: 80%;
 }
 .sidebar {
