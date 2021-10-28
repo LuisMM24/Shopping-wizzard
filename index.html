@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,13 +11,13 @@
       rel="stylesheet">
 </head>
 
-<body>
+  <body>
     <header class="sidebar">
         <img src="assets\img\logo.png" class="logo" />
     </header>
 
     <main>
-        <section id="step-line"></section>
+      <section id="step-line"></section>
 
         <!-- Product page -->
         <section id="product-page">
@@ -66,17 +65,24 @@
         <!-- Address page -->
         <section id="Address-page"></section>
             <h1>Address</h1>
+
+            <label for="First name">First name</label>
+            <input type="date" name="First name" id="First name" required maxlength="20">
+
+            <label for="Last name">Last name</label>
+            <input type="date" name="Last name" id="Last name" required maxlength="20">
+
             <label for="birthday">birthday</label>
-            <input type="text" name="birthday" id="birthday">
+            <input type="date" name="birthday" id="birthday" required>
 
             <label for="Address 1">Address 1</label>
-            <input type="text" name="Address 1" id="Address 1">
+            <input type="text" name="Address 1" id="Address 1" required maxlength="50">
 
             <label for="Address 2">Address 2</label>
-            <input type="text" name="Address 2" id="Address 2">
+            <input type="text" name="Address 2" id="Address 2" maxlength="50">
 
             <label for="Postal Code">Postal Code</label>
-            <input type="text" name="Postal Code" id="Postal Code">
+            <input type="numbers" name="Postal Code" id="Postal Code" required maxlength="5">
 
             <label for="Country">Country</label>
             <select name="Country" id="Country">
@@ -117,12 +123,11 @@
         </section>
         <!-- Shipping page -->
 
-        <!-- finish page -->
-        <section id="Finish-page"></section>
-        <!-- finish page -->
+      <!-- finish page -->
+      <section id="Finish-page"></section>
+      <!-- finish page -->
     </main>
 
     <footer></footer>
-</body>
-
+  </body>
 </html>
