@@ -65,7 +65,7 @@
         <!-- Address page -->
         <section id="Address-page"></section>
             <h1>Address</h1>
-
+        <form action="">
             <label for="First name">First name</label>
             <input type="text" name="First name" id="First name" required maxlength="20">
 
@@ -85,7 +85,7 @@
             <input type="numbers" name="Postal Code" id="Postal Code" required maxlength="5">
 
             <label for="Country">Country</label>
-            <select name="Country" id="Country">
+            <select name="Country" id="Country" required>
                 <option value="andorra">Andorra</option>
                 <option value="españa">España</option>
                 <option value="francia">Francia</option>
@@ -93,11 +93,21 @@
                 <option value="grecia">Grecia</option>
             </select>
 
+            <label for="Country">Phone country code</label>
+            <select name="Country" id="Country" required>
+                <option id="PCCandorra" value="+376">376 - AND</option>
+                <option id="PCCespaña" value="+34">34 - ESP</option>
+                <option id="PCCfrancia" value="+33">33 - FRA</option>
+                <option id="PCCalemania" value="+49">49 - DEU</option>
+                <option id="PCCgrecia" value="+30">30 - GRC</option>
+            </select>
+
             <label for="Phone">Phone</label>
-            <input type="text" name="Phone" id="Phone">
+            <input type="tel" name="Phone" id="Phone" required maxlength="9">
 
             <input type="checkbox" name="regular-address" id="regular-address">
             <label for="regular-address">This is my regular address</label>
+        </form>
 
 
         <!-- Address page -->
