@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping wizzard</title>
     <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/script.js" defer></script>
@@ -13,30 +13,70 @@
 </head>
 
 <body>
-<header></header>
+    <header class="sidebar">
+        <img src="assets\img\logo.png" class="logo" />
+    </header>
 
     <main>
-        <section id="step-line" >
-
-        </section>
+        <section id="step-line"></section>
 
         <!-- Product page -->
         <section id="product-page">
-
-
+            <img id="galeria" src="https://picsum.photos/id/200/400/400" alt="">
+            <nav class="galery">
+                <ul>
+                    <li>
+                        <a onclick="cargarfoto(201,0)"><img src="assets\img\blue.jpg" alt="" /></a>
+                    </li>
+                    <li>
+                        <a onclick="cargarfoto(202,1)"><img src="assets\img\blue1.jpg" alt="" /></a>
+                    </li>
+                    <li>
+                        <a onclick="cargarfoto(203,2)"><img src="assets\img\blue2.jpg" alt="" /></a>
+                    </li>
+                    <li>
+                        <a onclick="cargarfoto(204,3)"><img src="assets\img\blue3.jpg" alt="" /></a>
+                    </li>
+                    <li>
+                        <a onclick="cargarfoto(204,3)"><img src="assets\img\blue-boy.jpg" alt="" /></a>
+                    </li>
+                    <li>
+                        <a onclick="cargarfoto(204,3)"><img src="assets\img\blue-girl.jpg" alt="" /></a>
+                    </li>
+                </ul>
+            </nav>
         </section>
         <!-- Product page -->
 
         <!-- Profile page -->
-        <section id="Profile-page">
-
-        </section>
+        <section id="Profile-page"></section>
         <!-- Profile page -->
 
         <!-- Address page -->
-        <section id="Address-page">
+        <section id="Address-page"></section>
+            <h1>Address</h1>
+            <label for="birthday">birthday</label>
+            <input type="text" name="birthday" id="birthday">
 
-        </section>
+            <label for="Address 1">Address 1</label>
+            <input type="text" name="Address 1" id="Address 1">
+
+            <label for="Address 2">Address 2</label>
+            <input type="text" name="Address 2" id="Address 2">
+
+            <label for="Postal Code">Postal Code</label>
+            <input type="text" name="Postal Code" id="Postal Code">
+
+            <label for="Country">Country</label>
+            <input type="text" name="Country" id="Country">
+
+            <label for="Phone">Phone</label>
+            <input type="text" name="Phone" id="Phone">
+
+            <input type="checkbox" name="regular-address" id="regular-address">
+            <label for="regular-address">This is my regular address</label>
+
+
         <!-- Address page -->
 
         <!-- Shipping page -->
@@ -73,18 +113,11 @@
         <!-- Shipping page -->
 
         <!-- finish page -->
-        <section id="Finish-page">
-
-        </section>
+        <section id="Finish-page"></section>
         <!-- finish page -->
-
-
-
     </main>
 
-
-<footer></footer>
-
+    <footer></footer>
 </body>
 
 </html>
