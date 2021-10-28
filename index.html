@@ -73,54 +73,61 @@
 
                 <!-- Button reset and next -->
                 <input type="reset" name="reset-form">
-                <button id="nextPage">Next</button>
+                <button id="nextPage1">Next</button>
             </form>
 
         </section>
-        <!-- Profile page -->
-        <!-- Address page -->
+<!-- Profile page -->
+<!-- Address page -->
         <section id="Address-page">
             <h1>Address</h1>
-        <form action="">
+        <form action="" autocomplete="off" >
             <label for="First name">First name</label>
-            <input type="text" name="First name" id="First name" required maxlength="20">
-
-        <label for="Last name">Last name</label>
-        <input type="text" name="Last name" id="Last name" required maxlength="20">
-
-        <label for="birthday">birthday</label>
-        <input type="date" name="birthday" id="birthday" required>
-
-        <label for="Address 1">Address 1</label>
-        <input type="text" name="Address 1" id="Address 1" required maxlength="50">
-
-        <label for="Address 2">Address 2</label>
-        <input type="text" name="Address 2" id="Address 2" maxlength="50">
-
-        <label for="Postal Code">Postal Code</label>
-        <input type="numbers" name="Postal Code" id="Postal Code" required maxlength="5">
-
+            <div id="First-name-parent">
+                <input type="text" name="First name" id="First-name" required maxlength="20" pattern="[A-Za-z]{0,20}" autocomplete=off>
+            </div>
+            <label for="Last-name">Last name</label>
+            <div id="Last-name-parent">
+                <input type="text" name="Last name" id="Last-name" required maxlength="20">
+            </div>
+            <label for="birthday">birthday</label>
+            <div id="birthday-parent">
+                <input type="date" name="birthday" id="birthday" required>
+            </div>
+            <label for="Address 1">Address 1</label>
+            <div id="Address-1-parent">
+                <input type="text" name="Address 1" id="Address-1" required maxlength="50">
+            </div>
+            <label for="Address 2">Address 2</label>
+            <input type="text" name="Address 2" id="Address-2" maxlength="50">
+            <label for="Postal Code">Postal Code</label>
+            <div id="Postal-Code-parent">
+            <input type="numbers" name="Postal Code" id="Postal-Code" required maxlength="5">
+            </div>
             <label for="Country">Country</label>
-            <select name="Country" id="Country" required>
-                <option value="andorra">Andorra</option>
-                <option value="españa">España</option>
-                <option value="francia">Francia</option>
-                <option value="alemania">Alemania</option>
-                <option value="grecia">Grecia</option>
-            </select>
-
-            <label for="Country">Phone country code</label>
-            <select name="Country" id="Country" required>
-                <option id="PCCandorra" value="+376">376 - AND</option>
-                <option id="PCCespaña" value="+34">34 - ESP</option>
-                <option id="PCCfrancia" value="+33">33 - FRA</option>
-                <option id="PCCalemania" value="+49">49 - DEU</option>
-                <option id="PCCgrecia" value="+30">30 - GRC</option>
-            </select>
-
+            <div id="Country-parent">
+                <select name="Country" id="Country" required>
+                    <option value="andorra">Andorra</option>
+                    <option value="españa">España</option>
+                    <option value="francia">Francia</option>
+                    <option value="alemania">Alemania</option>
+                    <option value="grecia">Grecia</option>
+                </select>
+            </div>
+            <label for="Phone country code">Phone country code</label>
+            <div id="PCC-parent">
+                <select name="Phone country code" id="PCC" required>
+                    <option id="PCCandorra" value="+376">376 - AND</option>
+                    <option id="PCCespaña" value="+34">34 - ESP</option>
+                    <option id="PCCfrancia" value="+33">33 - FRA</option>
+                    <option id="PCCalemania" value="+49">49 - DEU</option>
+                    <option id="PCCgrecia" value="+30">30 - GRC</option>
+                </select>
+            </div>
             <label for="Phone">Phone</label>
-            <input type="tel" name="Phone" id="Phone" required maxlength="9" pattern="[0-9]{9,9}[A-Za-z]" title="9 numbers, 1 letter">
-
+            <div id="Phone-parent">
+                <input type="tel" name="Phone" id="Phone" required maxlength="9" pattern="[0-9]{9,9}[A-Za-z]" title="9 numbers, 1 letter">
+            </div>
             <input type="checkbox" name="regular-address" id="regular-address">
             <label for="regular-address">This is my regular address</label>
         
@@ -128,7 +135,7 @@
 
         <!-- Button reset and next -->
         <input type="reset" name="reset-form">
-        <button id="nextPage">Next</button>
+        <button id="nextPage2">Next</button>
         </form>
         </section>
         <!-- Address page -->
@@ -152,7 +159,7 @@
                 <button>Select image</button>
                 <!-- Button reset and next -->
                 <input type="reset" name="reset-form">
-                <button id="nextPage">Next</button>
+                <button id="nextPage3">Next</button>
 
             </form>
         </section>
