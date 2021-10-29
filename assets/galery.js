@@ -1,5 +1,5 @@
-var imgPrincipal = document.getElementById('galeria');
-var containerGalery=document.querySelector('ul');
+var imgPrincipal = document.getElementById('principal');
+var containerGalery=document.querySelector('.miniSlide');
 containerGalery.addEventListener('mouseover', showSlides);
 
 function showSlides(e){
