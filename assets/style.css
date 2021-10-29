@@ -97,3 +97,16 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* SHIPPING SECTION */
+form div input {
+  display: inline;
+}
+form div label {
+  display: inline;
+}
+#gift-img-btn {
+  display: block;
+}
+.shipping-span {
+  display: block;
+}

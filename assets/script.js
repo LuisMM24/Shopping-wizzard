@@ -102,3 +102,44 @@ function CountryValue(){
     }
 }
 //Validation Phone country code
+
+
+// SHIPPING
+
+const freeShipping = document.querySelector('#free-shipping');
+freeShipping.addEventListener('click',shippingTime);
+const extraShipping = document.querySelector('#extra-shipping');
+extraShipping.addEventListener('click',shippingTime);
+const premiumShipping = document.querySelector('#premium-shipping');
+premiumShipping.addEventListener('click',shippingTime);
+
+function shippingTime(){
+    
+    if (freeShipping.checked) {
+        shippingWindow(72)
+    } else if (extraShipping.checked) {
+        shippingWindow(48)
+    } else if (premiumShipping.checked) {
+        shippingWindow(24)
+    }
+    
+
+}
+function shippingWindow(hours) {
+    let shippingParagraph = document.querySelector('#Shipping-page p');
+    if (shippingParagraph) {
+        const shippingForm = document.querySelector('#shipping-form');
+        shippingForm.removeChild(shippingParagraph);
+    }
+    
+    let date1 = new Date();
+    let date2 = new Date();
+    date1.setTime(date1.getTime() + ((hours-6) * 60 * 60 * 1000));
+    date2.setTime(date2.getTime() + ((hours) * 60 * 60 * 1000));
+    let earlyArrival = date1.toString().slice(0, 21);
+    let lateArrival = date2.toString().slice(0, 21);
+    let shippingOption3 = document.querySelector('.shipping-option3')
+    let estimatedShippingTime = document.createElement('p');
+    estimatedShippingTime.innerText = `Your order will arrive between ${earlyArrival}h and ${lateArrival}h`;
+    shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime)
+}
