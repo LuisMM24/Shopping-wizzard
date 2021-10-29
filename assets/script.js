@@ -131,7 +131,6 @@ function shippingWindow(hours) {
         const shippingForm = document.querySelector('#shipping-form');
         shippingForm.removeChild(shippingParagraph);
     }
-    
     let date1 = new Date();
     let date2 = new Date();
     date1.setTime(date1.getTime() + ((hours-6) * 60 * 60 * 1000));
@@ -140,6 +139,6 @@ function shippingWindow(hours) {
     let lateArrival = date2.toString().slice(0, 21);
     let shippingOption3 = document.querySelector('.shipping-option3')
     let estimatedShippingTime = document.createElement('p');
-    estimatedShippingTime.innerText = `Your order will arrive between ${earlyArrival}h and ${lateArrival}h`;
+    estimatedShippingTime.innerHTML = `Your order will arrive between <b>${earlyArrival}h</b> and <b>${lateArrival}h</b>`;
     shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime)
 }
