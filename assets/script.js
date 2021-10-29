@@ -26,9 +26,11 @@ function firstNameValueCheck(){
 function firstNameValue(){
     if (firstName.value == ""){
         console.log(firstName1 + "REQUERIDO");
+        //posible funcion
         let ValiFN = document.createElement('div');
         ValiFN.classList.add('validationFN');
         ValiFN.innerHTML = `Campo obligatrio`;
+        //posible funcion
         firstNameParent.appendChild(ValiFN);
         FNV=false;
     }else{
@@ -38,7 +40,7 @@ function firstNameValue(){
         FNV=true;
     }
 }
-//validation first name
+//validation last name
 let lastName1 = "";
 let LNV=false;
 let lastName=document.querySelector("#Last-name");
@@ -58,6 +60,7 @@ function lastNameValue(){
         console.log(lastName1 + "REQUERIDO");
         let ValiLN = document.createElement('div');
         ValiLN.classList.add('validationFN');
+        lastName.classList.remove("validated");
         ValiLN.innerHTML = `Campo obligatrio`;
         lastNameParent.appendChild(ValiLN);
         LNV=false;
@@ -68,3 +71,34 @@ function lastNameValue(){
         LNV=true;
     }
 }
+//validation Country
+let Country1 = "";
+let CountryV=false;
+let Country=document.querySelector("#Country");
+let CountryParent = document.querySelector("#Country-parent")
+
+Country.addEventListener("blur",CountryValue);
+Country.addEventListener("click",CountryValueCheck);
+
+function CountryValueCheck(){
+    if(CountryParent.children.length>1){
+    CountryParent.removeChild(CountryParent.lastChild);
+    }
+}
+
+function CountryValue(){
+    if (Country.value == ""){
+        console.log(Country1 + "REQUERIDO");
+        let ValiCountry = document.createElement('div');
+        ValiCountry.classList.add('validationFN');
+        ValiCountry.innerHTML = `Campo obligatrio`;
+        CountryParent.appendChild(ValiCountry);
+        CountryV=false;
+    }else{
+        Country.classList.add("validated");
+        Country1=Country.value;
+        console.log(Country1+"  GUARDADO");
+        CountryV=true;
+    }
+}
+//Validation Phone country code
