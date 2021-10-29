@@ -17,6 +17,7 @@ function ValidationMsg(){
     }
 
 //validation first name
+
 let firstName1 = "";
 let FNV=false;
 let firstName=document.querySelector("#First-name");
@@ -33,7 +34,7 @@ function firstNameValueCheck(){
 }
 
 function firstNameValue(){
-    if (firstName.value == ""){
+    if (firstName.value == ""||/^\s+$/.test(firstName.value)){
         console.log(firstName1 + "REQUERIDO");
         ValidationMsg();
         firstName.classList.remove("validated");
@@ -207,7 +208,7 @@ function PhoneCountryCodeDefect() {
             PCC.classList.add("validated");
             console.log(Country1)
             break;
-    
+
         default:
             PCC.value="MAL";
             break;
@@ -260,7 +261,7 @@ function PhoneValueCheck(){
 }
 
 function PhoneValue(){
-    if (Phone.value == ""){
+    if (Phone.value == "" || isNaN(Phone.value)||Phone.value.length !=9 ){
         console.log(Phone1 + "REQUERIDO");
         ValidationMsg();
         Phone.classList.remove("validated");
@@ -271,5 +272,37 @@ function PhoneValue(){
         Phone1=Phone.value;
         console.log(Phone1+"  GUARDADO");
         PhoneV=true;
+    }
+}
+
+//Validation regular-address
+let RaddressV=false;
+let Raddress=document.querySelector("#regular-address");
+
+Raddress.addEventListener("click",RaddressCheck)
+function RaddressCheck(){
+    if(! Raddress.checked){
+        RaddressV=false;
+        console.log(RaddressV)
+    }else{
+        RaddressV=true;
+        console.log(RaddressV)
+    }
+}
+
+//Validacion Address-Page
+nextPage2=document.querySelector("#nextPage2");
+nextPage2.addEventListener("click",nextPage2Fun);
+
+function nextPage2Fun(){
+    if(FNV==false || LNV==false || BV==false || A1V==false
+        || PCV==false || CountryV==false || PCCV==false ||PhoneV==false||RaddressV==false ) {
+            let validationAddressPage=false;
+console.log("error");
+    }
+    else{
+        const addressPage=document.querySelector("#Address-page");
+        addressPage.classList.add("Hidden");
+        console.log("next");
     }
 }
