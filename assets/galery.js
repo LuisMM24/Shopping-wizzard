@@ -1,3 +1,7 @@
-function cargarfoto(img){
-    document.getElementById("galeria").src="https://picsum.photos/id/"+img+"/400/400";
-    }
+var imgPrincipal = document.getElementById('galeria');
+var containerGalery=document.querySelector('ul');
+containerGalery.addEventListener('mouseover', showSlides);
+
+function showSlides(e){
+    imgPrincipal.src=e.target.src;
+}

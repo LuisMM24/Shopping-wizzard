@@ -1,6 +1,73 @@
+:root {
+  --main-bg-color: #fff;
+  --main-text-color: rgb(60, 60, 60);
+  --secondary-text-color: rgb(120, 120, 120);
+  --main-color: rgb(115,155,224);
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+
 body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--main-bg-color);
+  margin: 0 auto;
+  padding: 0;
   width: 80%;
 }
+header {
+  background-color: var(--main-color);
+  height: 50px;
+}
+main {
+  background-color: var(--main-bg-color);
+}
+section {
+  display:flex;
+  flex-direction: column;
+
+}
+
+
+
+#Address-page{
+  background-color: rgb(207, 207, 207);
+}
+#First-name{
+  border-radius: 10px;
+}
+
+.validationFN{
+  margin: 15px;
+  width: 200px;
+  background-color: rgb(255, 189, 189);
+  color: red;
+  border: 2px solid red;
+  border-radius: 10px;
+}
+.validated{
+  border: 2px solid greenyellow;
+}
+
+
+
+
+input {
+  color: var(--secondary-text-color)
+}
+label {
+  font-size: large;
+  color: var(--secondary-text-color)
+}
+section input {
+  display: block;
+}
+section label {
+  display: block;
+}
+h1 {
+  width: 100%;
+}
+
 .sidebar {
   width: 100%;
 }
@@ -8,6 +75,42 @@ body {
   width: 5%;
 }
 
+
 #product-page{
   flex-direction: row;
+}
+.galery{
+  display: flex;
+  flex-direction: column;
+}
+.galery ul{
+  display: flex;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.galery li {
+  display: inline-block;
+  width: 20%;
+  opacity: 0.4;
+}
+
+.galery li:hover{
+  opacity: 1.0;
+  background-color: var(--secondary-text-color);
+}
+
+.galery li img{
+  width: 100%;
+}
+
+.col-left{
+  width: 50%;
+  padding-right: 10px;
+}
+
+.col-right{
+  width: 50%;
+  padding-left: 10px;
 }
