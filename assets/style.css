@@ -9,8 +9,39 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: var(--main-bg-color);
+  margin: 0 auto;
+  padding: 0;
   width: 80%;
 }
+header {
+  background-color: var(--main-color);
+  height: 50px;
+}
+main {
+  background-color: var(--main-bg-color);
+}
+section {
+  display:flex;
+  flex-direction: column;
+
+}
+input {
+  color: var(--secondary-text-color)
+}
+label {
+  color: var(--secondary-text-color)
+}
+section input {
+  display: block;
+}
+section label {
+  display: block;
+}
+h1 {
+  width: 100%;
+}
+
 .sidebar {
   width: 100%;
 }
