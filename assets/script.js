@@ -8,6 +8,12 @@
 // The validation should be done when the input field loses focus, that is, users type a value, they change focus to another element, then the field validation runs.
 // After a validation message is entered and users focus the input element to adjust the value, the validation message and any error styles should be removed until the user has entered a new value and the focus is lost from the input field as before.
 
+//profile form
+
+
+
+
+
 //validation first name
 let firstName1 = "";
 let FNV=false;
