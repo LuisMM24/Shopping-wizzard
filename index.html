@@ -99,7 +99,7 @@
                 <input type="text" name="Address 1" id="Address-1" required maxlength="50">
             </div>
             <label for="Address 2">Address 2</label>
-            <input type="text" name="Address 2" id="Address-2" maxlength="50">
+            <input type="text" name="Address 2" id="Address-2" maxlength="50" value="Optional">
             <label for="Postal Code">Postal Code</label>
             <div id="Postal-Code-parent">
             <input type="numbers" name="Postal Code" id="Postal-Code" required maxlength="5">
@@ -108,16 +108,17 @@
             <div id="Country-parent">
                 <select name="Country" id="Country" required>
                     <option value="" disabled selected="true"></option>
-                    <option value="andorra">Andorra</option>
-                    <option value="españa">España</option>
-                    <option value="francia">Francia</option>
-                    <option value="alemania">Alemania</option>
-                    <option value="grecia">Grecia</option>
+                    <option value="Andorra">Andorra</option>
+                    <option value="España">España</option>
+                    <option value="Francia">Francia</option>
+                    <option value="Alemania">Alemania</option>
+                    <option value="Grecia">Grecia</option>
                 </select>
             </div>
             <label for="Phone country code">Phone country code</label>
             <div id="PCC-parent">
                 <select name="Phone country code" id="PCC" required>
+                    <option value="" disabled selected="true"></option>
                     <option id="PCCandorra" value="+376">376 - AND</option>
                     <option id="PCCespaña" value="+34">34 - ESP</option>
                     <option id="PCCfrancia" value="+33">33 - FRA</option>

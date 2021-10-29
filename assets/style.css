@@ -24,19 +24,16 @@ main {
 section {
   display:flex;
   flex-direction: column;
-
 }
-
-
 
 #Address-page{
   background-color: rgb(207, 207, 207);
 }
-#First-name{
-  border-radius: 10px;
+/* #First-name{
 }
-
-.validationFN{
+#Last-name{
+} */
+.validation{
   margin: 15px;
   width: 200px;
   background-color: rgb(255, 189, 189);
@@ -45,14 +42,20 @@ section {
   border-radius: 10px;
 }
 .validated{
-  border: 2px solid greenyellow;
+  animation-name: validatedok;
+  animation-duration: 2s;
+}
+@keyframes validatedok {
+  0% { border: 2px solid greenyellow; }
+  100% {border: 2px solid rgb(167, 167, 255); }
 }
 
-
-
-
 input {
-  color: var(--secondary-text-color)
+  background-color: rgb(167, 167, 255);
+  color: var(--secondary-text-color);
+  border:2px solid rgb(167, 167, 255);
+  border-radius: 10px;
+
 }
 label {
   font-size: large;
