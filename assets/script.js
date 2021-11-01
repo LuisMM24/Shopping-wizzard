@@ -10,9 +10,100 @@
 
 //profile form
 
+//declarations
+const profileForm = document.getElementById("Profile-page")
+const userName=document.getElementById("username");
+const email=document.getElementById("email");
+const password=document.getElementById("pass");
+const confirmPass=document.getElementById("confirmPass");
+const displayError=document.getElementsByClassName("validation")
+const nextButton=document.getElementById("nextPage1");
 
+var savedUserName,savedEmail,savedPassword;
+//validations step 1-profile
+userName.addEventListener("blur",validUserName);
 
+email.addEventListener("blur",validEmail);
 
+password.addEventListener("blur",validPass);
+
+confirmPass.addEventListener("blur",validConfirmPass);
+
+nextButton.addEventListener("click",checkProfileForm)
+
+var errorMsg="";
+function changeDisplayError(n){
+    if (errorMsg!=""){
+        displayError[n].innerText=errorMsg;
+        displayError[n].style.display="block";
+        return false;
+    }else{
+        displayError[n].style.display="none";
+        return true;
+    }
+}
+
+function validUserName(){
+    errorMsg="";
+        if(userName.value=="")errorMsg="You have to introduce your username";
+        else if(userName.value.length<5)errorMsg="Username too short(5 chars)";
+        else if(userName.value.length>20)errorMsg="Username too long(20 chars)";
+        else if(checkSpaces(userName.value)>0)errorMsg="You can't put spaces in the username";
+    //print errorMsg and save value
+    return changeDisplayError(0);
+         
+}
+function checkSpaces(value){
+    return value.indexOf(' ')>=0;
+}
+function validEmail(){
+    errorMsg="";
+    if(email.value=="")errorMsg="You have to introduce the email";
+    else if(!isTheEmailCorrect())errorMsg="Invalid email,please introduce the correct characters";
+    else if(email.value.length>50)errorMsg="Your email is too long(50 chars)";
+    //print errorMsg and save value
+    return changeDisplayError(1);
+       
+}
+function isTheEmailCorrect(){
+    const correctEmail=/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return correctEmail.test(email.value);
+}
+function validPass(){
+    errorMsg="";
+    if(password.value=="")errorMsg="You have to introduce the password";
+    else if(password.value.length<8)errorMsg="Your password is too short(8 chars)";
+    else if(password.value.length>20)errorMsg="Your password is too long(20 chars)";
+    else if(!isThePassCorrect()){
+        errorMsg="Your password have to contain: One number, one lowercase and uppercase, and one special char";
+    }
+    //print errorMsg
+    return changeDisplayError(2);
+
+}
+function isThePassCorrect(){
+    const pw=password.value;
+    const strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])");
+    return strongPassword.test(pw);
+}
+function validConfirmPass(){
+    errorMsg="";
+    if(confirmPass.value=="")errorMsg="Please, repeat the password";
+    else if(confirmPass.value!=password.value)errorMsg="Passwords do not match";
+    //print errorMsg and save value
+    return changeDisplayError(3);
+}
+
+function checkProfileForm(event){
+    event.preventDefault();
+    if(validUserName() && validEmail() && validPass() && validConfirmPass()){
+        savedUserName=userName.value;
+        savedEmail=email.value;
+        savedPassword=password.value;
+        profileForm.style.display="none";
+        console.log(savedPassword,savedUserName,savedEmail);
+    }
+}
 
 //validation first name
 let firstName1 = "";
@@ -20,7 +111,7 @@ let FNV=false;
 let firstName=document.querySelector("#First-name");
 let firstNameParent = document.querySelector("#First-name-parent")
 
-firstName.addEventListener("blur",firstNameValue);
+firstName.addEventListener("Blur",firstNameValue);
 firstName.addEventListener("click",firstNameValueCheck);
 
 function firstNameValueCheck(){

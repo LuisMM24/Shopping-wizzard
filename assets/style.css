@@ -45,7 +45,7 @@ section {
   width:50%;
   top:43px;
   left:0%;
-  z-index:3;
+  z-index:1;
 }
 /* dont know why before and after */
 .step::after{
@@ -56,7 +56,7 @@ section {
   top:43px;
   left:50%;
   /* set up layers  */
-  z-index:2;
+  z-index:1;
 }
 .step{
   display:flex;
@@ -69,7 +69,7 @@ section {
 .circle{
   position:relative;
   /* set up layers  */
-  z-index:5;
+  z-index:2;
   border-radius:50px;
   background-color:var(--secondary-text-color);
   width:20px;
@@ -94,8 +94,9 @@ section {
 #First-name{
   border-radius: 10px;
 }
-
-.validationFN{
+/* Validation classes */
+.validation{
+  display:none;
   margin: 15px;
   width: 200px;
   background-color: rgb(255, 189, 189);
@@ -103,8 +104,15 @@ section {
   border: 2px solid red;
   border-radius: 10px;
 }
+
 .validated{
-  border: 2px solid greenyellow;
+  animation-name: validatedok;
+  animation-duration: 2s;
+}
+
+@keyframes validatedok {
+  0% { border: 2px solid greenyellow; }
+  100% {border: 2px solid rgb(167, 167, 255); }
 }
 
 
