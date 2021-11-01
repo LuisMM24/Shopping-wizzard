@@ -16,6 +16,12 @@ function ValidationMsg(){
     Val.innerHTML = `Campo obligatrio`;
     }
 
+function ValidationMsgText(){
+    Val = document.createElement('div');
+    Val.classList.add('validation');
+    Val.innerHTML = `Campo obligatrio, solo texto`;
+    }
+
 //validation first name
 
 let firstName1 = "";
@@ -32,14 +38,21 @@ function firstNameValueCheck(){
     }
     firstName.classList.remove("validated");
 }
+//|| firstName.value===isNaN(firstName.value)
+//firstName.value == "" || /^\s+$/.test(firstName.value) ||
+//-- !(/^\d{10}[A-Z]{2}$/.test(firstName.value))  igual a diez digitos y dos letras mayusculas.
+//firstName.value == null || firstName.value.length==0|| /^\s+$/.test(firstName.value) || 
 
 function firstNameValue(){
-    if (firstName.value == ""||/^\s+$/.test(firstName.value)){
+    if ( firstName.value == null || firstName.value.length==0|| /^\s+$/.test(firstName.value) ||!(/^[a-zA-Z\s]{0,20}$/.test(firstName.value)) ){
         console.log(firstName1 + "REQUERIDO");
-        ValidationMsg();
+        ValidationMsgText();
         firstName.classList.remove("validated");
         firstNameParent.appendChild(Val);
         FNV=false;
+        console.log(firstName)
+        console.log(firstName.value)
+        console.log(firstName1)
     }else{
         firstName.classList.add("validated");
         firstName1=firstName.value;
@@ -64,7 +77,7 @@ function lastNameValueCheck(){
 }
 
 function lastNameValue(){
-    if (lastName.value == ""){
+    if ( lastName.value == null || lastName.value.length==0|| /^\s+$/.test(lastName.value) ||!(/^[a-zA-Z\s]{0,20}$/.test(lastName.value)) ){
         console.log(lastName1 + "REQUERIDO");
         ValidationMsg();
         lastName.classList.remove("validated");
@@ -124,7 +137,7 @@ function address1ValueCheck(){
 }
 
 function address1Value(){
-    if (address1.value == ""){
+    if ( address1.value == null || address1.value.length==0|| /^\s+$/.test(address1.value) ||!(/^[\da-zA-Z\s]{0,20}$/.test(address1.value)) ){
         console.log(address11 + "REQUERIDO");
         ValidationMsg();
         address1.classList.remove("validated");
@@ -154,7 +167,7 @@ function postalCodeValueCheck(){
 }
 
 function postalCodeValue(){
-    if (postalCode.value == ""){
+    if ( postalCode.value == null || postalCode.value.length==0|| /^\s+$/.test(postalCode.value) ||!(/^[\d]{5}$/.test(postalCode.value)) ){
         console.log(postalCode1 + "REQUERIDO");
         ValidationMsg();
         postalCode.classList.remove("validated");
@@ -208,7 +221,34 @@ function PhoneCountryCodeDefect() {
             PCC.classList.add("validated");
             console.log(Country1)
             break;
-
+        case "España":
+            document.querySelector("#PCC").value="+34";
+            PCC1="+34";
+            PCCV=true;
+            PCC.classList.add("validated");
+            console.log(Country1)
+            break;
+        case "Francia":
+            document.querySelector("#PCC").value="+33";
+            PCC1="+33";
+            PCCV=true;
+            PCC.classList.add("validated");
+            console.log(Country1)
+            break;
+        case "Alemania":
+            document.querySelector("#PCC").value="+49";
+            PCC1="+49";
+            PCCV=true;
+            PCC.classList.add("validated");
+            console.log(Country1)
+            break;
+        case "Grecia":
+            document.querySelector("#PCC").value="+30";
+            PCC1="+30";
+            PCCV=true;
+            PCC.classList.add("validated");
+            console.log(Country1)
+            break;
         default:
             PCC.value="MAL";
             break;
@@ -293,6 +333,7 @@ function RaddressCheck(){
 //Validacion Address-Page
 nextPage2=document.querySelector("#nextPage2");
 nextPage2.addEventListener("click",nextPage2Fun);
+let ValidationAddressPageArr=[];
 
 function nextPage2Fun(){
     if(FNV==false || LNV==false || BV==false || A1V==false
