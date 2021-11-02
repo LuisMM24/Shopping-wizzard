@@ -16,8 +16,10 @@ const userName=document.getElementById("username");
 const email=document.getElementById("email");
 const password=document.getElementById("pass");
 const confirmPass=document.getElementById("confirmPass");
+const inputElement= document.querySelectorAll(".input-element")
 const displayError=document.getElementsByClassName("validation")
 const nextButton=document.getElementById("nextPage1");
+var arrayValided=[];
 var savedUserName,savedEmail,savedPassword;
 //validations step 1-profile
 userName.addEventListener("blur",validUserName);
@@ -30,20 +32,29 @@ confirmPass.addEventListener("blur",validConfirmPass);
 
 nextButton.addEventListener("click",checkProfileForm)
 
+
+
 var errorMsg="";
+//hide error
+    inputElement.forEach(input=>{
+        input.addEventListener("focus",()=>{
+            input.nextElementSibling.style.display="none";
+        })
+    })
+
 function changeDisplayError(n){
     if (errorMsg!=""){
         displayError[n].innerText=errorMsg;
         displayError[n].style.display="block";
-        return false;
+        errorMsg="";
+        return arrayValided[n]=false;
     }else{
-        displayError[n].style.display="none";
-        return true;
+        return arrayValided[n]=true;
     }
+    
 }
 
 function validUserName(){
-    errorMsg="";
         if(userName.value=="")errorMsg="You have to introduce your username";
         else if(userName.value.length<5)errorMsg="Username too short(5 chars)";
         else if(userName.value.length>20)errorMsg="Username too long(20 chars)";
@@ -56,7 +67,6 @@ function checkSpaces(value){
     return value.indexOf(' ')>=0;
 }
 function validEmail(){
-    errorMsg="";
     if(email.value=="")errorMsg="You have to introduce the email";
     else if(!isTheEmailCorrect())errorMsg="Invalid email,please introduce the correct characters";
     else if(email.value.length>50)errorMsg="Your email is too long(50 chars)";
@@ -65,14 +75,14 @@ function validEmail(){
        
 }
 function isTheEmailCorrect(){
-    const correctEmail=/^(([<>()[\]\\.,;:\s@"]+(\^.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const correctEmail=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     return correctEmail.test(email.value);
 }
 function validPass(){
-    errorMsg="";
     if(password.value=="")errorMsg="You have to introduce the password";
     else if(password.value.length<8)errorMsg="Your password is too short(8 chars)";
     else if(password.value.length>20)errorMsg="Your password is too long(20 chars)";
+    else if(checkSpaces(password.value))errorMsg="Your password can't have spaces"
     else if(!isThePassCorrect()){
         errorMsg="Your password have to contain: One number, one lowercase and uppercase, and one special char";
     }
@@ -82,11 +92,10 @@ function validPass(){
 }
 function isThePassCorrect(){
     const pw=password.value;
-    const strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])$");
+    const strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])");
     return strongPassword.test(pw);
 }
 function validConfirmPass(){
-    errorMsg="";
     if(confirmPass.value=="")errorMsg="Please, repeat the password";
     else if(confirmPass.value!=password.value)errorMsg="Passwords do not match";
     //print errorMsg and save value
@@ -95,7 +104,11 @@ function validConfirmPass(){
 
 function checkProfileForm(event){
     event.preventDefault();
-    if(validUserName() && validEmail() && validPass() && validConfirmPass()){
+    const result=arrayValided.filter(searchTrue=> searchTrue==true);
+    console.log(result);
+    console.log(result.length);
+    console.log(inputElement.length);
+    if(result.length==inputElement.length){
         savedUserName=userName.value;
         savedEmail=email.value;
         savedPassword=password.value;
