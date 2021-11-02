@@ -160,27 +160,30 @@ let Val;
 function ValidationMsg(){
     Val = document.createElement('div');
     Val.classList.add('validation');
-    Val.innerHTML = `Campo obligatrio`;
+    Val.innerHTML = `Obligatory field`;
     }
-
+function ValidationMsgTotal(){
+    Val = document.createElement('div');
+    Val.classList.add('validation');
+    Val.innerHTML = `Please refill all the required fields`;
+    }
 function ValidationMsgText(){
     Val = document.createElement('div');
     Val.classList.add('validation');
-    Val.innerHTML = `Campo obligatrio, solo texto`;
+    Val.innerHTML = `Obligatory field, only text`;
     }
 
 function ValidationMsgPostalCode(){
     Val = document.createElement('div');
     Val.classList.add('validation');
-    Val.innerHTML = `Campo obligatrio, 5 digitos solo numéricos`;
+    Val.innerHTML = `Obligatory field, 5 digits all nums`;
     }
 
 function ValidationMsgPhone(){
     Val = document.createElement('div');
     Val.classList.add('validation');
-    Val.innerHTML = `Campo obligatrio, 9 digitos solo numéricos`;
+    Val.innerHTML = `Obligatory field, 5 digits all nums`;
     }
-
 
 //validation first name
 let firstName1 = "";
@@ -477,19 +480,23 @@ function RaddressCheck(){
     if(! Raddress.checked){
         RaddressV=false;
         console.log(RaddressV)
+        PhoneParent.appendChild(Val);
     }else{
         RaddressV=true;
         console.log(RaddressV)
     }
 }
 
-//Validacion Address-Page
+//Validation Address-Page
 nextPage2=document.querySelector("#nextPage2");
 nextPage2.addEventListener("click",handelAddressForm);
 
 let ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
 
-//FNV==false || LNV==false || BV==false || A1V==false || PCV==false || CountryV==false || PCCV==false ||PhoneV==false||RaddressV==false
+function handelAddressForm(e){
+    e.preventDefault();
+    nextPage2Fun();
+}
 function nextPage2Fun(){
     ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
     if( ValidationAddressPageArr.includes(false)) {
@@ -503,10 +510,7 @@ function nextPage2Fun(){
         console.log("next");
     }
 }
-function handelAddressForm(e){
-    e.preventDefault();
-    nextPage2Fun();
-}
+
 
 // SHIPPING
 
