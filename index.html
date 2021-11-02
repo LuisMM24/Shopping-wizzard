@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping wizzard</title>
-    <link rel="stylesheet" href="/assets/style.css" />
-    <script src="/assets/script.js" defer></script>
-    <script src="/assets/galery.js" defer></script>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-  </head>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/script.js" defer></script>
+    <script src="assets/galery.js" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
 
-  <body>
+<body>
     <header class="sidebar">
-      <img src="assets\img\logo.png" class="logo" />
+        <img src="assets\img\logo.png" class="logo" />
     </header>
 
     <main id='main'>
@@ -45,96 +43,64 @@
         <!-- Product page -->
         <section id="product-page">
             <nav class="galery col-left">
-                    <img id="principal" src="assets\img\blue1.jpg" alt="">
+                <img id="principal" src="assets\img\blue1.jpg" alt="" />
                 <div class="miniSlide">
-                        <img src="assets\img\blue.jpg" alt="" class="miniature">
-                        <img  src="assets\img\blue2.jpg" alt=""  class="miniature">
-                        <img  src="assets\img\blue1.jpg" alt="" class="miniature">
-                        <img  src="assets\img\blue-boy.jpg" alt="" class="miniature">
-                        <img  src="assets\img\blue-girl.jpg" alt="" class="miniature">
+                    <img src="assets\img\blue3.jpg" alt="" class="miniature" />
+                    <img src="assets\img\blue2.jpg" alt="" class="miniature" />
+                    <img src="assets\img\blue1.jpg" alt="" class="miniature" />
+                    <img src="assets\img\blue-boy.jpg" alt="" class="miniature" />
+                    <img src="assets\img\blue-girl.jpg" alt="" class="miniature" />
                 </div>
             </nav>
             <article class="col-right">
-                <h1>Gafas de Sol super Azul Plus 3000</h1>
-                <h2>Descripcion</h2>
-                <p>Descripción bla bla bla....</p>
-                <h2>Características</h2>
-                <details>
-                    <summary>Lentes</summary>
-                    <p>Colors</p>
-                </details>
-                <details>
-                    <summary>Sizes</summary>
-                    <p>Sizes</p>
-                </details>
+                <h1>Sunglasses Square</h1>
+                <p class="price">38,90$</p>
+                <h2>Description</h2>
+                <p>text</p>
+                <h2>Features</h2>
+                <h3>Lents colors</h3>
+                <div id="Lents">
+                    <img class="colorLents" src="assets\img\blue.jpg" name="blue" />
+                    <img class="colorLents" src="assets\img\green.jpg" name="green" />
+                    <img class="colorLents" src="assets\img\orange.jpg" name="orange" />
+                </div>
+                <div>
+                    <h3>Sizes</h3>
+                    <select name="sizes">
+                        <option selected="true">Choose your size</option>
+                        <option value="S">S &lt;50mm / 135mm</option>
+                        <option value="M">M 51mm-54mm / 140mm</option>
+                        <option value="L">L &gt;55mm / 145mm</option>
+                    </select>
+                    <p>
+                        If you don't know your glasses size,
+                        <a href="https://www.lentiamo.es/correcta-talla-gafas-de-sol.html" target="_blank">click
+                            here.</a>
+                    </p>
+                </div>
+                <div id="Unds">
+                    <div onclick="decrement()">◄</div>
+                    <input value="1" id="quantity" />
+                    <div onclick="increment()">►</div>
+                </div>
+                <button id="buyNow">Buy Now</button>
             </article>
         </section>
         <!-- Product page -->
-
-      <!-- Product page -->
-      <section id="product-page">
-        <nav class="galery col-left">
-          <img id="principal" src="assets\img\blue1.jpg" alt="" />
-          <div class="miniSlide">
-            <img src="assets\img\blue3.jpg" alt="" class="miniature" />
-            <img src="assets\img\blue2.jpg" alt="" class="miniature" />
-            <img src="assets\img\blue1.jpg" alt="" class="miniature" />
-            <img src="assets\img\blue-boy.jpg" alt="" class="miniature" />
-            <img src="assets\img\blue-girl.jpg" alt="" class="miniature" />
-          </div>
-        </nav>
-        <article class="col-right">
-          <h1>Sunglasses Square</h1>
-          <p class="price">38,90$</p>
-          <h2>Description</h2>
-          <p>text</p>
-          <h2>Features</h2>
-          <h3>Lents colors</h3>
-          <div id="Lents">
-            <img class="colorLents" src="assets\img\blue.jpg" name="blue" />
-            <img class="colorLents" src="assets\img\green.jpg" name="green" />
-            <img class="colorLents" src="assets\img\orange.jpg" name="orange" />
-          </div>
-          <div>
-            <h3>Sizes</h3>
-            <select name="sizes">
-              <option selected="true">Choose your size</option>
-              <option value="S">S &lt;50mm / 135mm</option>
-              <option value="M">M 51mm-54mm / 140mm</option>
-              <option value="L">L &gt;55mm / 145mm</option>
-            </select>
-            <p>
-              If you don't know your glasses size,
-              <a
-                href="https://www.lentiamo.es/correcta-talla-gafas-de-sol.html"
-                target="_blank"
-                >click here.</a
-              >
-            </p>
-          </div>
-          <div id="Unds">
-            <div onclick="decrement()">◄</div>
-            <input value="1" id="quantity" />
-            <div onclick="increment()">►</div>
-          </div>
-          <button id="buyNow">Buy Now</button>
-        </article>
-      </section>
-      <!-- Product page -->
-      <!-- Profile page -->
-      <section id="Profile-page">
-        <form name="profile" action="">
+        <!-- Profile page -->
+        <section id="Profile-page">
+            <form name="profile" action="">
 
 
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" class="input-element"
-                placeholder="introduce your username">
-            <div class="validation"></div>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" class="input-element"
+                    placeholder="introduce your username">
+                <div class="validation"></div>
 
 
-            <label for="email">Email:</label>
-            <input type="email" name="email" class="input-element" id="email" placeholder="introduce your email">
-            <div class="validation"></div>
+                <label for="email">Email:</label>
+                <input type="email" name="email" class="input-element" id="email" placeholder="introduce your email">
+                <div class="validation"></div>
 
                 <label for="pass">Password:</label>
                 <input type="password" name="pass" id="pass" class="input-element"
@@ -157,216 +123,106 @@
         <!-- Address page -->
         <section id="Address-page">
             <h1>Address</h1>
-        <form onsubmit="handelAddressForm()" autocomplete="off" >
-            <label for="First name">First name</label>
-            <div id="First-name-parent">
-                <input type="text" name="First name" id="First-name" required maxlength="20" pattern="[A-Za-z]{0,20}" autocomplete=off>
-            </div>
-            <label for="Last-name">Last name</label>
-            <div id="Last-name-parent">
-                <input type="text" name="Last name" id="Last-name" required maxlength="20">
-            </div>
-            <label for="birthday">birthday</label>
-            <div id="birthday-parent">
-                <input type="date" name="birthday" id="birthday" required>
-            </div>
-            <label for="Address 1">Address 1</label>
-            <div id="Address-1-parent">
-                <input type="text" name="Address 1" id="Address-1" required maxlength="50">
-            </div>
-            <label for="Address 2">Address 2</label>
-            <input type="text" name="Address 2" id="Address-2" maxlength="50" value="Optional">
-            <label for="Postal Code">Postal Code</label>
-            <div id="Postal-Code-parent">
-            <input type="numbers" name="Postal Code" id="Postal-Code" required maxlength="5">
-            </div>
-            <label for="Country">Country</label>
-            <div id="Country-parent">
-                <select name="Country" id="Country" required>
-                    <option value="" disabled selected="true"></option>
-                    <option value="Andorra">Andorra</option>
-                    <option value="España">España</option>
-                    <option value="Francia">Francia</option>
-                    <option value="Alemania">Alemania</option>
-                    <option value="Grecia">Grecia</option>
-                </select>
-            </div>
-            <label for="Phone country code">Phone country code</label>
-            <div id="PCC-parent">
-                <select name="Phone country code" id="PCC" required>
-                    <option value="" disabled selected="true"></option>
-                    <option id="PCCandorra" value="+376">376 - AND</option>
-                    <option id="PCCespaña" value="+34">34 - ESP</option>
-                    <option id="PCCfrancia" value="+33">33 - FRA</option>
-                    <option id="PCCalemania" value="+49">49 - DEU</option>
-                    <option id="PCCgrecia" value="+30">30 - GRC</option>
-                </select>
-            </div>
-            <label for="Phone">Phone</label>
-            <div id="Phone-parent">
-                <input type="tel" name="Phone" id="Phone" required maxlength="9" pattern="[0-9]{9,9}" title="9 numbers, 1 letter">
-            </div>
-            <input type="checkbox" name="regular-address" id="regular-address">
-            <label for="regular-address">This is my regular address</label>
+            <form onsubmit="handelAddressForm()" autocomplete="off">
+                <label for="First name">First name</label>
+                <div id="First-name-parent">
+                    <input type="text" name="First name" id="First-name" required maxlength="20"
+                        pattern="[A-Za-z]{0,20}" autocomplete=off>
+                </div>
+                <label for="Last-name">Last name</label>
+                <div id="Last-name-parent">
+                    <input type="text" name="Last name" id="Last-name" required maxlength="20">
+                </div>
+                <label for="birthday">birthday</label>
+                <div id="birthday-parent">
+                    <input type="date" name="birthday" id="birthday" required>
+                </div>
+                <label for="Address 1">Address 1</label>
+                <div id="Address-1-parent">
+                    <input type="text" name="Address 1" id="Address-1" required maxlength="50">
+                </div>
+                <label for="Address 2">Address 2</label>
+                <input type="text" name="Address 2" id="Address-2" maxlength="50" value="Optional">
+                <label for="Postal Code">Postal Code</label>
+                <div id="Postal-Code-parent">
+                    <input type="numbers" name="Postal Code" id="Postal-Code" required maxlength="5">
+                </div>
+                <label for="Country">Country</label>
+                <div id="Country-parent">
+                    <select name="Country" id="Country" required>
+                        <option value="" disabled selected="true"></option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="España">España</option>
+                        <option value="Francia">Francia</option>
+                        <option value="Alemania">Alemania</option>
+                        <option value="Grecia">Grecia</option>
+                    </select>
+                </div>
+                <label for="Phone country code">Phone country code</label>
+                <div id="PCC-parent">
+                    <select name="Phone country code" id="PCC" required>
+                        <option value="" disabled selected="true"></option>
+                        <option id="PCCandorra" value="+376">376 - AND</option>
+                        <option id="PCCespaña" value="+34">34 - ESP</option>
+                        <option id="PCCfrancia" value="+33">33 - FRA</option>
+                        <option id="PCCalemania" value="+49">49 - DEU</option>
+                        <option id="PCCgrecia" value="+30">30 - GRC</option>
+                    </select>
+                </div>
+                <label for="Phone">Phone</label>
+                <div id="Phone-parent">
+                    <input type="tel" name="Phone" id="Phone" required maxlength="9" pattern="[0-9]{9,9}"
+                        title="9 numbers, 1 letter">
+                </div>
+                <input type="checkbox" name="regular-address" id="regular-address">
+                <label for="regular-address">This is my regular address</label>
 
-        <!-- Button reset and next -->
-        <input type="reset" name="reset-form">
-        <button type="submit" id="nextPage2">Next</button>
-        </form>
-      </section>
-      <!-- Profile page -->
-      <!-- Address page -->
-      <section id="Address-page">
-        <h1>Address</h1>
-        <form action="" autocomplete="off">
-          <label for="First name">First name</label>
-          <div id="First-name-parent">
-            <input
-              type="text"
-              name="First name"
-              id="First-name"
-              required
-              maxlength="20"
-              pattern="[A-Za-z]{0,20}"
-              autocomplete="off"
-            />
-          </div>
-          <label for="Last-name">Last name</label>
-          <div id="Last-name-parent">
-            <input
-              type="text"
-              name="Last name"
-              id="Last-name"
-              required
-              maxlength="20"
-            />
-          </div>
-          <label for="birthday">birthday</label>
-          <div id="birthday-parent">
-            <input type="date" name="birthday" id="birthday" required />
-          </div>
-          <label for="Address 1">Address 1</label>
-          <div id="Address-1-parent">
-            <input
-              type="text"
-              name="Address 1"
-              id="Address-1"
-              required
-              maxlength="50"
-            />
-          </div>
-          <label for="Address 2">Address 2</label>
-          <input
-            type="text"
-            name="Address 2"
-            id="Address-2"
-            maxlength="50"
-            value="Optional"
-          />
-          <label for="Postal Code">Postal Code</label>
-          <div id="Postal-Code-parent">
-            <input
-              type="numbers"
-              name="Postal Code"
-              id="Postal-Code"
-              required
-              maxlength="5"
-            />
-          </div>
-          <label for="Country">Country</label>
-          <div id="Country-parent">
-            <select name="Country" id="Country" required>
-              <option value="" disabled selected="true"></option>
-              <option value="Andorra">Andorra</option>
-              <option value="España">España</option>
-              <option value="Francia">Francia</option>
-              <option value="Alemania">Alemania</option>
-              <option value="Grecia">Grecia</option>
-            </select>
-          </div>
-          <label for="Phone country code">Phone country code</label>
-          <div id="PCC-parent">
-            <select name="Phone country code" id="PCC" required>
-              <option value="" disabled selected="true"></option>
-              <option id="PCCandorra" value="+376">376 - AND</option>
-              <option id="PCCespaña" value="+34">34 - ESP</option>
-              <option id="PCCfrancia" value="+33">33 - FRA</option>
-              <option id="PCCalemania" value="+49">49 - DEU</option>
-              <option id="PCCgrecia" value="+30">30 - GRC</option>
-            </select>
-          </div>
-          <label for="Phone">Phone</label>
-          <div id="Phone-parent">
-            <input
-              type="tel"
-              name="Phone"
-              id="Phone"
-              required
-              maxlength="9"
-              pattern="[0-9]{9,9}[A-Za-z]"
-              title="9 numbers, 1 letter"
-            />
-          </div>
-          <input type="checkbox" name="regular-address" id="regular-address" />
-          <label for="regular-address">This is my regular address</label>
+                <!-- Button reset and next -->
+                <input type="reset" name="reset-form">
+                <button type="submit" id="nextPage2">Next</button>
+            </form>
+        </section>
+        <!-- Address page -->
 
-          <!-- Button reset and next -->
-          <input type="reset" name="reset-form" />
-          <button id="nextPage2">Next</button>
-        </form>
-      </section>
-      <!-- Address page -->
 
-      <!-- Shipping page -->
-      <section id="Shipping-page">
-        <h1>Shipping</h1>
-        <h3>Shipping type</h3>
-        <form action="" id="shipping-form">
-          <div class="shipping-option1">
-            <input
-              type="radio"
-              name="shipping-option"
-              id="free-shipping"
-              required
-            />
-            <label for="free-shipping">Free shipping (72h)</label>
-          </div>
-          <div class="shipping-option2">
-            <input type="radio" name="shipping-option" id="extra-shipping" />
-            <label for="extra-shipping"
-              >Extra shipping (48h) <b>4,99€</b></label
-            >
-          </div>
-          <div class="shipping-option3">
-            <input type="radio" name="shipping-option" id="premium-shipping" />
-            <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
-          </div>
-          <div class="gift-option">
-            <input type="checkbox" name="gift-selector" id="gift-selector" />
-            <label for="gift-selector">Is it a gift?</label>
-          </div>
-          <label for="gift-msg">Gift message</label>
-          <textarea
-            name="gift-msg"
-            id="gift-msg"
-            cols="30"
-            rows="10"
-            maxlength="200"
-          ></textarea>
-          <span class="shipping-span">Gift wrapper image</span>
-          <button type="button" id="gift-img-btn">Select image</button>
-          <!-- Button reset and next -->
-          <input type="reset" name="reset-form" />
-          <button id="nextPage3">Next</button>
-        </form>
-      </section>
-      <!-- Shipping page -->
+        <!-- Shipping page -->
+        <section id="Shipping-page">
+            <h1>Shipping</h1>
+            <h3>Shipping type</h3>
+            <form action="" id="shipping-form">
+                <div class="shipping-option1">
+                    <input type="radio" name="shipping-option" id="free-shipping" required />
+                    <label for="free-shipping">Free shipping (72h)</label>
+                </div>
+                <div class="shipping-option2">
+                    <input type="radio" name="shipping-option" id="extra-shipping" />
+                    <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
+                </div>
+                <div class="shipping-option3">
+                    <input type="radio" name="shipping-option" id="premium-shipping" />
+                    <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
+                </div>
+                <div class="gift-option">
+                    <input type="checkbox" name="gift-selector" id="gift-selector" />
+                    <label for="gift-selector">Is it a gift?</label>
+                </div>
+                <label for="gift-msg">Gift message</label>
+                <textarea name="gift-msg" id="gift-msg" cols="30" rows="10" maxlength="200"></textarea>
+                <span class="shipping-span">Gift wrapper image</span>
+                <button type="button" id="gift-img-btn">Select image</button>
+                <!-- Button reset and next -->
+                <input type="reset" name="reset-form" />
+                <button id="nextPage3">Next</button>
+            </form>
+        </section>
+        <!-- Shipping page -->
 
-      <!-- finish page -->
-      <section id="Finish-page"></section>
-      <!-- finish page -->
+        <!-- finish page -->
+        <section id="Finish-page"></section>
+        <!-- finish page -->
     </main>
 
     <footer></footer>
-  </body>
+</body>
+
 </html>
