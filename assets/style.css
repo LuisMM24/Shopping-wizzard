@@ -38,23 +38,24 @@ section {
   justify-content:space-around;
   flex-direction:row;
 }
-.step::before{
+.step:before{
   position:absolute;
   content:"";
-  border-bottom:1px solid var(--step-line-color);
-  width:50%;
+  border-bottom:1px solid var(--main-color);
+  width: 12%;
   top:43px;
   left:0%;
-  z-index:1;
+  z-index:2;
 }
+
 /* dont know why before and after */
-.step::after{
+.step:after{
   position:absolute;
   content:"";
   border-bottom:1px solid var(--step-line-color);
-  width:50%;
+  width:100%;
   top:43px;
-  left:50%;
+  left:0%;
   /* set up layers  */
   z-index:1;
 }
@@ -69,7 +70,7 @@ section {
 .circle{
   position:relative;
   /* set up layers  */
-  z-index:2;
+  z-index:4;
   border-radius:50px;
   background-color:var(--secondary-text-color);
   width:20px;
@@ -94,6 +95,8 @@ section {
 #First-name{
   border-radius: 10px;
 }
+/* Step line animation */
+
 /* Validation classes */
 .validation{
   display:none;

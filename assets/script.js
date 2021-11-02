@@ -18,7 +18,6 @@ const password=document.getElementById("pass");
 const confirmPass=document.getElementById("confirmPass");
 const displayError=document.getElementsByClassName("validation")
 const nextButton=document.getElementById("nextPage1");
-
 var savedUserName,savedEmail,savedPassword;
 //validations step 1-profile
 userName.addEventListener("blur",validUserName);
@@ -66,7 +65,7 @@ function validEmail(){
        
 }
 function isTheEmailCorrect(){
-    const correctEmail=/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const correctEmail=/^(([<>()[\]\\.,;:\s@"]+(\^.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return correctEmail.test(email.value);
 }
 function validPass(){
@@ -83,7 +82,7 @@ function validPass(){
 }
 function isThePassCorrect(){
     const pw=password.value;
-    const strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])");
+    const strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])$");
     return strongPassword.test(pw);
 }
 function validConfirmPass(){
