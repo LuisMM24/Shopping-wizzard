@@ -29,6 +29,13 @@ section {
   flex-direction: column;
 }
 
+/* Timer Box */
+#timerBox {
+  background-color: var(--secondary-text-color);
+  max-width: 35%;
+  padding: 10px;
+}
+
 /* Step line */
 #step-line{
   position:relative;
