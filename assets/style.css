@@ -3,6 +3,8 @@
   --main-text-color: rgb(60, 60, 60);
   --secondary-text-color: rgb(120, 120, 120);
   --main-color: rgb(115,155,224);
+  --step-line-active:rgb(173, 216, 230);
+  --step-line-color: rgb(202, 202, 202);
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
@@ -21,13 +23,71 @@ header {
 main {
   background-color: var(--main-bg-color);
 }
+
 section {
   display:flex;
   flex-direction: column;
 
 }
 
+/* Step line */
+#step-line{
+  position:relative;
+  margin:2rem 0px 2rem 0px;
+  display:flex;
+  justify-content:space-around;
+  flex-direction:row;
+}
+.step:before{
+  position:absolute;
+  content:"";
+  border-bottom:1px solid var(--main-color);
+  width: 12%;
+  top:43px;
+  left:0%;
+  z-index:2;
+}
 
+/* dont know why before and after */
+.step:after{
+  position:absolute;
+  content:"";
+  border-bottom:1px solid var(--step-line-color);
+  width:100%;
+  top:43px;
+  left:0%;
+  /* set up layers  */
+  z-index:1;
+}
+.step{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page{
+  margin-bottom:1rem;
+}
+.circle{
+  position:relative;
+  /* set up layers  */
+  z-index:4;
+  border-radius:50px;
+  background-color:var(--secondary-text-color);
+  width:20px;
+  height:20px;
+}
+/* Current step actions */
+.active{
+  background-color: var(--step-line-active);
+  width:25px;
+  height:25px;
+  /* I rest margin 'cause after and before line problems. */
+  margin-top:-2px;
+}
+.current{
+  font-weight: bold;
+}
+/* Step line */
 
 #Address-page{
   background-color: rgb(207, 207, 207);
@@ -35,8 +95,11 @@ section {
 #First-name{
   border-radius: 10px;
 }
+/* Step line animation */
 
-.validationFN{
+/* Validation classes */
+.validation{
+  display:none;
   margin: 15px;
   width: 200px;
   background-color: rgb(255, 189, 189);
@@ -44,8 +107,15 @@ section {
   border: 2px solid red;
   border-radius: 10px;
 }
+
 .validated{
-  border: 2px solid greenyellow;
+  animation-name: validatedok;
+  animation-duration: 2s;
+}
+
+@keyframes validatedok {
+  0% { border: 2px solid greenyellow; }
+  100% {border: 2px solid rgb(167, 167, 255); }
 }
 
 

@@ -19,13 +19,26 @@
     </header>
 
     <main>
+        <!-- Step line -->
         <section id="step-line">
-            <div class="step 1"></div>
-            <div class="step 2"></div>
-            <div class="step 3"></div>
-            <div class="step 4"></div>
+            <div class="current step">
+                <div class="page">Profile</div>
+                <div class="circle active"></div>
+            </div>
+            <div class="step">
+                <div class="page">Address</div>
+                <div class="circle"></div>
+            </div>
+            <div class="step">
+                <div class="page">Shipping</div>
+                <div class="circle"></div>
+            </div>
+            <div class="step">
+                <div class="page">Finish</div>
+                <div class="circle"></div>
+            </div>
         </section>
-
+        <!-- Step line -->
 
         <!-- Product page -->
         <section id="product-page">
@@ -58,86 +71,97 @@
 
         <!-- Profile page -->
         <section id="Profile-page">
-            <form action="">
+            <form name="profile" action="">
+
 
                 <label for="username">Username:</label>
-                <input type="text" name="username" id="username" minlength="5" maxlength="20" required>
+                <input type="text" name="username" id="username" placeholder="introduce your username">
+                <div class="validation"></div>
+
 
                 <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required maxlength="50">
+                <input type="email" name="email" id="email" placeholder="introduce your email">
+                <div class="validation"></div>
+
 
                 <label for="pass">Password:</label>
-                <input type="password" name="pass" id="pass" required minlength="8" maxlength="20">
+                <input type="password" name="pass" id="pass" placeholder="introduce your password">
+                <div class="validation"></div>
 
-                <label for="Confirmpass">Confirm password:</label>
-                <input type="password" name="confirmpass" id="Confirmpass">
+
+                <label for="confirmPass">Confirm password:</label>
+                <input type="password" name="confirmpass" id="confirmPass">
+                <div class="validation"></div>
+
 
                 <!-- Button reset and next -->
-                <input type="reset" name="reset-form">
-                <button id="nextPage1">Next</button>
+                <input type="reset" name="reset-form" id="reset-button">
+                <input type="submit" id="nextPage1" value="Next">
             </form>
 
         </section>
-<!-- Profile page -->
-<!-- Address page -->
+        <!-- Profile page -->
+        <!-- Address page -->
         <section id="Address-page">
             <h1>Address</h1>
-        <form action="" autocomplete="off" >
-            <label for="First name">First name</label>
-            <div id="First-name-parent">
-                <input type="text" name="First name" id="First-name" required maxlength="20" pattern="[A-Za-z]{0,20}" autocomplete=off>
-            </div>
-            <label for="Last-name">Last name</label>
-            <div id="Last-name-parent">
-                <input type="text" name="Last name" id="Last-name" required maxlength="20">
-            </div>
-            <label for="birthday">birthday</label>
-            <div id="birthday-parent">
-                <input type="date" name="birthday" id="birthday" required>
-            </div>
-            <label for="Address 1">Address 1</label>
-            <div id="Address-1-parent">
-                <input type="text" name="Address 1" id="Address-1" required maxlength="50">
-            </div>
-            <label for="Address 2">Address 2</label>
-            <input type="text" name="Address 2" id="Address-2" maxlength="50">
-            <label for="Postal Code">Postal Code</label>
-            <div id="Postal-Code-parent">
-            <input type="numbers" name="Postal Code" id="Postal-Code" required maxlength="5">
-            </div>
-            <label for="Country">Country</label>
-            <div id="Country-parent">
-                <select name="Country" id="Country" required>
-                    <option value="" disabled selected="true"></option>
-                    <option value="andorra">Andorra</option>
-                    <option value="españa">España</option>
-                    <option value="francia">Francia</option>
-                    <option value="alemania">Alemania</option>
-                    <option value="grecia">Grecia</option>
-                </select>
-            </div>
-            <label for="Phone country code">Phone country code</label>
-            <div id="PCC-parent">
-                <select name="Phone country code" id="PCC" required>
-                    <option id="PCCandorra" value="+376">376 - AND</option>
-                    <option id="PCCespaña" value="+34">34 - ESP</option>
-                    <option id="PCCfrancia" value="+33">33 - FRA</option>
-                    <option id="PCCalemania" value="+49">49 - DEU</option>
-                    <option id="PCCgrecia" value="+30">30 - GRC</option>
-                </select>
-            </div>
-            <label for="Phone">Phone</label>
-            <div id="Phone-parent">
-                <input type="tel" name="Phone" id="Phone" required maxlength="9" pattern="[0-9]{9,9}[A-Za-z]" title="9 numbers, 1 letter">
-            </div>
-            <input type="checkbox" name="regular-address" id="regular-address">
-            <label for="regular-address">This is my regular address</label>
-        </form>
+            <form action="" autocomplete="off">
+                <label for="First name">First name</label>
+                <div id="First-name-parent">
+                    <input type="text" name="First name" id="First-name" required maxlength="20"
+                        pattern="[A-Za-z]{0,20}" autocomplete=off>
+                </div>
+                <label for="Last-name">Last name</label>
+                <div id="Last-name-parent">
+                    <input type="text" name="Last name" id="Last-name" required maxlength="20">
+                </div>
+                <label for="birthday">birthday</label>
+                <div id="birthday-parent">
+                    <input type="date" name="birthday" id="birthday" required>
+                </div>
+                <label for="Address 1">Address 1</label>
+                <div id="Address-1-parent">
+                    <input type="text" name="Address 1" id="Address-1" required maxlength="50">
+                </div>
+                <label for="Address 2">Address 2</label>
+                <input type="text" name="Address 2" id="Address-2" maxlength="50">
+                <label for="Postal Code">Postal Code</label>
+                <div id="Postal-Code-parent">
+                    <input type="numbers" name="Postal Code" id="Postal-Code" required maxlength="5">
+                </div>
+                <label for="Country">Country</label>
+                <div id="Country-parent">
+                    <select name="Country" id="Country" required>
+                        <option value="" disabled selected="true"></option>
+                        <option value="andorra">Andorra</option>
+                        <option value="españa">España</option>
+                        <option value="francia">Francia</option>
+                        <option value="alemania">Alemania</option>
+                        <option value="grecia">Grecia</option>
+                    </select>
+                </div>
+                <label for="Phone country code">Phone country code</label>
+                <div id="PCC-parent">
+                    <select name="Phone country code" id="PCC" required>
+                        <option id="PCCandorra" value="+376">376 - AND</option>
+                        <option id="PCCespaña" value="+34">34 - ESP</option>
+                        <option id="PCCfrancia" value="+33">33 - FRA</option>
+                        <option id="PCCalemania" value="+49">49 - DEU</option>
+                        <option id="PCCgrecia" value="+30">30 - GRC</option>
+                    </select>
+                </div>
+                <label for="Phone">Phone</label>
+                <div id="Phone-parent">
+                    <input type="tel" name="Phone" id="Phone" required maxlength="9" pattern="[0-9]{9,9}[A-Za-z]"
+                        title="9 numbers, 1 letter">
+                </div>
+                <input type="checkbox" name="regular-address" id="regular-address">
+                <label for="regular-address">This is my regular address</label>
+            </form>
 
-        <!-- Button reset and next -->
-        <input type="reset" name="reset-form">
-        <button id="nextPage2">Next</button>
-        </form>
+            <!-- Button reset and next -->
+            <input type="reset" name="reset-form">
+            <button id="nextPage2">Next</button>
+            </form>
         </section>
         <!-- Address page -->
 
