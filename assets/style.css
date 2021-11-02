@@ -29,6 +29,13 @@ section {
   flex-direction: column;
 }
 
+/* Timer Box */
+#timerBox {
+  background-color: var(--secondary-text-color);
+  max-width: 35%;
+  padding: 10px;
+}
+
 /* Step line */
 #step-line{
   position:relative;
@@ -37,33 +44,32 @@ section {
   justify-content:space-around;
   flex-direction:row;
 }
-.step:before{
+#line{
   position:absolute;
-  content:"";
-  border-bottom:1px solid var(--main-color);
-  width: 12%;
+  height:3px; 
   top:43px;
-  left:0%;
+  width:0%;
+  left:0px;
+  transition:2s ease-out;
+  background-color:var(--main-color);
   z-index:2;
 }
-
-/* dont know why before and after */
-.step:after{
+#secondary-line{
   position:absolute;
-  content:"";
-  border-bottom:1px solid var(--step-line-color);
-  width:100%;
+  height:3px; 
   top:43px;
-  left:0%;
-  /* set up layers  */
+  width:100%;
+  background-color:var(--step-line-color);
   z-index:1;
 }
+/* dont know why before and after */
 .step{
   display:flex;
   flex-direction: column;
   align-items: center;
 }
 .page{
+  color:var(--secondary-text-color);
   margin-bottom:1rem;
 }
 .circle{
@@ -80,11 +86,17 @@ section {
   background-color: var(--step-line-active);
   width:25px;
   height:25px;
+  transition:0.5s ease;
+  transition-delay: 1.5s;
+  
   /* I rest margin 'cause after and before line problems. */
   margin-top:-2px;
 }
 .current{
   font-weight: bold;
+  color:var(--main-text-color);
+  transition:0.5s ease;
+  transition-delay:1.5s;
 }
 /* Step line */
 
@@ -149,7 +161,7 @@ h1 {
   width: 5%;
 }
 
-
+/*Style product Page*/
 #product-page{
   flex-direction: row;
   margin-top: 10px;
@@ -192,6 +204,34 @@ h1 {
 .col-right{
   width: 50%;
   padding-left: 10px;
+}
+
+.colorLents{
+  border-radius: 100%;
+  border: 2px solid var(--secondary-text-color) ;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.colorLents:active{
+  border-color: var(--main-color) ;
+}
+
+.selected{
+  opacity: 1.0;
+}
+
+#Unds{
+  display: flex;
+  align-items: center;
+}
+
+#quantity{
+  width: 20px;
+  text-align: center;
+  background-color: var(--main-bg-color);
 }
 
 .Hidden{
