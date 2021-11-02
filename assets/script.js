@@ -444,7 +444,6 @@ console.log("error");
 }
 
 
-
 // SHIPPING
 
 const freeShipping = document.querySelector('#free-shipping');
@@ -455,7 +454,6 @@ const premiumShipping = document.querySelector('#premium-shipping');
 premiumShipping.addEventListener('click',shippingTime);
 
 function shippingTime(){
-
     if (freeShipping.checked) {
         shippingWindow(72)
     } else if (extraShipping.checked) {

@@ -169,19 +169,27 @@
         <section id="Shipping-page">
             <h1>Shipping</h1>
             <h3>Shipping type</h3>
-            <form action="">
-                <input type="radio" name="shipping-option" id="free-shipping">
-                <label for="free-shipping">Free shipping (72h)</label>
-                <input type="radio" name="shipping-option" id="extra-shipping">
-                <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
-                <input type="radio" name="shipping-option" id="premium-shipping">
-                <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
-                <input type="checkbox" name="gift-selector" id="gift-selector">
-                <label for="gift-selector">Is it a gift?</label>
+            <form action="" id='shipping-form'>
+                <div class="shipping-option1">
+                    <input type="radio" name="shipping-option" id="free-shipping" required>
+                    <label for="free-shipping">Free shipping (72h)</label>
+                </div>
+                <div class="shipping-option2">
+                    <input type="radio" name="shipping-option" id="extra-shipping">
+                    <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
+                </div>
+                <div class="shipping-option3">
+                    <input type="radio" name="shipping-option" id="premium-shipping">
+                    <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
+                </div>
+                <div class="gift-option">
+                    <input type="checkbox" name="gift-selector" id="gift-selector">
+                    <label for="gift-selector">Is it a gift?</label>
+                </div>
                 <label for="gift-msg">Gift message</label>
                 <textarea name="gift-msg" id="gift-msg" cols="30" rows="10" maxlength="200"></textarea>
-                <span>Gift wrapper image</span>
-                <button>Select image</button>
+                <span class='shipping-span'>Gift wrapper image</span>
+                <button type="button" id="gift-img-btn">Select image</button>
                 <!-- Button reset and next -->
                 <input type="reset" name="reset-form">
                 <button id="nextPage3">Next</button>
