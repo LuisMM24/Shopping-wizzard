@@ -544,3 +544,33 @@ function shippingWindow(hours) {
     estimatedShippingTime.innerHTML = `Your order will arrive between <b>${earlyArrival}h</b> and <b>${lateArrival}h</b>`;
     shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime)
 }
+
+
+// Timer box
+const timerBox = document.querySelector('.timerBox');
+const main = document.querySelector('#main');
+let timerCount = 1;
+
+function openPopup() {
+    let timerMsg = document.createElement('div');
+    timerMsg.id = 'timerBox';
+    timerMsg.innerHTML = `You started registering <b>${timerCount} minutes ago</b>. Hurry up!`;
+    main.insertAdjacentElement('afterbegin', timerMsg);
+    timerCount +=1;
+}
+
+function closePopup() {
+    if (timerCount === 6) {
+        clearInterval(timerInterval);
+    }
+    const timerMsg = document.querySelector('#timerBox')
+    timerMsg.style.display = 'none';
+    main.removeChild(main.firstChild);
+}
+
+const timerInterval = setInterval(function() {
+    openPopup();
+    setTimeout(function() {
+        closePopup();
+    }, 1000);
+}, 3000);
