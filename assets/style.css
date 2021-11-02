@@ -71,29 +71,52 @@ h1 {
 .sidebar {
   width: 100%;
 }
+
 .logo {
   width: 5%;
 }
 
-#galeria{ width: 400px;}
 
-.galery nav ul {
-  list-style: none;
-  padding-left: 0;
+#product-page{
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+#principal{
+  width: 100%;
+  object-fit: cover;
+}
+
+.galery{
   display: flex;
+  flex-direction: column;
 }
 
-.galery nav ul li a img {
-  width: 100px;
-  opacity: 50%;
-  transition: 0.3s;
-  filter: grayscale(50%);
+.galery .miniSlide{
+  display: flex;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
-.galery nav ul li a img:hover {
-    opacity: 100%;
-    margin-top: -5px;
-    filter: grayscale(0%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+.galery .miniature {
+  width: 20%;
+  opacity: 0.4;
+  padding: 2px 0px;
+  object-fit: cover;
 }
 
+.miniature:hover{
+  opacity: 1.0;
+  background-color: var(--secondary-text-color);
+}
+
+.col-left{
+  width: 50%;
+  padding-right: 10px;
+}
+
+.col-right{
+  width: 50%;
+  padding-left: 10px;
+}
