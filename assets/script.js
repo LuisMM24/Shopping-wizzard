@@ -433,13 +433,17 @@ function RaddressCheck(){
 
 //Validacion Address-Page
 nextPage2=document.querySelector("#nextPage2");
-nextPage2.addEventListener("click",nextPage2Fun);
+nextPage2.addEventListener("click",handelAddressForm);
+
 let ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
+
 //FNV==false || LNV==false || BV==false || A1V==false || PCV==false || CountryV==false || PCCV==false ||PhoneV==false||RaddressV==false
 function nextPage2Fun(){
+    ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
     if( ValidationAddressPageArr.includes(false)) {
             let validationAddressPage=false;
-console.log("error");
+            console.log("error");
+            console.log(ValidationAddressPageArr)
     }
     else{
         const addressPage=document.querySelector("#Address-page");
@@ -447,7 +451,10 @@ console.log("error");
         console.log("next");
     }
 }
-
+function handelAddressForm(e){
+    e.preventDefault();
+    nextPage2Fun();
+}
 
 // SHIPPING
 
