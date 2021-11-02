@@ -21,6 +21,13 @@ const displayError=document.getElementsByClassName("validation")
 const nextButton=document.getElementById("nextPage1");
 var arrayValided=[];
 var savedUserName,savedEmail,savedPassword;
+
+//step line declarations
+var line = document.getElementById("line");
+var textStepLine = document.getElementsByClassName("step");
+var circleStepLine = document.getElementsByClassName("circle");
+var counter=0;
+
 //validations step 1-profile
 userName.addEventListener("blur",validUserName);
 
@@ -105,16 +112,48 @@ function validConfirmPass(){
 function checkProfileForm(event){
     event.preventDefault();
     const result=arrayValided.filter(searchTrue=> searchTrue==true);
-    console.log(result);
-    console.log(result.length);
-    console.log(inputElement.length);
+    console.log("result array "+result);
+    console.log("result array length "+result.length);
+    console.log("input element length "+inputElement.length);
     if(result.length==inputElement.length){
+        stepLineAnimation();
         savedUserName=userName.value;
         savedEmail=email.value;
         savedPassword=password.value;
         profileForm.style.display="none";
         console.log(savedPassword,savedUserName,savedEmail);
     }
+}
+//STEP LINE SECTION
+function stepLineAnimation(){
+    if (counter === 0) {
+        line.style.width = "12%";
+        circleStepLine[0].classList.add("active");
+        textStepLine[0].classList.add("current");
+        counter++
+      } else if (counter === 1) {
+        line.style.width = "38%";
+        circleStepLine[1].classList.add("active");
+        textStepLine[0].classList.remove("current");
+        textStepLine[1].classList.add("current")
+        counter++
+      } else if (counter === 2) {
+        line.style.width = "63%";
+        circleStepLine[2].classList.add("active");
+        textStepLine[1].classList.remove("current");
+        textStepLine[2].classList.add("current")
+        counter++;
+      } else if (counter === 3) {
+        line.style.width = "100%";
+        circleStepLine[3].classList.add("active");
+        textStepLine[2].classList.remove("current");
+        textStepLine[3].classList.add("current")
+        counter++;
+      } else if (counter === 4) {
+        line.style.width = "0%"
+        circleStepLine[0].classList.add("active");
+        counter = 0;
+      }
 }
 //function to create validation child
 let Val;

@@ -37,33 +37,32 @@ section {
   justify-content:space-around;
   flex-direction:row;
 }
-.step:before{
+#line{
   position:absolute;
-  content:"";
-  border-bottom:1px solid var(--main-color);
-  width: 12%;
+  height:3px; 
   top:43px;
-  left:0%;
+  width:0%;
+  left:0px;
+  transition:2s ease-out;
+  background-color:var(--main-color);
   z-index:2;
 }
-
-/* dont know why before and after */
-.step:after{
+#secondary-line{
   position:absolute;
-  content:"";
-  border-bottom:1px solid var(--step-line-color);
-  width:100%;
+  height:3px; 
   top:43px;
-  left:0%;
-  /* set up layers  */
+  width:100%;
+  background-color:var(--step-line-color);
   z-index:1;
 }
+/* dont know why before and after */
 .step{
   display:flex;
   flex-direction: column;
   align-items: center;
 }
 .page{
+  color:var(--secondary-text-color);
   margin-bottom:1rem;
 }
 .circle{
@@ -80,11 +79,17 @@ section {
   background-color: var(--step-line-active);
   width:25px;
   height:25px;
+  transition:0.5s ease;
+  transition-delay: 1.5s;
+  
   /* I rest margin 'cause after and before line problems. */
   margin-top:-2px;
 }
 .current{
   font-weight: bold;
+  color:var(--main-text-color);
+  transition:0.5s ease;
+  transition-delay:1.5s;
 }
 /* Step line */
 
