@@ -54,33 +54,40 @@
           </div>
         </nav>
         <article class="col-right">
-          <h1>Gafas de Sol super Azul Plus 3000</h1>
+          <h1>Sunglasses Square</h1>
+          <p class="price">38,90$</p>
           <h2>Description</h2>
           <p>text</p>
           <h2>Features</h2>
-          <details>
-            <summary >Lents</summary>
-            <div id="Lents">
-            <img class="colorLents" src="assets\img\blue.jpg">
-            <img class="colorLents" src="assets\img\green.jpg">
-            <img class="colorLents" src="assets\img\orange.jpg">
-            </div>
-          </details>
+          <h3>Lents colors</h3>
+          <div id="Lents">
+            <img class="colorLents" src="assets\img\blue.jpg" name="blue" />
+            <img class="colorLents" src="assets\img\green.jpg" name="green" />
+            <img class="colorLents" src="assets\img\orange.jpg" name="orange" />
+          </div>
           <div>
-            <label>Sizes</label>
+            <h3>Sizes</h3>
             <select name="sizes">
+              <option selected="true">Choose your size</option>
               <option value="S">S &lt;50mm / 135mm</option>
               <option value="M">M 51mm-54mm / 140mm</option>
               <option value="L">L &gt;55mm / 145mm</option>
             </select>
             <p>
               If you don't know your glasses size,
-              <a href="https://www.lentiamo.es/correcta-talla-gafas-de-sol.html" target="_blank"
+              <a
+                href="https://www.lentiamo.es/correcta-talla-gafas-de-sol.html"
+                target="_blank"
                 >click here.</a
               >
             </p>
           </div>
-          <button id="buy">Buy</button>
+          <div id="Unds">
+            <div onclick="decrement()">◄</div>
+            <input value="1" id="quantity" />
+            <div onclick="increment()">►</div>
+          </div>
+          <button id="buyNow">Buy Now</button>
         </article>
       </section>
       <!-- Product page -->

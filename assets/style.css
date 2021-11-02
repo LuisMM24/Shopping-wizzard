@@ -211,6 +211,17 @@ h1 {
   opacity: 1.0;
 }
 
+#Unds{
+  display: flex;
+  align-items: center;
+}
+
+#quantity{
+  width: 20px;
+  text-align: center;
+  background-color: var(--main-bg-color);
+}
+
 .Hidden{
   display: none;
 }
