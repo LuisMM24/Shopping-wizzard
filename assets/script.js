@@ -116,11 +116,11 @@ function checkProfileForm(event){
     console.log("result array length "+result.length);
     console.log("input element length "+inputElement.length);
     if(result.length==inputElement.length){
-        stepLineAnimation();
         savedUserName=userName.value;
         savedEmail=email.value;
         savedPassword=password.value;
         profileForm.style.display="none";
+        stepLineAnimation();
         console.log(savedPassword,savedUserName,savedEmail);
     }
 }
