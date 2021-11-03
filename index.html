@@ -193,15 +193,15 @@
             <h3>Shipping type</h3>
             <form action="" id="shipping-form">
                 <div class="shipping-option1">
-                    <input type="radio" name="shipping-option" id="free-shipping" required />
+                    <input type="radio" name="shipping-option" id="Free-shipping" required />
                     <label for="free-shipping">Free shipping (72h)</label>
                 </div>
                 <div class="shipping-option2">
-                    <input type="radio" name="shipping-option" id="extra-shipping" />
+                    <input type="radio" name="shipping-option" id="Extra-shipping" />
                     <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
                 </div>
                 <div class="shipping-option3">
-                    <input type="radio" name="shipping-option" id="premium-shipping" />
+                    <input type="radio" name="shipping-option" id="Premium-shipping" />
                     <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
                 </div>
                 <div class="gift-option">
@@ -220,7 +220,33 @@
         <!-- Shipping page -->
 
         <!-- finish page -->
-        <section id="Finish-page"></section>
+        <section id="Finish-page">
+            <h1>Thank you for your order!</h1>
+            <div class="product-recap">
+                <div class="estimated-delivery">
+
+                </div>
+                <div class="final-product">
+                    <img src="" alt="" id="purchased-product">
+                </div>
+                <div class="delivery-address">
+
+                </div>
+
+            </div>
+            <div id="payment-summary">
+                <h3><b>Order Summary</b></h3>
+                <span>Items:</span>
+                <span id="items-price"></span>
+                <span id="shipping-option"></span>
+                <span id="shipping-price"></span>
+                <hr>
+                <span >Order total:</span>
+                <span id="order-total"></span>
+                </span>
+
+            </div>
+        </section>
         <!-- finish page -->
     </main>
 
