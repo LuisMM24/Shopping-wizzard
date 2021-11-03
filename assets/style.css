@@ -142,7 +142,7 @@ input {
   box-shadow:2px 2px 4px rgba(0, 0, 0, 0.39);;
 }
 input:focus{
-  border: 2px solid #f2796e;
+  border: 2px solid rgb(255, 189, 189);
 }
 
 label {
@@ -160,6 +160,7 @@ section label {
 
 h1 {
   width: 100%;
+  font-size: 22px;
 }
 
 .sidebar {
@@ -179,6 +180,13 @@ h1 {
 #principal{
   width: 100%;
   object-fit: cover;
+}
+
+.price{
+  color: red;
+  font-weight: bold;
+  font-size: 20px ;
+  text-align: center;
 }
 
 .galery{
@@ -213,6 +221,7 @@ h1 {
 .col-right{
   width: 50%;
   padding-left: 10px;
+  text-align: center;
 }
 
 .colorLents{
