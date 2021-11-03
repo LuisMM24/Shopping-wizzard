@@ -1,3 +1,5 @@
+//EXPORTS
+
 //PROFILE FORMS
 //declarations
 const profileForm = document.getElementById("Profile-page")
@@ -6,7 +8,7 @@ const email=document.getElementById("email");
 const password=document.getElementById("pass");
 const confirmPass=document.getElementById("confirmPass");
 const inputElement= document.querySelectorAll(".input-element")
-const displayError=document.getElementsByClassName("validation")
+const displayError=document.getElementsByClassName("error-container")
 const nextButton=document.getElementById("nextPage1");
 const errorIcon = document.querySelectorAll(".failure-icon");
 const successIcon = document.querySelectorAll(".success-icon");
@@ -36,11 +38,13 @@ function changeDisplayError(n){
         displayError[n].style.display="block";
         errorIcon[n].style.opacity="1";
         successIcon[n].style.opacity="0";
+        inputElement[n].style.borderColor="red";
         errorMsg="";
         return arrayValided[n]=false;
     }else{
         errorIcon[n].style.opacity="0";
         successIcon[n].style.opacity="1";
+        inputElement[n].style.borderColor="green";
         return arrayValided[n]=true;
     }
     
@@ -105,7 +109,6 @@ function checkProfileForm(event){
         savedEmail=email.value;
         savedPassword=password.value;
         profileForm.style.display="none";
-        stepLineAnimation();
         console.log(savedPassword,savedUserName,savedEmail);
         addressPage.classList.remove("Hidden");
     }
@@ -176,6 +179,7 @@ let firstName=document.querySelector("#First-name"); //selector to html imput
 let firstNameParent = document.querySelector("#First-name-parent");//selector to parent
 firstName.addEventListener("click",firstNameValueCheck);// click function
 function firstNameValueCheck(){//validation function
+    ValidationValueCheck2()
     if(firstNameParent.children.length>4){ //if parent has more than 1 child
     firstNameParent.removeChild(firstNameParent.lastChild);//delete the messege box
     }
@@ -187,10 +191,15 @@ function firstNameValue(){
         ValidationMsgText();
         firstName.classList.remove("validated");//remove validated stetics
         firstNameParent.appendChild(Val);//append message box
+        errorIcon[4].style.opacity="1";
+        successIcon[4].style.opacity="0";
+        
         FNV=false;//validation value check: not validated
     }else{//regex false, validated
         firstName.classList.add("validated");//validated stetics
         firstName1=firstName.value;//new variable value.
+        errorIcon[4].style.opacity="0";
+        successIcon[4].style.opacity="1";
         FNV=true;//validation value check: validated
     }
 }
@@ -202,6 +211,7 @@ let lastNameParent = document.querySelector("#Last-name-parent")
 lastName.addEventListener("blur",lastNameValue);
 lastName.addEventListener("click",lastNameValueCheck);
 function lastNameValueCheck(){
+    ValidationValueCheck2()
     if(lastNameParent.children.length>4){
     lastNameParent.removeChild(lastNameParent.lastChild);
     }
@@ -209,16 +219,18 @@ function lastNameValueCheck(){
 }
 function lastNameValue(){
     if ( lastName.value == null || lastName.value.length==0|| /^\s+$/.test(lastName.value) ||!(/^[a-zA-Z\s]{0,20}$/.test(lastName.value)) ){
-        console.log(lastName1 + "REQUERIDO");
         ValidationMsg();
         lastName.classList.remove("validated");
         lastNameParent.appendChild(Val);
+        errorIcon[5].style.opacity="1";
+        successIcon[5].style.opacity="0";
         LNV=false;
         
     }else{
         lastName.classList.add("validated");
         lastName1=lastName.value;
-        console.log(lastName1+"  GUARDADO");
+        errorIcon[5].style.opacity="0";
+        successIcon[5].style.opacity="1";
         LNV=true;
     }
 }
@@ -230,6 +242,7 @@ let birthdayParent = document.querySelector("#birthday-parent")
 birthday.addEventListener("blur",birthdayValue);
 birthday.addEventListener("click",birthdayValueCheck);
 function birthdayValueCheck(){
+    ValidationValueCheck2()
     if(birthdayParent.children.length>4){
     birthdayParent.removeChild(birthdayParent.lastChild);
     }
@@ -237,15 +250,17 @@ function birthdayValueCheck(){
 }
 function birthdayValue(){
     if (birthday.value == ""){
-        console.log(birthday1 + "REQUERIDO");
         ValidationMsg();
         birthday.classList.remove("validated");
         birthdayParent.appendChild(Val);
+        errorIcon[6].style.opacity="1";
+        successIcon[6].style.opacity="0";
         BV=false;
     }else{
         birthday.classList.add("validated");
         birthday1=birthday.value;
-        console.log(birthday1+"  GUARDADO");
+        errorIcon[6].style.opacity="10";
+        successIcon[6].style.opacity="1";
         BV=true;
     }
 }
@@ -257,6 +272,7 @@ let address1Parent = document.querySelector("#Address-1-parent")
 address1.addEventListener("blur",address1Value);
 address1.addEventListener("click",address1ValueCheck);
 function address1ValueCheck(){
+    ValidationValueCheck2()
     if(address1Parent.children.length>4){
     address1Parent.removeChild(address1Parent.lastChild);
     }
@@ -264,15 +280,17 @@ function address1ValueCheck(){
 }
 function address1Value(){
     if ( address1.value == null || address1.value.length==0|| /^\s+$/.test(address1.value) ||!(/^[\da-zA-Z\s]{0,20}$/.test(address1.value)) ){
-        console.log(address11 + "REQUERIDO");
         ValidationMsg();
         address1.classList.remove("validated");
         address1Parent.appendChild(Val);
+        errorIcon[7].style.opacity="1";
+        successIcon[7].style.opacity="0";
         A1V=false;
     }else{
         address1.classList.add("validated");
         address11=address1.value;
-        console.log(address11+"  GUARDADO");
+        errorIcon[7].style.opacity="1";
+        successIcon[7].style.opacity="1";
         A1V=true;
     }
 }
@@ -284,6 +302,7 @@ let postalCodeParent = document.querySelector("#Postal-Code-parent")
 postalCode.addEventListener("blur",postalCodeValue);
 postalCode.addEventListener("click",postalCodeValueCheck);
 function postalCodeValueCheck(){
+    ValidationValueCheck2()
     if(postalCodeParent.children.length>1){
     postalCodeParent.removeChild(postalCodeParent.lastChild);
     }
@@ -291,15 +310,17 @@ function postalCodeValueCheck(){
 }
 function postalCodeValue(){
     if ( postalCode.value == null || postalCode.value.length==0|| /^\s+$/.test(postalCode.value) ||!(/^[\d]{5}$/.test(postalCode.value)) ){
-        console.log(postalCode1 + "REQUERIDO");
         ValidationMsgPostalCode();
         postalCode.classList.remove("validated");
         postalCodeParent.appendChild(Val);
+        errorIcon[8].style.opacity="1";
+        successIcon[8].style.opacity="0";
         PCV=false;
     }else{
         postalCode.classList.add("validated");
         postalCode1=postalCode.value;
-        console.log(postalCode1+"  GUARDADO");
+        errorIcon[8].style.opacity="0";
+        successIcon[8].style.opacity="1";
         PCV=true;
     }
 }
@@ -311,6 +332,7 @@ let CountryParent = document.querySelector("#Country-parent")
 Country.addEventListener("blur",CountryValue);
 Country.addEventListener("click",CountryValueCheck);
 function CountryValueCheck(){
+    ValidationValueCheck2()
     if(CountryParent.children.length>1){
     CountryParent.removeChild(CountryParent.lastChild);
     }
@@ -318,7 +340,6 @@ function CountryValueCheck(){
 }
 function CountryValue(){
     if (Country.value == ""){
-        console.log(Country1 + "REQUERIDO");
         ValidationMsg();
         Country.classList.remove("validated");
         CountryParent.appendChild(Val);
@@ -326,7 +347,6 @@ function CountryValue(){
     }else{
         Country.classList.add("validated");
         Country1=Country.value;
-        console.log(Country1+"  GUARDADO");
         CountryV=true;
         PhoneCountryCodeDefect();
     }
@@ -339,35 +359,30 @@ function PhoneCountryCodeDefect() {
             PCC1="+376";
             PCCV=true;
             PCC.classList.add("validated");
-            console.log(Country1)
             break;
         case "España":
             document.querySelector("#PCC").value="+34";
             PCC1="+34";
             PCCV=true;
             PCC.classList.add("validated");
-            console.log(Country1)
             break;
         case "Francia":
             document.querySelector("#PCC").value="+33";
             PCC1="+33";
             PCCV=true;
             PCC.classList.add("validated");
-            console.log(Country1)
             break;
         case "Alemania":
             document.querySelector("#PCC").value="+49";
             PCC1="+49";
             PCCV=true;
             PCC.classList.add("validated");
-            console.log(Country1)
             break;
         case "Grecia":
             document.querySelector("#PCC").value="+30";
             PCC1="+30";
             PCCV=true;
             PCC.classList.add("validated");
-            console.log(Country1)
             break;
         default:
             PCC.value="MAL";
@@ -382,6 +397,7 @@ let PCCParent = document.querySelector("#PCC-parent")
 PCC.addEventListener("blur",PCCValue);
 PCC.addEventListener("click",PCCValueCheck);
 function PCCValueCheck(){
+    ValidationValueCheck2()
     if(PCCParent.children.length>4){
     PCCParent.removeChild(PCCParent.lastChild);
     }
@@ -389,7 +405,6 @@ function PCCValueCheck(){
 }
 function PCCValue(){
     if (PCC.value == ""){
-        console.log(PCC1 + "REQUERIDO");
         ValidationMsg();
         PCC.classList.remove("validated");
         PCCParent.appendChild(Val);
@@ -397,7 +412,6 @@ function PCCValue(){
     }else{
         PCC.classList.add("validated");
         PCC1=PCC.value;
-        console.log(PCC1+"  GUARDADO");
         PCCV=true;
     }
 }
@@ -409,6 +423,7 @@ let PhoneParent = document.querySelector("#Phone-parent")
 Phone.addEventListener("blur",PhoneValue);
 Phone.addEventListener("click",PhoneValueCheck);
 function PhoneValueCheck(){
+    ValidationValueCheck2()
     if(PhoneParent.children.length>1){
     PhoneParent.removeChild(PhoneParent.lastChild);
     }
@@ -416,15 +431,17 @@ function PhoneValueCheck(){
 }
 function PhoneValue(){
     if (Phone.value == "" || isNaN(Phone.value)||Phone.value.length !=9 ){
-        console.log(Phone1 + "REQUERIDO");
         ValidationMsgPhone();
         Phone.classList.remove("validated");
         PhoneParent.appendChild(Val);
+        errorIcon[9].style.opacity="1";
+        successIcon[9].style.opacity="0";
         PhoneV=false;
     }else{
         Phone.classList.add("validated");
         Phone1=Phone.value;
-        console.log(Phone1+"  GUARDADO");
+        errorIcon[9].style.opacity="1";
+        successIcon[9].style.opacity="1";
         PhoneV=true;
     }
 }
@@ -435,33 +452,41 @@ Raddress.addEventListener("click",RaddressCheck)
 function RaddressCheck(){
     if(! Raddress.checked){
         RaddressV=false;
-        console.log(RaddressV)
         PhoneParent.appendChild(Val);
     }else{
         RaddressV=true;
-        console.log(RaddressV)
     }
 }
 //Validation Address-Page
 nextPage2=document.querySelector("#nextPage2");
 nextPage2.addEventListener("click",handelAddressForm);
 const addressPage=document.querySelector("#Address-page");
+button2Parent=document.querySelector("#button2-parent")
 let ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
 function handelAddressForm(e){
     e.preventDefault();
     nextPage2Fun();
 }
+function ValidationValueCheck2(){//validation function
+    if(button2Parent.children.length>1){ //if parent has more than 1 child
+    button2Parent.removeChild(button2Parent.lastChild);//delete the messege box
+    }
+}
 function nextPage2Fun(){
     ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
-    if( ValidationAddressPageArr.includes(true)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
+    if( ValidationAddressPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationAddressPage=false;
-            console.log("error");
-            console.log(ValidationAddressPageArr)
+            let Val;
+            Val = document.createElement('div');
+            Val.classList.add('validation');
+            Val.innerHTML = `Please refill the required fields`;
+            button2Parent.appendChild(Val);
+            return;
     }
     else{
         addressPage.classList.add("Hidden");
         shippingPage.classList.remove("Hidden");
-        console.log("next");
+        stepLineAnimation();
     }
 }
 // SHIPPING
@@ -477,16 +502,21 @@ let shippingChoice = '';
 let shippingCost;
 let deliveryTime;
 
+let shippingChoiceValidation=false;
 function shippingTime(){
+    ValidationValueCheck3()
     if (freeShipping.checked) {
+        shippingChoiceValidation=true;
         shippingWindow(72)
         shippingChoice = freeShipping.id.split('-').join(' ');
         shippingCost = 0.00;
     } else if (extraShipping.checked) {
+        shippingChoiceValidation=true;
         shippingWindow(48)
         shippingChoice = extraShipping.id.split('-').join(' ');
         shippingCost = 4.99;
     } else if (premiumShipping.checked) {
+        shippingChoiceValidation=true;
         shippingWindow(24)
         shippingChoice = premiumShipping.id.split('-').join(' ');
         shippingCost = 9.99;
@@ -511,6 +541,36 @@ function shippingWindow(hours) {
     shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime);
     deliveryTime = estimatedShippingTime;
 }
+//Validation Shipping-Page
+nextPage3=document.querySelector("#nextPage3");
+nextPage3.addEventListener("click",handelAddressForm2);
+button3Parent=document.querySelector("#button3-Parent")
+let ValidationshippingPageArr=[shippingChoiceValidation];
+function handelAddressForm2(e){
+    e.preventDefault();
+    nextPage3Fun();
+}
+function ValidationValueCheck3(){//validation function
+    if(button3Parent.children.length>1){ //if parent has more than 1 child
+    button3Parent.removeChild(button3Parent.lastChild);//delete the messege box
+    }
+}
+function nextPage3Fun(){
+    ValidationshippingPageArr=[shippingChoiceValidation];
+    if( ValidationshippingPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
+            let validationshippingPage=false;
+            let Val;
+            Val = document.createElement('div');
+            Val.classList.add('validation');
+            Val.innerHTML = `Please select a shipping choice`;
+            button3Parent.appendChild(Val);
+    }
+    else{
+        shippingPage.classList.add("Hidden");
+        finishPage.classList.remove("Hidden");
+    }
+}
+
 // Timer box
 const timerBox = document.querySelector('.timerBox');
 const main = document.querySelector('#main');

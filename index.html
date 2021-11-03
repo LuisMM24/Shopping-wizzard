@@ -17,6 +17,12 @@
 <body>
     <header class="sidebar">
         <img src="assets\img\logo.png" class="logo" />
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <p class="logoName">Óptica IVALUC</p>
     </header>
 
     <main id='main'>
@@ -71,7 +77,7 @@
                 <div>
                     <h3>Sizes</h3>
                     <select name="sizes" id="sizes-glass">
-                        <option selected="true">Choose your size</option>
+                        <option selected="true" value="" disabled>Choose your size</option>
                         <option value="S">S &lt;50mm / 135mm</option>
                         <option value="M">M 51mm-54mm / 140mm</option>
                         <option value="L">L &gt;55mm / 145mm</option>
@@ -84,10 +90,12 @@
                 </div>
                 <div id="Unds">
                     <div onclick="decrement()">◄</div>
-                    <input value="1" id="quantity" />
+                    <input value="1" id="quantity" readonly />
                     <div onclick="increment()">►</div>
                 </div>
-                <button id="buyNow" onclick="buyNow()">Buy Now</button>
+                <div class="buyNow-parent">
+                    <button id="buyNow" onclick="buyNow()">Buy Now</button>
+                </div>
             </article>
         </section>
         <!-- Product page -->
@@ -100,7 +108,7 @@
                     <i class="before-icon fas fa-user"></i>
                     <input type="text" name="username" id="username" class="input-element"
                         placeholder="introduce your username">
-                    <div class="validation"></div>
+                    <div class="error-container"></div>
                     <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
                     <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
@@ -111,7 +119,7 @@
                     <i class="before-icon fa fa-envelope icon"></i>
                     <input type="email" name="email" class="input-element" id="email"
                         placeholder="introduce your email">
-                    <div class="validation"></div>
+                    <div class="error-container"></div>
                     <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
                     <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
@@ -122,7 +130,7 @@
                     <i class="before-icon fas fa-lock"></i>
                     <input type="password" name="pass" id="pass" class="input-element"
                         placeholder="introduce your password">
-                    <div class="validation"></div>
+                    <div class="error-container"></div>
                     <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
                     <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
@@ -132,7 +140,7 @@
                     <label for="confirmPass">Confirm password:</label>
                     <i class="before-icon fas fa-lock"></i>
                     <input type="password" name="confirmpass" class="input-element" id="confirmPass">
-                    <div class="validation"></div>
+                    <div class="error-container"></div>
                     <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
                     <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
@@ -222,7 +230,9 @@
 
                 <!-- Button reset and next -->
                 <input type="reset" name="reset-form">
-                <button type="submit" id="nextPage2">Next</button>
+                <div id="button2-parent">
+                    <button type="submit" id="nextPage2">Next</button>
+                </div>
             </form>
         </section>
         <!-- Address page -->
@@ -232,7 +242,7 @@
         <section id="Shipping-page" class="Hidden">
             <h1>Shipping</h1>
             <h3>Shipping type</h3>
-            <form action="" id="shipping-form">
+            <form onsubmit="handelAddressForm2()" id="shipping-form">
                 <div class="shipping-option1">
                     <input type="radio" name="shipping-option" id="Free-shipping" required />
                     <label for="free-shipping">Free shipping (72h)</label>
@@ -255,7 +265,9 @@
                 <button type="button" id="gift-img-btn">Select image</button>
                 <!-- Button reset and next -->
                 <input type="reset" name="reset-form" />
-                <button id="nextPage3">Next</button>
+                <div id="button3-Parent">
+                    <button type="submit" id="nextPage3">Next</button>
+                </div>
             </form>
         </section>
         <!-- Shipping page -->
@@ -301,7 +313,15 @@
         <!-- finish page -->
     </main>
 
-    <footer></footer>
+        <footer class="sidebar">
+            <img src="assets\img\logo.png" class="logo" />
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <p class="logoName">Óptica IVALUC</p>
+        </footer>
 </body>
 
 </html>
