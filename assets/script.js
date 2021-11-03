@@ -111,6 +111,8 @@ function checkProfileForm(event){
         profileForm.style.display="none";
         console.log(savedPassword,savedUserName,savedEmail);
         addressPage.classList.remove("Hidden");
+    }else{
+
     }
 }
 //STEP LINE SECTION
@@ -424,7 +426,7 @@ Phone.addEventListener("blur",PhoneValue);
 Phone.addEventListener("click",PhoneValueCheck);
 function PhoneValueCheck(){
     ValidationValueCheck2()
-    if(PhoneParent.children.length>1){
+    if(PhoneParent.children.length>4){
     PhoneParent.removeChild(PhoneParent.lastChild);
     }
     Phone.classList.remove("validated");
@@ -440,7 +442,7 @@ function PhoneValue(){
     }else{
         Phone.classList.add("validated");
         Phone1=Phone.value;
-        errorIcon[9].style.opacity="1";
+        errorIcon[9].style.opacity="0";
         successIcon[9].style.opacity="1";
         PhoneV=true;
     }
