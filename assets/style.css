@@ -3,6 +3,7 @@
   --main-text-color: rgb(60, 60, 60);
   --secondary-text-color: rgb(120, 120, 120);
   --main-color: rgb(115,155,224);
+  --main-color-opacity: rgb(115,155,224, 0.4)
   --step-line-active:rgb(173, 216, 230);
   --step-line-color: rgb(202, 202, 202);
   --form-background-color:#FEE9ED;
@@ -12,14 +13,16 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: var(--main-bg-color);
   margin: 0 auto;
   padding: 0;
   width: 80%;
+  background-image: linear-gradient(#fff,rgb(115,155,224,0.4) );
+  min-height: 100vh;
 }
 
 main {
   background-color: var(--main-bg-color);
+  border-radius: 20px;
 }
 
 .Hidden{
@@ -33,7 +36,16 @@ section {
 }
 
 h1 {
-  font-size: 22px;
+  font-size: 20px;
+}
+
+h2{
+  font-size: 18px;
+}
+
+h3{
+  font-size: 14px;
+  color: var(--main-color);
 }
 
 /*header y footer*/
@@ -254,7 +266,7 @@ button:active{
 #product-page{
   flex-direction: row;
   margin-top: 2%;
-  height: 100%;
+  height: 90vh;
 }
 
 #principal{
@@ -271,6 +283,7 @@ button:active{
 .galery{
   display: flex;
   flex-direction: column;
+  margin: 0 5%;
 }
 
 .galery .miniSlide{
@@ -306,8 +319,12 @@ button:active{
   background-color: rgba(202, 202, 202, 0.2);
   border-radius: 20px;
   padding: 2%;
+  height: 90%;
 }
 
+.description h1{
+  text-align: center;
+}
 .colorLents{
   border-radius: 100%;
   border: 2px solid var(--secondary-text-color) ;
@@ -343,6 +360,19 @@ button:active{
   width: 20px;
   text-align: center;
   background-color: var(--main-bg-color);
+}
+
+#divSizes{
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+}
+
+#sizes-glass{
+  background-color: rgba(115, 155, 224, 0.3);
+  border-radius: 10px;
+  margin-left: 15px;
+  height: 100%;
 }
 
 
