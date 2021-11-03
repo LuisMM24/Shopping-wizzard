@@ -103,7 +103,7 @@ function checkProfileForm(event){
     console.log("result array "+result);
     console.log("result array length "+result.length);
     console.log("input element length "+inputElement.length);
-    if(result.length<=inputElement.length){//CAMBIAR A == PARA VALIDAR
+    if(result.length==inputElement.length){//CAMBIAR A == PARA VALIDAR
         stepLineAnimation();
         savedUserName=userName.value;
         savedEmail=email.value;
@@ -112,7 +112,10 @@ function checkProfileForm(event){
         console.log(savedPassword,savedUserName,savedEmail);
         addressPage.classList.remove("Hidden");
     }else{
-
+        validUserName();
+        validEmail();
+        validPass();
+        validConfirmPass();
     }
 }
 //STEP LINE SECTION
