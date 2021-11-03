@@ -186,17 +186,18 @@
                     <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
                     <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Address 2">Address 2</label>
-                <input type="text" name="Address 2" id="Address-2" maxlength="50" value="Optional">
-
+                <div class="input-container">
+                    <label for="Address 2">Address 2</label>
+                    <input type="text" name="Address 2" id="Address-2" maxlength="50" value="Optional">
+                </div>
                 <div id="Postal-Code-parent" class="input-container">
                     <label for="Postal Code">Postal Code</label>
                     <input type="numbers" name="Postal Code" id="Postal-Code" required maxlength="5">
                     <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
                     <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Country">Country</label>
-                <div id="Country-parent">
+                <div id="Country-parent" class="input-container">
+                    <label for="Country">Country</label>
                     <select name="Country" id="Country" required>
                         <option value="" disabled selected="true"></option>
                         <option value="Andorra">Andorra</option>
@@ -206,8 +207,8 @@
                         <option value="Grecia">Grecia</option>
                     </select>
                 </div>
-                <label for="Phone country code">Phone country code</label>
-                <div id="PCC-parent">
+                <div id="PCC-parent" class="input-container">
+                    <label for="Phone country code">Phone country code</label>
                     <select name="Phone country code" id="PCC" required>
                         <option value="" disabled selected="true"></option>
                         <option id="PCCandorra" value="+376">376 - AND</option>
@@ -225,12 +226,15 @@
                     <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
                     <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <input type="checkbox" name="regular-address" id="regular-address">
-                <label for="regular-address">This is my regular address</label>
-
+                <div class="input-container">
+                    <input type="checkbox" name="regular-address" id="regular-address">
+                    <label for="regular-address">This is my regular address</label>
+                </div>
                 <!-- Button reset and next -->
+                <div class="input-container">
                 <input type="reset" name="reset-form">
-                <div id="button2-parent">
+                </div>
+                <div id="button2-parent" class="input-container">
                     <button type="submit" id="nextPage2">Next</button>
                 </div>
             </form>
