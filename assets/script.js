@@ -111,6 +111,8 @@ function checkProfileForm(event){
         profileForm.style.display="none";
         console.log(savedPassword,savedUserName,savedEmail);
         addressPage.classList.remove("Hidden");
+    }else{
+
     }
 }
 //STEP LINE SECTION
@@ -424,7 +426,7 @@ Phone.addEventListener("blur",PhoneValue);
 Phone.addEventListener("click",PhoneValueCheck);
 function PhoneValueCheck(){
     ValidationValueCheck2()
-    if(PhoneParent.children.length>1){
+    if(PhoneParent.children.length>4){
     PhoneParent.removeChild(PhoneParent.lastChild);
     }
     Phone.classList.remove("validated");
@@ -440,7 +442,7 @@ function PhoneValue(){
     }else{
         Phone.classList.add("validated");
         Phone1=Phone.value;
-        errorIcon[9].style.opacity="1";
+        errorIcon[9].style.opacity="0";
         successIcon[9].style.opacity="1";
         PhoneV=true;
     }
@@ -474,7 +476,7 @@ function ValidationValueCheck2(){//validation function
 }
 function nextPage2Fun(){
     ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
-    if( ValidationAddressPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
+    if( ValidationAddressPageArr.includes(true)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationAddressPage=false;
             let Val;
             Val = document.createElement('div');
@@ -568,34 +570,44 @@ function nextPage3Fun(){
     else{
         shippingPage.classList.add("Hidden");
         finishPage.classList.remove("Hidden");
+        stepLineAnimation();
+        checkoutAddress()
+        shippingOption.innerText = shippingChoice;
+        shippingPrice.innerText = `${shippingCost}$`;
+        estimatedDelivery.innerText = deliveryTime.innerText;
+        purchasedProduct.src = imgPrincipal.src;
+        itemSize.innerHTML = '<b>Size:</b> M';
+        itemQuantity.innerHTML = '<b>Quantity:</b> 2'
+        itemsTotal.innerText = productPrice.innerText;
+        orderTotal.innerText = parseFloat(itemsTotal.innerText) + shippingCost + '$';
     }
 }
 
 // Timer box
-const timerBox = document.querySelector('.timerBox');
-const main = document.querySelector('#main');
-let timerCount = 1;
-function openPopup() {
-    let timerMsg = document.createElement('div');
-    timerMsg.id = 'timerBox';
-    timerMsg.innerHTML = `You started registering <b>${timerCount} minutes ago</b>. Hurry up!`;
-    main.insertAdjacentElement('afterbegin', timerMsg);
-    timerCount +=1;
-}
-function closePopup() {
-    if (timerCount === 6) {
-        clearInterval(timerInterval);
-    }
-    const timerMsg = document.querySelector('#timerBox')
-    timerMsg.style.display = 'none';
-    main.removeChild(main.firstChild);
-}
-const timerInterval = setInterval(function() {
-    openPopup();
-    setTimeout(function() {
-        closePopup();
-    }, 1000);
-}, 3000);
+// const timerBox = document.querySelector('.timerBox');
+// const main = document.querySelector('#main');
+// let timerCount = 1;
+// function openPopup() {
+//     let timerMsg = document.createElement('div');
+//     timerMsg.id = 'timerBox';
+//     timerMsg.innerHTML = `You started registering <b>${timerCount} minutes ago</b>. Hurry up!`;
+//     main.insertAdjacentElement('afterbegin', timerMsg);
+//     timerCount +=1;
+// }
+// function closePopup() {
+//     if (timerCount === 6) {
+//         clearInterval(timerInterval);
+//     }
+//     const timerMsg = document.querySelector('#timerBox')
+//     timerMsg.style.display = 'none';
+//     main.removeChild(main.firstChild);
+// }
+// const timerInterval = setInterval(function() {
+//     openPopup();
+//     setTimeout(function() {
+//         closePopup();
+//     }, 1000);
+// }, 3000);
 
 // Finish page
 
@@ -635,17 +647,9 @@ function checkoutAddress() {
     deliveryAddress.appendChild(finalAddress);
 }
 
-finishPage.addEventListener('click', () => {
-    checkoutAddress()
-    shippingOption.innerText = shippingChoice;
-    shippingPrice.innerText = `${shippingCost}$`;
-    estimatedDelivery.innerText = deliveryTime.innerText;
-    purchasedProduct.src = imgPrincipal.src;
-    itemSize.innerHTML = '<b>Size:</b> M';
-    itemQuantity.innerHTML = '<b>Quantity:</b> 2'
-    itemsTotal.innerText = productPrice.innerText;
-    orderTotal.innerText = parseFloat(itemsTotal.innerText) + shippingCost + '$';
-})
+// finishPage.addEventListener('click', () => {
+    
+// })
 
 
 

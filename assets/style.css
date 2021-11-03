@@ -186,15 +186,18 @@ text-align: center;
 
 /* Validation classes */
 
-.validation{
+.validation, .error-container{
   position:absolute;
-  top:120%;
-  margin: 0px 15px;
-  width: 200px;
-  background-color: rgb(255, 189, 189);
+  padding:6px;
+  top:100%;
+  margin-top:5px;
+  background-color: var(--form-background-color);
+  text-align:center;
   color: red;
-  border: 2px solid red;
+  border: 1px solid red;
+  outline: none;
   border-radius: 10px;
+  z-index:3;
 }
 
 .buyNow-parent{
@@ -219,7 +222,7 @@ position: relative;
 }
 
 /* Input styles */
-input {
+ input {
   background-color: rgb(253, 253, 253);
   color: var(--main-text-color);
   border:2px solid  var(--main-color);
@@ -227,6 +230,9 @@ input {
   outline:none;
   padding:5px 30px;
   box-shadow:2px 2px 4px rgba(0, 0, 0, 0.39);;
+}
+#Address-page input{
+  padding:5px 5px;
 }
 input:focus{
   border: 2px solid rgb(255, 189, 189);
@@ -377,8 +383,8 @@ button:active{
 
 
 
-/* PROFILE SECTION */
-#Profile-page form{
+/* PROFILE SECTION AND ADDRESS SECTION*/
+#Profile-page form,#Address-page form{
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -388,7 +394,7 @@ button:active{
   position:relative;
   display:flex;
   flex-direction:column;
-  height: 100%;
+  height: 3.5rem;
   margin-bottom:2.5rem;
   width:60%;
   /* height: 75px; */
@@ -396,15 +402,7 @@ button:active{
 
 #Profile-page .error-container{
   display:none;
-  padding:6px;
-  margin-top:10px;
-  background-color: var(--form-background-color);
-  text-align:center;
-  color: red;
-  border: 1px solid red;
-  outline: none;
-  border-radius: 10px;
-  z-index:3;
+
 }
 /* Icons profile form */
 
