@@ -7,6 +7,7 @@ Lent.addEventListener('click', changeColor);
 var colorSelected= "";
 var colorSelectedValidation=false;
 var ProductPage=document.querySelector("#product-page")
+var quantity=document.getElementById('quantity');
 
 //Cambio imagen Principal Galería
 function showSlides(e){
@@ -35,14 +36,12 @@ imgColorLent.forEach(element => { //Recorre la colección de imágenes
 
 // Cambio de cantidad de compra
 function decrement(){
-    var quantity=document.getElementById('quantity');
     if (quantity.value<=1) return;
     quantity.value = quantity.value -1;
     quantity.innerHTML=quantity.value;
 }
 
 function increment(){
-    var quantity=document.getElementById('quantity');
     quantity.value = parseInt(quantity.value) +1;
     quantity.innerHTML=quantity.value;
 }

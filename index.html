@@ -238,7 +238,7 @@
                     <label for="free-shipping">Free shipping (72h)</label>
                 </div>
                 <div class="shipping-option2">
-                    <input type="radio" name="shipping-option" id="Extra-shipping" />
+                    <input type="radio" name="shipping-option" id="Extra-shipping" checked />
                     <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
                 </div>
                 <div class="shipping-option3">
@@ -262,30 +262,40 @@
 
         <!-- finish page -->
         <section id="Finish-page" class="Hidden">
-            <h1>Thank you for your order!</h1>
-            <div class="product-recap">
-                <div class="estimated-delivery">
-
-                </div>
+            <div class="finish-h1">
+                <h1>Thank you for your order!</h1>
+                <div id="estimated-delivery"></div>
+                <hr>
+            </div>
+            <div class="finish-content">
                 <div class="final-product">
                     <img src="" alt="" id="purchased-product">
                 </div>
-                <div class="delivery-address">
-
+                <div class="final-product-name">
+                    <span><b>Sunglasses Square</b></span>
+                    <span id="item-quantity"></span>
+                    <span id="item-size"></span>
                 </div>
-
             </div>
-            <div id="payment-summary">
-                <h3><b>Order Summary</b></h3>
-                <span>Items:</span>
-                <span id="items-price"></span>
-                <span id="shipping-option"></span>
-                <span id="shipping-price"></span>
-                <hr>
-                <span >Order total:</span>
-                <span id="order-total"></span>
-                </span>
-
+            <div id="bottom-row">
+                <div class="delivery-address">
+                    <h3><b>Shipping address:</b></h3>
+                </div>
+                <div id="payment-summary">
+                    <h3><b>Order Summary</b></h3>
+                    <div class="finish-summary">
+                        <span>Items:</span>
+                        <span id="items-price"></span>
+                    </div>
+                    <div class="finish-summary">
+                        <span id="shipping-option"></span>
+                        <span id="shipping-price"></span>
+                    </div>
+                    <div class="finish-summary">
+                        <span >Order total:</span>
+                        <span id="order-total"></span>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- finish page -->
