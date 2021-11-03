@@ -263,26 +263,30 @@ h1 {
 
 
 /* PROFILE SECTION */
-
+#Profile-page form{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:30%;
+}
 #Profile-page .input-container,#Address-page .input-container{
   position:relative;
   display:flex;
   flex-direction:column;
+  height: 100%;
   margin-bottom:2.5rem;
-  width:100%;
+  width:60%;
   /* height: 75px; */
 }
 
 #Profile-page .error-container{
   display:none;
-  position:absolute;
-  left:100%;
-  top:20%;
-  margin: 0px 15px;
-  width: 200px;
+  padding:6px;
+  margin-top:10px;
   background-color: rgb(255, 189, 189);
   color: red;
-  border: 2px solid red;
+  border: 1px solid red;
+  outline: none;
   border-radius: 10px;
 }
 /* Icons profile form */
@@ -290,7 +294,7 @@ h1 {
 form div i{
   position:absolute;
   padding:10px;
-  top:35%;
+  top:20px;
   z-index:2;
 }
 .failure-icon,
@@ -306,12 +310,6 @@ form div i{
 .failure-icon {
   right: 0;
   opacity:0;
-}
-
-
-.error {
-  font-size: 14.5px;
-  margin-top: 5px;
 }
 
 /* SHIPPING SECTION */
