@@ -16,10 +16,7 @@ body {
   padding: 0;
   width: 80%;
 }
-header {
-  background-color: var(--main-color);
-  height: 50px;
-}
+
 main {
   background-color: var(--main-bg-color);
 }
@@ -32,6 +29,61 @@ section {
   display:flex;
   flex-direction: column;
   align-items: center;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+/*header y footer*/
+.sidebar {
+  width: 100%;
+  height: 50px;
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 100%;
+  margin-left: 2%;
+}
+
+.logoName{
+  color: var(--secondary-text-color);
+  font-size: 18px;
+  text-align: right;
+  margin-right: 5%;
+  width: 20%;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px var(--main-bg-color);
+}
+
+footer.sidebar{
+  background-color: var(--step-line-color);
+  position: absolute;
+  bottom: 0px;
+  width: 80%;
+}
+
+.sidebar ul{
+width: 100%;
+text-align: center;
+}
+
+.sidebar ul li{
+  display: inline;
+  margin: 0 10px;
+}
+
+.sidebar a{
+  text-decoration: none;
+  color: var(--main-bg-color);
+}
+
+.sidebar a:hover{
+  font-weight: bold;
+  text-shadow: 0px 0px 10px var(--step-line-active);
 }
 
 /* Timer Box */
@@ -52,7 +104,7 @@ section {
 }
 #line{
   position:absolute;
-  height:3px; 
+  height:3px;
   top:43px;
   width:0%;
   left:0px;
@@ -62,7 +114,7 @@ section {
 }
 #secondary-line{
   position:absolute;
-  height:3px; 
+  height:3px;
   top:43px;
   width:100%;
   background-color:var(--step-line-color);
@@ -143,6 +195,7 @@ position: relative;
   0% { border: 2px solid greenyellow; }
   100% {border: 2px solid rgb(167, 167, 255); }
 }
+
 /* Input styles */
 input {
   background-color: rgb(253, 253, 253);
@@ -170,23 +223,28 @@ section label {
   display: block;
 }
 
-h1 {
-  width: 100%;
-  font-size: 22px;
+/*Button styles*/
+
+button{
+  background-color: var(--main-bg-color);
+  border-radius: 10px;
+  border: 1px solid var(--main-color);
 }
 
-.sidebar {
-  width: 100%;
+button:hover{
+  border: 2px solid var(--main-color);
 }
 
-.logo {
-  width: 5%;
+button:active{
+  background-color: var(--step-line-active);
 }
+
 
 /*Style product Page*/
 #product-page{
   flex-direction: row;
-  margin-top: 10px;
+  margin-top: 2%;
+  height: 100%;
 }
 
 #principal{
@@ -233,7 +291,8 @@ h1 {
 .col-right{
   width: 50%;
   padding-left: 10px;
-  text-align: center;
+  background-color: rgba(202, 202, 202, 0.2);
+  border-radius: 20px;
 }
 
 .colorLents{
