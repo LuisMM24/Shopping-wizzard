@@ -295,6 +295,7 @@ button:active{
   height: 50px;
   object-fit: cover;
   opacity: 0.4;
+  cursor:pointer;
 }
 
 .colorLents:active{

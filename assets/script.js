@@ -217,7 +217,6 @@ function lastNameValueCheck(){
 }
 function lastNameValue(){
     if ( lastName.value == null || lastName.value.length==0|| /^\s+$/.test(lastName.value) ||!(/^[a-zA-Z\s]{0,20}$/.test(lastName.value)) ){
-        console.log(lastName1 + "REQUERIDO");
         ValidationMsg();
         lastName.classList.remove("validated");
         lastNameParent.appendChild(Val);
@@ -228,7 +227,6 @@ function lastNameValue(){
     }else{
         lastName.classList.add("validated");
         lastName1=lastName.value;
-        console.log(lastName1+"  GUARDADO");
         errorIcon[5].style.opacity="0";
         successIcon[5].style.opacity="1";
         LNV=true;
@@ -249,7 +247,6 @@ function birthdayValueCheck(){
 }
 function birthdayValue(){
     if (birthday.value == ""){
-        console.log(birthday1 + "REQUERIDO");
         ValidationMsg();
         birthday.classList.remove("validated");
         birthdayParent.appendChild(Val);
@@ -259,7 +256,6 @@ function birthdayValue(){
     }else{
         birthday.classList.add("validated");
         birthday1=birthday.value;
-        console.log(birthday1+"  GUARDADO");
         errorIcon[6].style.opacity="10";
         successIcon[6].style.opacity="1";
         BV=true;
@@ -280,7 +276,6 @@ function address1ValueCheck(){
 }
 function address1Value(){
     if ( address1.value == null || address1.value.length==0|| /^\s+$/.test(address1.value) ||!(/^[\da-zA-Z\s]{0,20}$/.test(address1.value)) ){
-        console.log(address11 + "REQUERIDO");
         ValidationMsg();
         address1.classList.remove("validated");
         address1Parent.appendChild(Val);
@@ -290,7 +285,6 @@ function address1Value(){
     }else{
         address1.classList.add("validated");
         address11=address1.value;
-        console.log(address11+"  GUARDADO");
         errorIcon[7].style.opacity="1";
         successIcon[7].style.opacity="1";
         A1V=true;
@@ -311,7 +305,6 @@ function postalCodeValueCheck(){
 }
 function postalCodeValue(){
     if ( postalCode.value == null || postalCode.value.length==0|| /^\s+$/.test(postalCode.value) ||!(/^[\d]{5}$/.test(postalCode.value)) ){
-        console.log(postalCode1 + "REQUERIDO");
         ValidationMsgPostalCode();
         postalCode.classList.remove("validated");
         postalCodeParent.appendChild(Val);
@@ -321,7 +314,6 @@ function postalCodeValue(){
     }else{
         postalCode.classList.add("validated");
         postalCode1=postalCode.value;
-        console.log(postalCode1+"  GUARDADO");
         errorIcon[8].style.opacity="0";
         successIcon[8].style.opacity="1";
         PCV=true;
@@ -342,7 +334,6 @@ function CountryValueCheck(){
 }
 function CountryValue(){
     if (Country.value == ""){
-        console.log(Country1 + "REQUERIDO");
         ValidationMsg();
         Country.classList.remove("validated");
         CountryParent.appendChild(Val);
@@ -350,7 +341,6 @@ function CountryValue(){
     }else{
         Country.classList.add("validated");
         Country1=Country.value;
-        console.log(Country1+"  GUARDADO");
         CountryV=true;
         PhoneCountryCodeDefect();
     }
@@ -363,35 +353,30 @@ function PhoneCountryCodeDefect() {
             PCC1="+376";
             PCCV=true;
             PCC.classList.add("validated");
-            console.log(Country1)
             break;
         case "España":
             document.querySelector("#PCC").value="+34";
             PCC1="+34";
             PCCV=true;
             PCC.classList.add("validated");
-            console.log(Country1)
             break;
         case "Francia":
             document.querySelector("#PCC").value="+33";
             PCC1="+33";
             PCCV=true;
             PCC.classList.add("validated");
-            console.log(Country1)
             break;
         case "Alemania":
             document.querySelector("#PCC").value="+49";
             PCC1="+49";
             PCCV=true;
             PCC.classList.add("validated");
-            console.log(Country1)
             break;
         case "Grecia":
             document.querySelector("#PCC").value="+30";
             PCC1="+30";
             PCCV=true;
             PCC.classList.add("validated");
-            console.log(Country1)
             break;
         default:
             PCC.value="MAL";
@@ -413,7 +398,6 @@ function PCCValueCheck(){
 }
 function PCCValue(){
     if (PCC.value == ""){
-        console.log(PCC1 + "REQUERIDO");
         ValidationMsg();
         PCC.classList.remove("validated");
         PCCParent.appendChild(Val);
@@ -421,7 +405,6 @@ function PCCValue(){
     }else{
         PCC.classList.add("validated");
         PCC1=PCC.value;
-        console.log(PCC1+"  GUARDADO");
         PCCV=true;
     }
 }
@@ -440,7 +423,6 @@ function PhoneValueCheck(){
 }
 function PhoneValue(){
     if (Phone.value == "" || isNaN(Phone.value)||Phone.value.length !=9 ){
-        console.log(Phone1 + "REQUERIDO");
         ValidationMsgPhone();
         Phone.classList.remove("validated");
         PhoneParent.appendChild(Val);
@@ -450,7 +432,6 @@ function PhoneValue(){
     }else{
         Phone.classList.add("validated");
         Phone1=Phone.value;
-        console.log(Phone1+"  GUARDADO");
         errorIcon[9].style.opacity="1";
         successIcon[9].style.opacity="1";
         PhoneV=true;
@@ -463,11 +444,9 @@ Raddress.addEventListener("click",RaddressCheck)
 function RaddressCheck(){
     if(! Raddress.checked){
         RaddressV=false;
-        console.log(RaddressV)
         PhoneParent.appendChild(Val);
     }else{
         RaddressV=true;
-        console.log(RaddressV)
     }
 }
 //Validation Address-Page
@@ -481,14 +460,13 @@ function handelAddressForm(e){
 }
 function nextPage2Fun(){
     ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
-    if( ValidationAddressPageArr.includes(true)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
+    if( ValidationAddressPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationAddressPage=false;
-            console.log("error");
-            console.log(ValidationAddressPageArr)
     }
     else{
         addressPage.classList.add("Hidden");
         shippingPage.classList.remove("Hidden");
+        stepLineAnimation();
         console.log("next");
     }
 }
@@ -503,17 +481,20 @@ premiumShipping.addEventListener('click',shippingTime);
 
 let shippingChoice = '';
 let shippingCost;
-
+let shippingChoiceValidation=false;
 function shippingTime(){
     if (freeShipping.checked) {
+        shippingChoiceValidation=true;
         shippingWindow(72)
         shippingChoice = freeShipping.id.split('-').join(' ');
         shippingCost = 0.00;
     } else if (extraShipping.checked) {
+        shippingChoiceValidation=true;
         shippingWindow(48)
         shippingChoice = extraShipping.id.split('-').join(' ');
         shippingCost = 4.99;
     } else if (premiumShipping.checked) {
+        shippingChoiceValidation=true;
         shippingWindow(24)
         shippingChoice = premiumShipping.id.split('-').join(' ');
         shippingCost = 9.99;
@@ -537,6 +518,25 @@ function shippingWindow(hours) {
     estimatedShippingTime.innerHTML = `Your order will arrive between <b>${earlyArrival}h</b> and <b>${lateArrival}h</b>`;
     shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime)
 }
+//Validation Shipping-Page
+nextPage3=document.querySelector("#nextPage3");
+nextPage3.addEventListener("click",handelAddressForm2);
+let ValidationshippingPageArr=[shippingChoiceValidation];
+function handelAddressForm2(e){
+    e.preventDefault();
+    nextPage3Fun();
+}
+function nextPage3Fun(){
+    ValidationshippingPageArr=[shippingChoiceValidation];
+    if( ValidationshippingPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
+            let validationshippingPage=false;
+    }
+    else{
+        shippingPage.classList.add("Hidden");
+        finishPage.classList.remove("Hidden");
+    }
+}
+
 // Timer box
 const timerBox = document.querySelector('.timerBox');
 const main = document.querySelector('#main');

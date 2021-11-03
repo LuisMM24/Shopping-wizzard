@@ -240,7 +240,7 @@
         <section id="Shipping-page" class="Hidden">
             <h1>Shipping</h1>
             <h3>Shipping type</h3>
-            <form action="" id="shipping-form">
+            <form onsubmit="handelAddressForm2()" id="shipping-form">
                 <div class="shipping-option1">
                     <input type="radio" name="shipping-option" id="Free-shipping" required />
                     <label for="free-shipping">Free shipping (72h)</label>
@@ -263,7 +263,7 @@
                 <button type="button" id="gift-img-btn">Select image</button>
                 <!-- Button reset and next -->
                 <input type="reset" name="reset-form" />
-                <button id="nextPage3">Next</button>
+                <button type="submit" id="nextPage3">Next</button>
             </form>
         </section>
         <!-- Shipping page -->
