@@ -394,3 +394,52 @@ form div label {
 .shipping-span {
   display: block;
 }
+
+/* Finish Page */
+#Finish-page span {
+  padding: 5px 0px;
+  display: block;
+}
+.finish-h1 {
+  background-color: var(--secondary-background-color);
+}
+.finish-content {
+  display: flex;
+  width: 80%
+}
+.product-recap {
+  display: flex;
+  width: 50%;
+}
+.final-product {
+  width: 50%;
+}
+.final-product img{
+  width: 200px;
+}
+.final-product-name {
+  width: 50%;
+}
+.finish-summary {
+  display: flex;
+  justify-content: space-between;
+  width: 100%
+}
+#payment-summary {
+  width: 50%;
+}
+#payment-summary span {
+  display: block;
+  width: 100%;
+}
+.product-specs span {
+  display: block;
+}
+#bottom-row {
+  display: flex;
+  width: 80%;
+}
+.delivery-address {
+  width: 50%;
+}
+

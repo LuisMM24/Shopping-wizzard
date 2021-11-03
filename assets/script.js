@@ -500,6 +500,8 @@ premiumShipping.addEventListener('click',shippingTime);
 
 let shippingChoice = '';
 let shippingCost;
+let deliveryTime;
+
 let shippingChoiceValidation=false;
 function shippingTime(){
     ValidationValueCheck3()
@@ -536,7 +538,8 @@ function shippingWindow(hours) {
     let shippingOption3 = document.querySelector('.shipping-option3')
     let estimatedShippingTime = document.createElement('p');
     estimatedShippingTime.innerHTML = `Your order will arrive between <b>${earlyArrival}h</b> and <b>${lateArrival}h</b>`;
-    shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime)
+    shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime);
+    deliveryTime = estimatedShippingTime;
 }
 //Validation Shipping-Page
 nextPage3=document.querySelector("#nextPage3");
@@ -595,9 +598,31 @@ const timerInterval = setInterval(function() {
 }, 3000);
 
 // Finish page
+
+//TESTING DELETE
+// quantity.value = 2;
+// colorSelected = 'blue';
+// firstName1 = 'Ivan';
+// lastName1 = 'Gunchev';
+// address11 = 'Avda Manuel de Falla 6';
+// postalCode1 = '46000';
+// Country1 = 'Espana';
+// PCC1 = '+34';
+// Phone1 = '600000000';
+
+
 const purchasedProduct = document.querySelector('#purchased-product');
 const deliveryAddress = document.querySelector('.delivery-address');
 const finishPage = document.querySelector('#Finish-page');
+const estimatedDelivery = document.querySelector('#estimated-delivery');
+const productPrice = document.querySelector('.price');
+const itemsTotal = document.querySelector('#items-price');
+const orderTotal = document.querySelector('#order-total');
+const itemsPrice = document.querySelector('#items-price');
+const shippingOption = document.querySelector('#shipping-option');
+const shippingPrice = document.querySelector('#shipping-price');
+const itemSize = document.querySelector('#item-size');
+const itemQuantity = document.querySelector('#item-quantity');
 
 function checkoutAddress() {
     let finalAddress = document.createElement('p');
@@ -609,21 +634,21 @@ function checkoutAddress() {
     `;
     deliveryAddress.appendChild(finalAddress);
 }
-function estimatedDelivery() {
 
-}
 finishPage.addEventListener('click', () => {
     checkoutAddress()
     shippingOption.innerText = shippingChoice;
     shippingPrice.innerText = `${shippingCost}$`;
+    estimatedDelivery.innerText = deliveryTime.innerText;
+    purchasedProduct.src = imgPrincipal.src;
+    itemSize.innerHTML = '<b>Size:</b> M';
+    itemQuantity.innerHTML = '<b>Quantity:</b> 2'
+    itemsTotal.innerText = productPrice.innerText;
+    orderTotal.innerText = parseFloat(itemsTotal.innerText) + shippingCost + '$';
 })
-purchasedProduct.src = '';
 
-// Order summary
-const itemsPrice = document.querySelector('#items-price');
-const shippingOption = document.querySelector('#shipping-option');
-const shippingPrice = document.querySelector('#shipping-price');
-const orderTotal = document.querySelector('#order-total');
+
+
 
 
 
