@@ -179,6 +179,7 @@ let firstName=document.querySelector("#First-name"); //selector to html imput
 let firstNameParent = document.querySelector("#First-name-parent");//selector to parent
 firstName.addEventListener("click",firstNameValueCheck);// click function
 function firstNameValueCheck(){//validation function
+    ValidationValueCheck2()
     if(firstNameParent.children.length>4){ //if parent has more than 1 child
     firstNameParent.removeChild(firstNameParent.lastChild);//delete the messege box
     }
@@ -210,6 +211,7 @@ let lastNameParent = document.querySelector("#Last-name-parent")
 lastName.addEventListener("blur",lastNameValue);
 lastName.addEventListener("click",lastNameValueCheck);
 function lastNameValueCheck(){
+    ValidationValueCheck2()
     if(lastNameParent.children.length>4){
     lastNameParent.removeChild(lastNameParent.lastChild);
     }
@@ -240,6 +242,7 @@ let birthdayParent = document.querySelector("#birthday-parent")
 birthday.addEventListener("blur",birthdayValue);
 birthday.addEventListener("click",birthdayValueCheck);
 function birthdayValueCheck(){
+    ValidationValueCheck2()
     if(birthdayParent.children.length>4){
     birthdayParent.removeChild(birthdayParent.lastChild);
     }
@@ -256,7 +259,7 @@ function birthdayValue(){
     }else{
         birthday.classList.add("validated");
         birthday1=birthday.value;
-        errorIcon[6].style.opacity="10";
+        errorIcon[6].style.opacity="0";
         successIcon[6].style.opacity="1";
         BV=true;
     }
@@ -269,6 +272,7 @@ let address1Parent = document.querySelector("#Address-1-parent")
 address1.addEventListener("blur",address1Value);
 address1.addEventListener("click",address1ValueCheck);
 function address1ValueCheck(){
+    ValidationValueCheck2()
     if(address1Parent.children.length>4){
     address1Parent.removeChild(address1Parent.lastChild);
     }
@@ -285,7 +289,7 @@ function address1Value(){
     }else{
         address1.classList.add("validated");
         address11=address1.value;
-        errorIcon[7].style.opacity="1";
+        errorIcon[7].style.opacity="0";
         successIcon[7].style.opacity="1";
         A1V=true;
     }
@@ -298,7 +302,8 @@ let postalCodeParent = document.querySelector("#Postal-Code-parent")
 postalCode.addEventListener("blur",postalCodeValue);
 postalCode.addEventListener("click",postalCodeValueCheck);
 function postalCodeValueCheck(){
-    if(postalCodeParent.children.length>1){
+    ValidationValueCheck2()
+    if(postalCodeParent.children.length>4){
     postalCodeParent.removeChild(postalCodeParent.lastChild);
     }
     postalCode.classList.remove("validated");
@@ -327,6 +332,7 @@ let CountryParent = document.querySelector("#Country-parent")
 Country.addEventListener("blur",CountryValue);
 Country.addEventListener("click",CountryValueCheck);
 function CountryValueCheck(){
+    ValidationValueCheck2()
     if(CountryParent.children.length>1){
     CountryParent.removeChild(CountryParent.lastChild);
     }
@@ -391,6 +397,7 @@ let PCCParent = document.querySelector("#PCC-parent")
 PCC.addEventListener("blur",PCCValue);
 PCC.addEventListener("click",PCCValueCheck);
 function PCCValueCheck(){
+    ValidationValueCheck2()
     if(PCCParent.children.length>4){
     PCCParent.removeChild(PCCParent.lastChild);
     }
@@ -416,6 +423,7 @@ let PhoneParent = document.querySelector("#Phone-parent")
 Phone.addEventListener("blur",PhoneValue);
 Phone.addEventListener("click",PhoneValueCheck);
 function PhoneValueCheck(){
+    ValidationValueCheck2()
     if(PhoneParent.children.length>1){
     PhoneParent.removeChild(PhoneParent.lastChild);
     }
@@ -453,21 +461,32 @@ function RaddressCheck(){
 nextPage2=document.querySelector("#nextPage2");
 nextPage2.addEventListener("click",handelAddressForm);
 const addressPage=document.querySelector("#Address-page");
+button2Parent=document.querySelector("#button2-parent")
 let ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
 function handelAddressForm(e){
     e.preventDefault();
     nextPage2Fun();
 }
+function ValidationValueCheck2(){//validation function
+    if(button2Parent.children.length>1){ //if parent has more than 1 child
+    button2Parent.removeChild(button2Parent.lastChild);//delete the messege box
+    }
+}
 function nextPage2Fun(){
     ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
     if( ValidationAddressPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationAddressPage=false;
+            let Val;
+            Val = document.createElement('div');
+            Val.classList.add('validation');
+            Val.innerHTML = `Please refill the required fields`;
+            button2Parent.appendChild(Val);
+            return;
     }
     else{
         addressPage.classList.add("Hidden");
         shippingPage.classList.remove("Hidden");
         stepLineAnimation();
-        console.log("next");
     }
 }
 // SHIPPING
@@ -481,8 +500,11 @@ premiumShipping.addEventListener('click',shippingTime);
 
 let shippingChoice = '';
 let shippingCost;
+let deliveryTime;
+
 let shippingChoiceValidation=false;
 function shippingTime(){
+    ValidationValueCheck3()
     if (freeShipping.checked) {
         shippingChoiceValidation=true;
         shippingWindow(72)
@@ -516,20 +538,32 @@ function shippingWindow(hours) {
     let shippingOption3 = document.querySelector('.shipping-option3')
     let estimatedShippingTime = document.createElement('p');
     estimatedShippingTime.innerHTML = `Your order will arrive between <b>${earlyArrival}h</b> and <b>${lateArrival}h</b>`;
-    shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime)
+    shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime);
+    deliveryTime = estimatedShippingTime;
 }
 //Validation Shipping-Page
 nextPage3=document.querySelector("#nextPage3");
 nextPage3.addEventListener("click",handelAddressForm2);
+button3Parent=document.querySelector("#button3-Parent")
 let ValidationshippingPageArr=[shippingChoiceValidation];
 function handelAddressForm2(e){
     e.preventDefault();
     nextPage3Fun();
 }
+function ValidationValueCheck3(){//validation function
+    if(button3Parent.children.length>1){ //if parent has more than 1 child
+    button3Parent.removeChild(button3Parent.lastChild);//delete the messege box
+    }
+}
 function nextPage3Fun(){
     ValidationshippingPageArr=[shippingChoiceValidation];
     if( ValidationshippingPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationshippingPage=false;
+            let Val;
+            Val = document.createElement('div');
+            Val.classList.add('validation');
+            Val.innerHTML = `Please select a shipping choice`;
+            button3Parent.appendChild(Val);
     }
     else{
         shippingPage.classList.add("Hidden");
@@ -564,9 +598,31 @@ const timerInterval = setInterval(function() {
 }, 3000);
 
 // Finish page
+
+//TESTING DELETE
+// quantity.value = 2;
+// colorSelected = 'blue';
+// firstName1 = 'Ivan';
+// lastName1 = 'Gunchev';
+// address11 = 'Avda Manuel de Falla 6';
+// postalCode1 = '46000';
+// Country1 = 'Espana';
+// PCC1 = '+34';
+// Phone1 = '600000000';
+
+
 const purchasedProduct = document.querySelector('#purchased-product');
 const deliveryAddress = document.querySelector('.delivery-address');
 const finishPage = document.querySelector('#Finish-page');
+const estimatedDelivery = document.querySelector('#estimated-delivery');
+const productPrice = document.querySelector('.price');
+const itemsTotal = document.querySelector('#items-price');
+const orderTotal = document.querySelector('#order-total');
+const itemsPrice = document.querySelector('#items-price');
+const shippingOption = document.querySelector('#shipping-option');
+const shippingPrice = document.querySelector('#shipping-price');
+const itemSize = document.querySelector('#item-size');
+const itemQuantity = document.querySelector('#item-quantity');
 
 function checkoutAddress() {
     let finalAddress = document.createElement('p');
@@ -578,21 +634,21 @@ function checkoutAddress() {
     `;
     deliveryAddress.appendChild(finalAddress);
 }
-function estimatedDelivery() {
 
-}
 finishPage.addEventListener('click', () => {
     checkoutAddress()
     shippingOption.innerText = shippingChoice;
     shippingPrice.innerText = `${shippingCost}$`;
+    estimatedDelivery.innerText = deliveryTime.innerText;
+    purchasedProduct.src = imgPrincipal.src;
+    itemSize.innerHTML = '<b>Size:</b> M';
+    itemQuantity.innerHTML = '<b>Quantity:</b> 2'
+    itemsTotal.innerText = productPrice.innerText;
+    orderTotal.innerText = parseFloat(itemsTotal.innerText) + shippingCost + '$';
 })
-purchasedProduct.src = '';
 
-// Order summary
-const itemsPrice = document.querySelector('#items-price');
-const shippingOption = document.querySelector('#shipping-option');
-const shippingPrice = document.querySelector('#shipping-price');
-const orderTotal = document.querySelector('#order-total');
+
+
 
 
 
