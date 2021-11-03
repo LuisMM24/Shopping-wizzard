@@ -19,6 +19,8 @@ const confirmPass=document.getElementById("confirmPass");
 const inputElement= document.querySelectorAll(".input-element")
 const displayError=document.getElementsByClassName("validation")
 const nextButton=document.getElementById("nextPage1");
+const errorIcon = document.querySelectorAll(".failure-icon");
+const successIcon = document.querySelectorAll(".success-icon");
 var arrayValided=[];
 var savedUserName,savedEmail,savedPassword;
 
@@ -53,9 +55,13 @@ function changeDisplayError(n){
     if (errorMsg!=""){
         displayError[n].innerText=errorMsg;
         displayError[n].style.display="block";
+        errorIcon[n].style.opacity="1";
+        successIcon[n].style.opacity="0";
         errorMsg="";
         return arrayValided[n]=false;
     }else{
+        errorIcon[n].style.opacity="0";
+        successIcon[n].style.opacity="1";
         return arrayValided[n]=true;
     }
     
@@ -195,7 +201,7 @@ firstName.addEventListener("blur",firstNameValue);
 firstName.addEventListener("click",firstNameValueCheck);
 
 function firstNameValueCheck(){
-    if(firstNameParent.children.length>1){
+    if(firstNameParent.children.length>4){
     firstNameParent.removeChild(firstNameParent.lastChild);
     }
     firstName.classList.remove("validated");
@@ -207,6 +213,7 @@ function firstNameValue(){
         ValidationMsgText();
         firstName.classList.remove("validated");
         firstNameParent.appendChild(Val);
+        //errorIcon[7].style.opacity="1";
         FNV=false;
     }else{
         firstName.classList.add("validated");
@@ -226,7 +233,7 @@ lastName.addEventListener("blur",lastNameValue);
 lastName.addEventListener("click",lastNameValueCheck);
 
 function lastNameValueCheck(){
-    if(lastNameParent.children.length>1){
+    if(lastNameParent.children.length>4){
     lastNameParent.removeChild(lastNameParent.lastChild);
     }
     lastName.classList.remove("validated");
@@ -239,6 +246,7 @@ function lastNameValue(){
         lastName.classList.remove("validated");
         lastNameParent.appendChild(Val);
         LNV=false;
+        
     }else{
         lastName.classList.add("validated");
         lastName1=lastName.value;
@@ -256,7 +264,7 @@ birthday.addEventListener("blur",birthdayValue);
 birthday.addEventListener("click",birthdayValueCheck);
 
 function birthdayValueCheck(){
-    if(birthdayParent.children.length>1){
+    if(birthdayParent.children.length>4){
     birthdayParent.removeChild(birthdayParent.lastChild);
     }
     birthday.classList.remove("validated");
@@ -286,7 +294,7 @@ address1.addEventListener("blur",address1Value);
 address1.addEventListener("click",address1ValueCheck);
 
 function address1ValueCheck(){
-    if(address1Parent.children.length>1){
+    if(address1Parent.children.length>4){
     address1Parent.removeChild(address1Parent.lastChild);
     }
     address1.classList.remove("validated");
@@ -420,7 +428,7 @@ PCC.addEventListener("blur",PCCValue);
 PCC.addEventListener("click",PCCValueCheck);
 
 function PCCValueCheck(){
-    if(PCCParent.children.length>1){
+    if(PCCParent.children.length>4){
     PCCParent.removeChild(PCCParent.lastChild);
     }
     PCC.classList.remove("validated");

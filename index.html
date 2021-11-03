@@ -117,6 +117,7 @@
                     <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
 
+
                 <div class="input-container">
                     <label for="pass">Password:</label>
                     <i class="before-icon fas fa-lock"></i>
@@ -149,28 +150,43 @@
         <section id="Address-page">
             <h1>Address</h1>
             <form onsubmit="handelAddressForm()" autocomplete="off">
-                <label for="First name">First name</label>
-                <div id="First-name-parent">
+
+                <div id="First-name-parent" class="input-container">
+                    <label for="First name">First name</label>
                     <input type="text" name="First name" id="First-name" required maxlength="20"
                         pattern="[A-Za-z]{0,20}" autocomplete=off>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Last-name">Last name</label>
-                <div id="Last-name-parent">
+
+                <div id="Last-name-parent" class="input-container">
+                    <label for="Last-name">Last name</label>
                     <input type="text" name="Last name" id="Last-name" required maxlength="20">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="birthday">birthday</label>
-                <div id="birthday-parent">
+
+                <div id="birthday-parent" class="input-container">
+                    <label for="birthday">birthday</label>
                     <input type="date" name="birthday" id="birthday" required>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Address 1">Address 1</label>
-                <div id="Address-1-parent">
+
+                <div id="Address-1-parent" class="input-container">
+                    <label for="Address 1">Address 1</label>
                     <input type="text" name="Address 1" id="Address-1" required maxlength="50">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
                 <label for="Address 2">Address 2</label>
                 <input type="text" name="Address 2" id="Address-2" maxlength="50" value="Optional">
-                <label for="Postal Code">Postal Code</label>
-                <div id="Postal-Code-parent">
+
+                <div id="Postal-Code-parent" class="input-container">
+                    <label for="Postal Code">Postal Code</label>
                     <input type="numbers" name="Postal Code" id="Postal-Code" required maxlength="5">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
                 <label for="Country">Country</label>
                 <div id="Country-parent">
@@ -194,10 +210,13 @@
                         <option id="PCCgrecia" value="+30">30 - GRC</option>
                     </select>
                 </div>
-                <label for="Phone">Phone</label>
-                <div id="Phone-parent">
+
+                <div id="Phone-parent" class="input-container">
+                    <label for="Phone">Phone</label>
                     <input type="tel" name="Phone" id="Phone" required maxlength="9" pattern="[0-9]{9,9}"
                         title="9 numbers, 1 letter">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
                 <input type="checkbox" name="regular-address" id="regular-address">
                 <label for="regular-address">This is my regular address</label>
