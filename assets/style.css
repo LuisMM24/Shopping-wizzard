@@ -178,6 +178,13 @@ text-align: center;
 .buyNow-parent{
 position: relative;
 }
+#button2-parent{
+  position:relative;
+}
+#button3-Parent{
+  position:relative;
+}
+
 
 .validated{
   animation-name: validatedok;

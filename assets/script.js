@@ -179,6 +179,7 @@ let firstName=document.querySelector("#First-name"); //selector to html imput
 let firstNameParent = document.querySelector("#First-name-parent");//selector to parent
 firstName.addEventListener("click",firstNameValueCheck);// click function
 function firstNameValueCheck(){//validation function
+    ValidationValueCheck2()
     if(firstNameParent.children.length>4){ //if parent has more than 1 child
     firstNameParent.removeChild(firstNameParent.lastChild);//delete the messege box
     }
@@ -210,6 +211,7 @@ let lastNameParent = document.querySelector("#Last-name-parent")
 lastName.addEventListener("blur",lastNameValue);
 lastName.addEventListener("click",lastNameValueCheck);
 function lastNameValueCheck(){
+    ValidationValueCheck2()
     if(lastNameParent.children.length>4){
     lastNameParent.removeChild(lastNameParent.lastChild);
     }
@@ -240,6 +242,7 @@ let birthdayParent = document.querySelector("#birthday-parent")
 birthday.addEventListener("blur",birthdayValue);
 birthday.addEventListener("click",birthdayValueCheck);
 function birthdayValueCheck(){
+    ValidationValueCheck2()
     if(birthdayParent.children.length>4){
     birthdayParent.removeChild(birthdayParent.lastChild);
     }
@@ -269,6 +272,7 @@ let address1Parent = document.querySelector("#Address-1-parent")
 address1.addEventListener("blur",address1Value);
 address1.addEventListener("click",address1ValueCheck);
 function address1ValueCheck(){
+    ValidationValueCheck2()
     if(address1Parent.children.length>4){
     address1Parent.removeChild(address1Parent.lastChild);
     }
@@ -298,6 +302,7 @@ let postalCodeParent = document.querySelector("#Postal-Code-parent")
 postalCode.addEventListener("blur",postalCodeValue);
 postalCode.addEventListener("click",postalCodeValueCheck);
 function postalCodeValueCheck(){
+    ValidationValueCheck2()
     if(postalCodeParent.children.length>1){
     postalCodeParent.removeChild(postalCodeParent.lastChild);
     }
@@ -327,6 +332,7 @@ let CountryParent = document.querySelector("#Country-parent")
 Country.addEventListener("blur",CountryValue);
 Country.addEventListener("click",CountryValueCheck);
 function CountryValueCheck(){
+    ValidationValueCheck2()
     if(CountryParent.children.length>1){
     CountryParent.removeChild(CountryParent.lastChild);
     }
@@ -391,6 +397,7 @@ let PCCParent = document.querySelector("#PCC-parent")
 PCC.addEventListener("blur",PCCValue);
 PCC.addEventListener("click",PCCValueCheck);
 function PCCValueCheck(){
+    ValidationValueCheck2()
     if(PCCParent.children.length>4){
     PCCParent.removeChild(PCCParent.lastChild);
     }
@@ -416,6 +423,7 @@ let PhoneParent = document.querySelector("#Phone-parent")
 Phone.addEventListener("blur",PhoneValue);
 Phone.addEventListener("click",PhoneValueCheck);
 function PhoneValueCheck(){
+    ValidationValueCheck2()
     if(PhoneParent.children.length>1){
     PhoneParent.removeChild(PhoneParent.lastChild);
     }
@@ -453,21 +461,32 @@ function RaddressCheck(){
 nextPage2=document.querySelector("#nextPage2");
 nextPage2.addEventListener("click",handelAddressForm);
 const addressPage=document.querySelector("#Address-page");
+button2Parent=document.querySelector("#button2-parent")
 let ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
 function handelAddressForm(e){
     e.preventDefault();
     nextPage2Fun();
 }
+function ValidationValueCheck2(){//validation function
+    if(button2Parent.children.length>1){ //if parent has more than 1 child
+    button2Parent.removeChild(button2Parent.lastChild);//delete the messege box
+    }
+}
 function nextPage2Fun(){
     ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
     if( ValidationAddressPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationAddressPage=false;
+            let Val;
+            Val = document.createElement('div');
+            Val.classList.add('validation');
+            Val.innerHTML = `Please refill the required fields`;
+            button2Parent.appendChild(Val);
+            return;
     }
     else{
         addressPage.classList.add("Hidden");
         shippingPage.classList.remove("Hidden");
         stepLineAnimation();
-        console.log("next");
     }
 }
 // SHIPPING
@@ -483,6 +502,7 @@ let shippingChoice = '';
 let shippingCost;
 let shippingChoiceValidation=false;
 function shippingTime(){
+    ValidationValueCheck3()
     if (freeShipping.checked) {
         shippingChoiceValidation=true;
         shippingWindow(72)
@@ -521,15 +541,26 @@ function shippingWindow(hours) {
 //Validation Shipping-Page
 nextPage3=document.querySelector("#nextPage3");
 nextPage3.addEventListener("click",handelAddressForm2);
+button3Parent=document.querySelector("#button3-Parent")
 let ValidationshippingPageArr=[shippingChoiceValidation];
 function handelAddressForm2(e){
     e.preventDefault();
     nextPage3Fun();
 }
+function ValidationValueCheck3(){//validation function
+    if(button3Parent.children.length>1){ //if parent has more than 1 child
+    button3Parent.removeChild(button3Parent.lastChild);//delete the messege box
+    }
+}
 function nextPage3Fun(){
     ValidationshippingPageArr=[shippingChoiceValidation];
     if( ValidationshippingPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationshippingPage=false;
+            let Val;
+            Val = document.createElement('div');
+            Val.classList.add('validation');
+            Val.innerHTML = `Please select a shipping choice`;
+            button3Parent.appendChild(Val);
     }
     else{
         shippingPage.classList.add("Hidden");
