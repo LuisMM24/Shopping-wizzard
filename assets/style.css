@@ -62,9 +62,10 @@ h1 {
 
 footer.sidebar{
   background-color: var(--step-line-color);
-  position: absolute;
+  position: relative;
   bottom: 0px;
-  width: 80%;
+  width: 100%;
+  margin-top: 5px;
 }
 
 .sidebar ul{
@@ -127,10 +128,12 @@ text-align: center;
   flex-direction: column;
   align-items: center;
 }
+
 .page{
   color:var(--secondary-text-color);
   margin-bottom:1rem;
 }
+
 .circle{
   position:relative;
   /* set up layers  */
@@ -140,6 +143,7 @@ text-align: center;
   width:20px;
   height:20px;
 }
+
 /* Current step actions */
 .active{
   background-color: var(--step-line-active);
@@ -150,6 +154,7 @@ text-align: center;
   /* I rest margin 'cause after and before line problems. */
   margin-top:-2px;
 }
+
 .current{
   font-weight: bold;
   color:var(--main-text-color);
@@ -158,8 +163,11 @@ text-align: center;
 }
 /* Step line */
 
+/*Adress Page Style*/
 #Address-page{
-  background-color: rgb(207, 207, 207);
+  background-color: rgb(207, 207, 207, 0.4);
+  border-radius: 10px;
+  padding-bottom: 20px;
 }
 
 /* Step line animation */
@@ -179,6 +187,7 @@ text-align: center;
   border-radius: 10px;
   z-index:3;
 }
+
 .buyNow-parent{
 position: relative;
 }
@@ -263,7 +272,6 @@ button:active{
   color: red;
   font-weight: bold;
   font-size: 20px ;
-  text-align: center;
 }
 
 .galery{
@@ -292,14 +300,18 @@ button:active{
 
 .col-left{
   width: 50%;
-  padding-right: 10px;
+  margin-right: 10px;
 }
 
 .col-right{
   width: 50%;
-  padding-left: 10px;
+  margin-left: 10px;
+}
+
+.description {
   background-color: rgba(202, 202, 202, 0.2);
   border-radius: 20px;
+  padding: 2%;
 }
 
 .colorLents{
@@ -312,12 +324,18 @@ button:active{
   cursor:pointer;
 }
 
+.colorLents:hover{
+  opacity: 1;
+}
+
 .colorLents:active{
-  border-color: var(--main-color) ;
+  border: 2px solid var(--main-color) ;
+  box-shadow: 0px 0px 5px var(--main-color);
 }
 
 .selected{
   opacity: 1.0;
+  border-color: var(--main-color);
 }
 
 #Unds{
