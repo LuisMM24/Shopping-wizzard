@@ -29,6 +29,8 @@ imgColorLent.forEach(element => { //Recorre la colección de imágenes
     );
 });
 
+
+// Cambio de cantidad de compra
 function decrement(){
     var quantity=document.getElementById('quantity');
     if (quantity.value<=1) return;
@@ -42,6 +44,9 @@ function increment(){
     quantity.innerHTML=quantity.value;
 }
 
+
+//botón Buy validación y guardado de variables
 function buyNow(){
-    
+    var unidadBuy= quantity.value;
+    console.log(unidadBuy +" "+ colorSelected);
 }
