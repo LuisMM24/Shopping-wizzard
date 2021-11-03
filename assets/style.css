@@ -34,6 +34,12 @@ section {
   flex-direction: column;
   align-items: center;
 }
+form{
+  display: flex;
+  gap:10px;
+  flex-wrap: wrap;
+  width: 50%;
+}
 
 h1 {
   font-size: 20px;
@@ -179,7 +185,6 @@ text-align: center;
 #Address-page{
   background-color: rgb(207, 207, 207, 0.4);
   border-radius: 10px;
-  padding-bottom: 20px;
 }
 
 /* Step line animation */
@@ -222,7 +227,16 @@ position: relative;
 }
 
 /* Input styles */
- input {
+select{
+  background-color: rgb(253, 253, 253);
+  color: var(--main-text-color);
+  border:2px solid  var(--main-color);
+  border-radius: 8px;
+  outline:none;
+  padding:5px 30px;
+  box-shadow:2px 2px 4px rgba(0, 0, 0, 0.39);;
+}
+input {
   background-color: rgb(253, 253, 253);
   color: var(--main-text-color);
   border:2px solid  var(--main-color);
@@ -396,7 +410,7 @@ button:active{
   flex-direction:column;
   height: 3.5rem;
   margin-bottom:2.5rem;
-  width:60%;
+  width:35%;
   /* height: 75px; */
 }
 

@@ -335,7 +335,7 @@ Country.addEventListener("blur",CountryValue);
 Country.addEventListener("click",CountryValueCheck);
 function CountryValueCheck(){
     ValidationValueCheck2()
-    if(CountryParent.children.length>1){
+    if(CountryParent.children.length>2){
     CountryParent.removeChild(CountryParent.lastChild);
     }
     Country.classList.remove("validated");
