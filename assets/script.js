@@ -1,3 +1,5 @@
+//EXPORTS
+
 //PROFILE FORMS
 //declarations
 const profileForm = document.getElementById("Profile-page")
@@ -6,7 +8,7 @@ const email=document.getElementById("email");
 const password=document.getElementById("pass");
 const confirmPass=document.getElementById("confirmPass");
 const inputElement= document.querySelectorAll(".input-element")
-const displayError=document.getElementsByClassName("validation")
+const displayError=document.getElementsByClassName("error-container")
 const nextButton=document.getElementById("nextPage1");
 const errorIcon = document.querySelectorAll(".failure-icon");
 const successIcon = document.querySelectorAll(".success-icon");
@@ -36,11 +38,13 @@ function changeDisplayError(n){
         displayError[n].style.display="block";
         errorIcon[n].style.opacity="1";
         successIcon[n].style.opacity="0";
+        inputElement[n].style.borderColor="red";
         errorMsg="";
         return arrayValided[n]=false;
     }else{
         errorIcon[n].style.opacity="0";
         successIcon[n].style.opacity="1";
+        inputElement[n].style.borderColor="green";
         return arrayValided[n]=true;
     }
     
@@ -105,7 +109,6 @@ function checkProfileForm(event){
         savedEmail=email.value;
         savedPassword=password.value;
         profileForm.style.display="none";
-        stepLineAnimation();
         console.log(savedPassword,savedUserName,savedEmail);
         addressPage.classList.remove("Hidden");
     }
@@ -187,10 +190,15 @@ function firstNameValue(){
         ValidationMsgText();
         firstName.classList.remove("validated");//remove validated stetics
         firstNameParent.appendChild(Val);//append message box
+        errorIcon[4].style.opacity="1";
+        successIcon[4].style.opacity="0";
+        
         FNV=false;//validation value check: not validated
     }else{//regex false, validated
         firstName.classList.add("validated");//validated stetics
         firstName1=firstName.value;//new variable value.
+        errorIcon[4].style.opacity="0";
+        successIcon[4].style.opacity="1";
         FNV=true;//validation value check: validated
     }
 }
@@ -213,12 +221,16 @@ function lastNameValue(){
         ValidationMsg();
         lastName.classList.remove("validated");
         lastNameParent.appendChild(Val);
+        errorIcon[5].style.opacity="1";
+        successIcon[5].style.opacity="0";
         LNV=false;
         
     }else{
         lastName.classList.add("validated");
         lastName1=lastName.value;
         console.log(lastName1+"  GUARDADO");
+        errorIcon[5].style.opacity="0";
+        successIcon[5].style.opacity="1";
         LNV=true;
     }
 }
@@ -241,11 +253,15 @@ function birthdayValue(){
         ValidationMsg();
         birthday.classList.remove("validated");
         birthdayParent.appendChild(Val);
+        errorIcon[6].style.opacity="1";
+        successIcon[6].style.opacity="0";
         BV=false;
     }else{
         birthday.classList.add("validated");
         birthday1=birthday.value;
         console.log(birthday1+"  GUARDADO");
+        errorIcon[6].style.opacity="10";
+        successIcon[6].style.opacity="1";
         BV=true;
     }
 }
@@ -268,11 +284,15 @@ function address1Value(){
         ValidationMsg();
         address1.classList.remove("validated");
         address1Parent.appendChild(Val);
+        errorIcon[7].style.opacity="1";
+        successIcon[7].style.opacity="0";
         A1V=false;
     }else{
         address1.classList.add("validated");
         address11=address1.value;
         console.log(address11+"  GUARDADO");
+        errorIcon[7].style.opacity="1";
+        successIcon[7].style.opacity="1";
         A1V=true;
     }
 }
@@ -295,11 +315,15 @@ function postalCodeValue(){
         ValidationMsgPostalCode();
         postalCode.classList.remove("validated");
         postalCodeParent.appendChild(Val);
+        errorIcon[8].style.opacity="1";
+        successIcon[8].style.opacity="0";
         PCV=false;
     }else{
         postalCode.classList.add("validated");
         postalCode1=postalCode.value;
         console.log(postalCode1+"  GUARDADO");
+        errorIcon[8].style.opacity="0";
+        successIcon[8].style.opacity="1";
         PCV=true;
     }
 }
@@ -420,11 +444,15 @@ function PhoneValue(){
         ValidationMsgPhone();
         Phone.classList.remove("validated");
         PhoneParent.appendChild(Val);
+        errorIcon[9].style.opacity="1";
+        successIcon[9].style.opacity="0";
         PhoneV=false;
     }else{
         Phone.classList.add("validated");
         Phone1=Phone.value;
         console.log(Phone1+"  GUARDADO");
+        errorIcon[9].style.opacity="1";
+        successIcon[9].style.opacity="1";
         PhoneV=true;
     }
 }

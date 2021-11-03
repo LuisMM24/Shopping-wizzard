@@ -1,3 +1,4 @@
+
 var imgPrincipal = document.getElementById('principal');
 var containerGalery=document.querySelector('.miniSlide');
 containerGalery.addEventListener('mouseover', showSlides);
@@ -7,6 +8,9 @@ Lent.addEventListener('click', changeColor);
 var colorSelected= "";
 var colorSelectedValidation=false;
 var ProductPage=document.querySelector("#product-page")
+
+
+
 //Cambio imagen Principal Galería
 function showSlides(e){
     imgPrincipal.src=e.target.src;
