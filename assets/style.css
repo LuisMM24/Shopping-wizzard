@@ -27,6 +27,7 @@ main {
 section {
   display:flex;
   flex-direction: column;
+  align-items: center;
 }
 
 /* Timer Box */
@@ -63,7 +64,7 @@ section {
   background-color:var(--step-line-color);
   z-index:1;
 }
-/* dont know why before and after */
+
 .step{
   display:flex;
   flex-direction: column;
@@ -89,7 +90,6 @@ section {
   height:25px;
   transition:0.5s ease;
   transition-delay: 1.5s;
-  
   /* I rest margin 'cause after and before line problems. */
   margin-top:-2px;
 }
@@ -104,15 +104,10 @@ section {
 #Address-page{
   background-color: rgb(207, 207, 207);
 }
-/* #First-name{
-}
+
 /* Step line animation */
 
 /* Validation classes */
-#Profile-page .validation{
-  display:none;
-}
-
 
 .validation{
   margin: 15px;
@@ -132,24 +127,33 @@ section {
   0% { border: 2px solid greenyellow; }
   100% {border: 2px solid rgb(167, 167, 255); }
 }
-
+/* Input styles */
 input {
-  background-color: rgb(167, 167, 255);
-  color: var(--secondary-text-color);
-  border:2px solid rgb(167, 167, 255);
-  border-radius: 10px;
-
+  background-color: rgb(253, 253, 253);
+  color: var(--main-text-color);
+  border:2px solid  var(--main-color);
+  border-radius: 8px;
+  outline:none;
+  padding:5px 30px;
+  box-shadow:2px 2px 4px rgba(0, 0, 0, 0.39);;
 }
+input:focus{
+  border: 2px solid #f2796e;
+}
+
 label {
   font-size: large;
   color: var(--secondary-text-color)
 }
+
 section input {
   display: block;
 }
+
 section label {
   display: block;
 }
+
 h1 {
   width: 100%;
 }
@@ -239,6 +243,49 @@ h1 {
 
 .Hidden{
   display: none;
+}
+
+/* PROFILE SECTION */
+
+#Profile-page .input-container{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  margin-bottom:2.5rem;
+  width:100%;
+}
+
+#Profile-page .validation{
+  display:none;
+  position:absolute;
+  left:100%;
+}
+/* Icons profile form */
+
+form div i{
+  position:absolute;
+  padding:10px;
+  top:35%;
+}
+.failure-icon,
+.error {
+  color: red;
+}
+
+.success-icon {
+  color: green;
+}
+
+.success-icon,
+.failure-icon {
+  right: 0;
+  opacity:0;
+}
+
+
+.error {
+  font-size: 14.5px;
+  margin-top: 5px;
 }
 
 /* SHIPPING SECTION */
