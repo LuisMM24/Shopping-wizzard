@@ -30,6 +30,7 @@ imgColorLent.forEach(element => { //Recorre la colección de imágenes
         imgColorLent.forEach(element => {
             element.classList.remove ("selected")}); // elimina la clase de cada elemento de la imagen si ya está creada
             e.target.classList.add("selected"); //Selecciona cada elemento con target, y le añade la clase selected a la imagen seleccionada;
+            imgPrincipal.src=e.target.src;
             colorSelected=e.target.name;
             colorSelectedValidation=true;
     }
