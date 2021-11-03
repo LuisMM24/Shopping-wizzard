@@ -514,20 +514,29 @@ function nextPage2Fun(){
 
 // SHIPPING
 
-const freeShipping = document.querySelector('#free-shipping');
+const freeShipping = document.querySelector('#Free-shipping');
 freeShipping.addEventListener('click',shippingTime);
-const extraShipping = document.querySelector('#extra-shipping');
+const extraShipping = document.querySelector('#Extra-shipping');
 extraShipping.addEventListener('click',shippingTime);
-const premiumShipping = document.querySelector('#premium-shipping');
+const premiumShipping = document.querySelector('#Premium-shipping');
 premiumShipping.addEventListener('click',shippingTime);
+
+let shippingChoice = '';
+let shippingCost;
 
 function shippingTime(){
     if (freeShipping.checked) {
         shippingWindow(72)
+        shippingChoice = freeShipping.id.split('-').join(' ');
+        shippingCost = 0.00;
     } else if (extraShipping.checked) {
         shippingWindow(48)
+        shippingChoice = extraShipping.id.split('-').join(' ');
+        shippingCost = 4.99;
     } else if (premiumShipping.checked) {
         shippingWindow(24)
+        shippingChoice = premiumShipping.id.split('-').join(' ');
+        shippingCost = 9.99;
     }
 
 }
@@ -578,3 +587,39 @@ const timerInterval = setInterval(function() {
         closePopup();
     }, 1000);
 }, 3000);
+
+// Finish page
+const purchasedProduct = document.querySelector('#purchased-product');
+const deliveryAddress = document.querySelector('.delivery-address');
+const finishPage = document.querySelector('#Finish-page');
+
+function checkoutAddress() {
+    let finalAddress = document.createElement('p');
+    finalAddress.innerText = 
+    `${firstName1} ${lastName1}
+    ${address11}
+    ${postalCode1} ${Country1}
+    Contact: ${PCC1}${Phone1}
+    `;
+    deliveryAddress.appendChild(finalAddress);
+}
+function estimatedDelivery() {
+
+}
+finishPage.addEventListener('click', () => {
+    checkoutAddress()
+    shippingOption.innerText = shippingChoice;
+    shippingPrice.innerText = `${shippingCost}$`;
+})
+purchasedProduct.src = '';
+
+// Order summary
+const itemsPrice = document.querySelector('#items-price');
+const shippingOption = document.querySelector('#shipping-option');
+const shippingPrice = document.querySelector('#shipping-price');
+const orderTotal = document.querySelector('#order-total');
+
+
+
+
+
