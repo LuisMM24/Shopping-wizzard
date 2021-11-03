@@ -44,6 +44,7 @@ function increment(){
     quantity.innerHTML=quantity.value;
 }
 
+
 //botón Buy validación y guardado de variables
 function buyNow(){
     var unidadBuy= quantity.value;
