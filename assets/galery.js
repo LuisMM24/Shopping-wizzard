@@ -92,6 +92,7 @@ function buyNow(){
         ProductPage.classList.add("Hidden");
         stepLine.classList.remove("Hidden");
         profileForm.classList.remove("Hidden");
+        stepLineAnimation();
         console.log("quantity.value "+quantity.value);
         console.log("colorSelected "+colorSelected);
         console.log("imgPrincipal.src "+imgPrincipal.src);

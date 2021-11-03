@@ -466,6 +466,8 @@ function nextPage2Fun(){
     else{
         addressPage.classList.add("Hidden");
         shippingPage.classList.remove("Hidden");
+        stepLineAnimation();
+        console.log("next");
     }
 }
 // SHIPPING
