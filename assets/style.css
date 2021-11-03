@@ -22,9 +22,9 @@ main {
   background-color: var(--main-bg-color);
 }
 
-.Hidden{
+/* .Hidden{
   display: none !important;
-}
+} */
 
 section {
   display:flex;
