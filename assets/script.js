@@ -259,7 +259,7 @@ function birthdayValue(){
     }else{
         birthday.classList.add("validated");
         birthday1=birthday.value;
-        errorIcon[6].style.opacity="10";
+        errorIcon[6].style.opacity="0";
         successIcon[6].style.opacity="1";
         BV=true;
     }
@@ -289,7 +289,7 @@ function address1Value(){
     }else{
         address1.classList.add("validated");
         address11=address1.value;
-        errorIcon[7].style.opacity="1";
+        errorIcon[7].style.opacity="0";
         successIcon[7].style.opacity="1";
         A1V=true;
     }
@@ -303,7 +303,7 @@ postalCode.addEventListener("blur",postalCodeValue);
 postalCode.addEventListener("click",postalCodeValueCheck);
 function postalCodeValueCheck(){
     ValidationValueCheck2()
-    if(postalCodeParent.children.length>1){
+    if(postalCodeParent.children.length>4){
     postalCodeParent.removeChild(postalCodeParent.lastChild);
     }
     postalCode.classList.remove("validated");
