@@ -474,7 +474,7 @@ function ValidationValueCheck2(){//validation function
 }
 function nextPage2Fun(){
     ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
-    if( ValidationAddressPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
+    if( ValidationAddressPageArr.includes(true)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationAddressPage=false;
             let Val;
             Val = document.createElement('div');
