@@ -71,7 +71,7 @@
                 <div>
                     <h3>Sizes</h3>
                     <select name="sizes" id="sizes-glass">
-                        <option selected="true">Choose your size</option>
+                        <option selected="true" value="" disabled>Choose your size</option>
                         <option value="S">S &lt;50mm / 135mm</option>
                         <option value="M">M 51mm-54mm / 140mm</option>
                         <option value="L">L &gt;55mm / 145mm</option>
@@ -87,7 +87,9 @@
                     <input value="1" id="quantity" />
                     <div onclick="increment()">►</div>
                 </div>
+                <div class="buyNow-parent">
                 <button id="buyNow" onclick="buyNow()">Buy Now</button>
+                </div>
             </article>
         </section>
         <!-- Product page -->
