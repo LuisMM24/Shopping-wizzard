@@ -20,7 +20,7 @@
     <main id='main'>
         <!-- Timer Box -->
         <!-- Step line -->
-        <section id="step-line">
+        <section id="step-line" class="Hidden">
             <div class="current step">
                 <div class="page">Profile</div>
                 <div class="circle active"></div>
@@ -68,7 +68,7 @@
                 </div>
                 <div>
                     <h3>Sizes</h3>
-                    <select name="sizes">
+                    <select name="sizes" id="sizes-glass">
                         <option selected="true">Choose your size</option>
                         <option value="S">S &lt;50mm / 135mm</option>
                         <option value="M">M 51mm-54mm / 140mm</option>
@@ -90,7 +90,7 @@
         </section>
         <!-- Product page -->
         <!-- Profile page -->
-        <section id="Profile-page">
+        <section id="Profile-page" class="Hidden">
             <form name="profile" action="">
 
 
@@ -123,7 +123,7 @@
         </section>
         <!-- Profile page -->
         <!-- Address page -->
-        <section id="Address-page">
+        <section id="Address-page" class="Hidden">
             <h1>Address</h1>
             <form onsubmit="handelAddressForm()" autocomplete="off">
                 <label for="First name">First name</label>
@@ -188,7 +188,7 @@
 
 
         <!-- Shipping page -->
-        <section id="Shipping-page">
+        <section id="Shipping-page" class="Hidden">
             <h1>Shipping</h1>
             <h3>Shipping type</h3>
             <form action="" id="shipping-form">
@@ -220,7 +220,7 @@
         <!-- Shipping page -->
 
         <!-- finish page -->
-        <section id="Finish-page"></section>
+        <section id="Finish-page" class="Hidden"></section>
         <!-- finish page -->
     </main>
 

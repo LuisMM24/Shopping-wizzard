@@ -24,6 +24,10 @@ main {
   background-color: var(--main-bg-color);
 }
 
+.Hidden{
+  display: none !important;
+}
+
 section {
   display:flex;
   flex-direction: column;
@@ -31,6 +35,7 @@ section {
 
 /* Timer Box */
 #timerBox {
+  position: absolute;
   background-color: var(--secondary-text-color);
   max-width: 35%;
   padding: 10px;
@@ -103,11 +108,7 @@ section {
 #Address-page{
   background-color: rgb(207, 207, 207);
 }
-/* #First-name{
-}
-/* Step line animation */
 
-/* Validation classes */
 #Profile-page .validation{
   display:none;
 }
@@ -236,9 +237,7 @@ h1 {
   background-color: var(--main-bg-color);
 }
 
-.Hidden{
-  display: none;
-}
+
 
 /* SHIPPING SECTION */
 form div input {

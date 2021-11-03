@@ -1,15 +1,4 @@
-// All the JS validation messages will be displayed in the screen below the respective input in a paragraph with the custom message.
-// This element must be loaded in the HTML using Javascript.
-// You will need to apply custom styles to the inputs that have not passed the validation to apply some error styling, such as the letter or container being shown in red
-
-
-// EXTRA
-// All the input validation should be done after users have entered a value, this means that you should only validate the value in the input fields after a value has been entered and not before users interact with the inputs.
-// The validation should be done when the input field loses focus, that is, users type a value, they change focus to another element, then the field validation runs.
-// After a validation message is entered and users focus the input element to adjust the value, the validation message and any error styles should be removed until the user has entered a new value and the focus is lost from the input field as before.
-
-//profile form
-
+//PROFILE FORMS
 //declarations
 const profileForm = document.getElementById("Profile-page")
 const userName=document.getElementById("username");
@@ -21,26 +10,17 @@ const displayError=document.getElementsByClassName("validation")
 const nextButton=document.getElementById("nextPage1");
 var arrayValided=[];
 var savedUserName,savedEmail,savedPassword;
-
 //step line declarations
 var line = document.getElementById("line");
 var textStepLine = document.getElementsByClassName("step");
 var circleStepLine = document.getElementsByClassName("circle");
 var counter=0;
-
 //validations step 1-profile
 userName.addEventListener("blur",validUserName);
-
 email.addEventListener("blur",validEmail);
-
 password.addEventListener("blur",validPass);
-
 confirmPass.addEventListener("blur",validConfirmPass);
-
 nextButton.addEventListener("click",checkProfileForm)
-
-
-
 var errorMsg="";
 //hide error
     inputElement.forEach(input=>{
@@ -48,7 +28,6 @@ var errorMsg="";
             input.nextElementSibling.style.display="none";
         })
     })
-
 function changeDisplayError(n){
     if (errorMsg!=""){
         displayError[n].innerText=errorMsg;
@@ -60,7 +39,6 @@ function changeDisplayError(n){
     }
     
 }
-
 function validUserName(){
         if(userName.value=="")errorMsg="You have to introduce your username";
         else if(userName.value.length<5)errorMsg="Username too short(5 chars)";
@@ -115,13 +93,14 @@ function checkProfileForm(event){
     console.log("result array "+result);
     console.log("result array length "+result.length);
     console.log("input element length "+inputElement.length);
-    if(result.length==inputElement.length){
+    if(result.length<=inputElement.length){//CAMBIAR A == PARA VALIDAR
         stepLineAnimation();
         savedUserName=userName.value;
         savedEmail=email.value;
         savedPassword=password.value;
         profileForm.style.display="none";
         console.log(savedPassword,savedUserName,savedEmail);
+        addressPage.classList.remove("Hidden");
     }
 }
 //STEP LINE SECTION
@@ -155,12 +134,13 @@ function stepLineAnimation(){
         counter = 0;
       }
 }
+//ADDRESS PAGE
 //function to create validation child
-let Val;
-function ValidationMsg(){
-    Val = document.createElement('div');
-    Val.classList.add('validation');
-    Val.innerHTML = `Obligatory field`;
+let Val;//variable to create messaga box
+function ValidationMsg(){//function to create variable box
+    Val = document.createElement('div');//create div element
+    Val.classList.add('validation');//create validation class
+    Val.innerHTML = `Obligatory field`;//create innerText for message box
     }
 function ValidationMsgTotal(){
     Val = document.createElement('div');
@@ -172,66 +152,54 @@ function ValidationMsgText(){
     Val.classList.add('validation');
     Val.innerHTML = `Obligatory field, only text`;
     }
-
 function ValidationMsgPostalCode(){
     Val = document.createElement('div');
     Val.classList.add('validation');
     Val.innerHTML = `Obligatory field, 5 digits all nums`;
     }
-
 function ValidationMsgPhone(){
     Val = document.createElement('div');
     Val.classList.add('validation');
-    Val.innerHTML = `Obligatory field, 5 digits all nums`;
+    Val.innerHTML = `Obligatory field, 9 digits all nums`;
     }
-
 //validation first name
-let firstName1 = "";
-let FNV=false;
-let firstName=document.querySelector("#First-name");
-let firstNameParent = document.querySelector("#First-name-parent");
-
-firstName.addEventListener("blur",firstNameValue);
-firstName.addEventListener("click",firstNameValueCheck);
-
-function firstNameValueCheck(){
-    if(firstNameParent.children.length>1){
-    firstNameParent.removeChild(firstNameParent.lastChild);
+let firstName1 = ""; //first name value
+let FNV=false;//firs name validation value check
+let firstName=document.querySelector("#First-name"); //selector to html imput
+let firstNameParent = document.querySelector("#First-name-parent");//selector to parent
+firstName.addEventListener("click",firstNameValueCheck);// click function
+function firstNameValueCheck(){//validation function
+    if(firstNameParent.children.length>1){ //if parent has more than 1 child
+    firstNameParent.removeChild(firstNameParent.lastChild);//delete the messege box
     }
-    firstName.classList.remove("validated");
+    firstName.classList.remove("validated");//remove validated class to not have red stetics
 }
-
+firstName.addEventListener("blur",firstNameValue);//blur function (when loses focus)
 function firstNameValue(){
-    if (firstName.value == null || firstName.value.length==0|| /^\s+$/.test(firstName.value) ||!(/^[a-zA-Z\s]{0,20}$/.test(firstName.value))){
-        console.log(firstName1 + "REQUERIDO");
+    if (firstName.value == null || firstName.value.length==0|| /^\s+$/.test(firstName.value) ||!(/^[a-zA-Z\s]{0,20}$/.test(firstName.value))){//regex if true, not validated
         ValidationMsgText();
-        firstName.classList.remove("validated");
-        firstNameParent.appendChild(Val);
-        FNV=false;
-    }else{
-        firstName.classList.add("validated");
-        firstName1=firstName.value;
-        console.log(firstName1+"  GUARDADO");
-        FNV=true;
+        firstName.classList.remove("validated");//remove validated stetics
+        firstNameParent.appendChild(Val);//append message box
+        FNV=false;//validation value check: not validated
+    }else{//regex false, validated
+        firstName.classList.add("validated");//validated stetics
+        firstName1=firstName.value;//new variable value.
+        FNV=true;//validation value check: validated
     }
 }
-
 //validation last name
 let lastName1 = "";
 let LNV=false;
 let lastName=document.querySelector("#Last-name");
 let lastNameParent = document.querySelector("#Last-name-parent")
-
 lastName.addEventListener("blur",lastNameValue);
 lastName.addEventListener("click",lastNameValueCheck);
-
 function lastNameValueCheck(){
     if(lastNameParent.children.length>1){
     lastNameParent.removeChild(lastNameParent.lastChild);
     }
     lastName.classList.remove("validated");
 }
-
 function lastNameValue(){
     if ( lastName.value == null || lastName.value.length==0|| /^\s+$/.test(lastName.value) ||!(/^[a-zA-Z\s]{0,20}$/.test(lastName.value)) ){
         console.log(lastName1 + "REQUERIDO");
@@ -251,17 +219,14 @@ let birthday1 = "";
 let BV=false;
 let birthday=document.querySelector("#birthday");
 let birthdayParent = document.querySelector("#birthday-parent")
-
 birthday.addEventListener("blur",birthdayValue);
 birthday.addEventListener("click",birthdayValueCheck);
-
 function birthdayValueCheck(){
     if(birthdayParent.children.length>1){
     birthdayParent.removeChild(birthdayParent.lastChild);
     }
     birthday.classList.remove("validated");
 }
-
 function birthdayValue(){
     if (birthday.value == ""){
         console.log(birthday1 + "REQUERIDO");
@@ -281,17 +246,14 @@ let address11 = "";
 let A1V=false;
 let address1=document.querySelector("#Address-1");
 let address1Parent = document.querySelector("#Address-1-parent")
-
 address1.addEventListener("blur",address1Value);
 address1.addEventListener("click",address1ValueCheck);
-
 function address1ValueCheck(){
     if(address1Parent.children.length>1){
     address1Parent.removeChild(address1Parent.lastChild);
     }
     address1.classList.remove("validated");
 }
-
 function address1Value(){
     if ( address1.value == null || address1.value.length==0|| /^\s+$/.test(address1.value) ||!(/^[\da-zA-Z\s]{0,20}$/.test(address1.value)) ){
         console.log(address11 + "REQUERIDO");
@@ -311,17 +273,14 @@ let postalCode1 = "";
 let PCV=false;
 let postalCode=document.querySelector("#Postal-Code");
 let postalCodeParent = document.querySelector("#Postal-Code-parent")
-
 postalCode.addEventListener("blur",postalCodeValue);
 postalCode.addEventListener("click",postalCodeValueCheck);
-
 function postalCodeValueCheck(){
     if(postalCodeParent.children.length>1){
     postalCodeParent.removeChild(postalCodeParent.lastChild);
     }
     postalCode.classList.remove("validated");
 }
-
 function postalCodeValue(){
     if ( postalCode.value == null || postalCode.value.length==0|| /^\s+$/.test(postalCode.value) ||!(/^[\d]{5}$/.test(postalCode.value)) ){
         console.log(postalCode1 + "REQUERIDO");
@@ -341,17 +300,14 @@ let Country1 = "";
 let CountryV=false;
 let Country=document.querySelector("#Country");
 let CountryParent = document.querySelector("#Country-parent")
-
 Country.addEventListener("blur",CountryValue);
 Country.addEventListener("click",CountryValueCheck);
-
 function CountryValueCheck(){
     if(CountryParent.children.length>1){
     CountryParent.removeChild(CountryParent.lastChild);
     }
     Country.classList.remove("validated");
 }
-
 function CountryValue(){
     if (Country.value == ""){
         console.log(Country1 + "REQUERIDO");
@@ -415,17 +371,14 @@ let PCC1 = "";
 let PCCV=false;
 let PCC=document.querySelector("#PCC");
 let PCCParent = document.querySelector("#PCC-parent")
-
 PCC.addEventListener("blur",PCCValue);
 PCC.addEventListener("click",PCCValueCheck);
-
 function PCCValueCheck(){
     if(PCCParent.children.length>1){
     PCCParent.removeChild(PCCParent.lastChild);
     }
     PCC.classList.remove("validated");
 }
-
 function PCCValue(){
     if (PCC.value == ""){
         console.log(PCC1 + "REQUERIDO");
@@ -445,17 +398,14 @@ let Phone1 = "";
 let PhoneV=false;
 let Phone=document.querySelector("#Phone");
 let PhoneParent = document.querySelector("#Phone-parent")
-
 Phone.addEventListener("blur",PhoneValue);
 Phone.addEventListener("click",PhoneValueCheck);
-
 function PhoneValueCheck(){
     if(PhoneParent.children.length>1){
     PhoneParent.removeChild(PhoneParent.lastChild);
     }
     Phone.classList.remove("validated");
 }
-
 function PhoneValue(){
     if (Phone.value == "" || isNaN(Phone.value)||Phone.value.length !=9 ){
         console.log(Phone1 + "REQUERIDO");
@@ -470,11 +420,9 @@ function PhoneValue(){
         PhoneV=true;
     }
 }
-
 //Validation regular-address
 let RaddressV=false;
 let Raddress=document.querySelector("#regular-address");
-
 Raddress.addEventListener("click",RaddressCheck)
 function RaddressCheck(){
     if(! Raddress.checked){
@@ -486,41 +434,36 @@ function RaddressCheck(){
         console.log(RaddressV)
     }
 }
-
 //Validation Address-Page
 nextPage2=document.querySelector("#nextPage2");
 nextPage2.addEventListener("click",handelAddressForm);
-
+const addressPage=document.querySelector("#Address-page");
 let ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
-
 function handelAddressForm(e){
     e.preventDefault();
     nextPage2Fun();
 }
 function nextPage2Fun(){
     ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
-    if( ValidationAddressPageArr.includes(false)) {
+    if( ValidationAddressPageArr.includes(true)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationAddressPage=false;
             console.log("error");
             console.log(ValidationAddressPageArr)
     }
     else{
-        const addressPage=document.querySelector("#Address-page");
         addressPage.classList.add("Hidden");
+        shippingPage.classList.remove("Hidden");
         console.log("next");
     }
 }
-
-
 // SHIPPING
-
+const shippingPage=document.querySelector("#Shipping-page")
 const freeShipping = document.querySelector('#free-shipping');
 freeShipping.addEventListener('click',shippingTime);
 const extraShipping = document.querySelector('#extra-shipping');
 extraShipping.addEventListener('click',shippingTime);
 const premiumShipping = document.querySelector('#premium-shipping');
 premiumShipping.addEventListener('click',shippingTime);
-
 function shippingTime(){
     if (freeShipping.checked) {
         shippingWindow(72)
@@ -548,13 +491,10 @@ function shippingWindow(hours) {
     estimatedShippingTime.innerHTML = `Your order will arrive between <b>${earlyArrival}h</b> and <b>${lateArrival}h</b>`;
     shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime)
 }
-
-
 // Timer box
 const timerBox = document.querySelector('.timerBox');
 const main = document.querySelector('#main');
 let timerCount = 1;
-
 function openPopup() {
     let timerMsg = document.createElement('div');
     timerMsg.id = 'timerBox';
@@ -562,7 +502,6 @@ function openPopup() {
     main.insertAdjacentElement('afterbegin', timerMsg);
     timerCount +=1;
 }
-
 function closePopup() {
     if (timerCount === 6) {
         clearInterval(timerInterval);
@@ -571,10 +510,9 @@ function closePopup() {
     timerMsg.style.display = 'none';
     main.removeChild(main.firstChild);
 }
-
 const timerInterval = setInterval(function() {
     openPopup();
     setTimeout(function() {
         closePopup();
-    }, 1000);
-}, 3000);
+    }, 15000);
+}, 15000);
