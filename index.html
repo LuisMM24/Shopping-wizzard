@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="assets/style.css" />
     <script src="assets/script.js" defer></script>
     <script src="assets/galery.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 
@@ -21,9 +23,9 @@
         <!-- Timer Box -->
         <!-- Step line -->
         <section id="step-line" class="Hidden">
-            <div class="current step">
+            <div class="step">
                 <div class="page">Profile</div>
-                <div class="circle active"></div>
+                <div class="circle"></div>
             </div>
             <div class="step">
                 <div class="page">Address</div>
@@ -85,34 +87,55 @@
                     <input value="1" id="quantity" />
                     <div onclick="increment()">►</div>
                 </div>
-                <button id="buyNow">Buy Now</button>
+                <button id="buyNow" onclick="buyNow()">Buy Now</button>
             </article>
         </section>
         <!-- Product page -->
         <!-- Profile page -->
         <section id="Profile-page" class="Hidden">
+            <h1>Profile Page</h1>
             <form name="profile" action="">
+                <div class="input-container">
+                    <label for="username">Username:</label>
+                    <i class="before-icon fas fa-user"></i>
+                    <input type="text" name="username" id="username" class="input-element"
+                        placeholder="introduce your username">
+                    <div class="validation"></div>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
+                </div>
 
 
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" class="input-element"
-                    placeholder="introduce your username">
-                <div class="validation"></div>
+                <div class="input-container">
+                    <label for="email">Email:</label>
+                    <i class="before-icon fa fa-envelope icon"></i>
+                    <input type="email" name="email" class="input-element" id="email"
+                        placeholder="introduce your email">
+                    <div class="validation"></div>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
+                </div>
 
 
-                <label for="email">Email:</label>
-                <input type="email" name="email" class="input-element" id="email" placeholder="introduce your email">
-                <div class="validation"></div>
+                <div class="input-container">
+                    <label for="pass">Password:</label>
+                    <i class="before-icon fas fa-lock"></i>
+                    <input type="password" name="pass" id="pass" class="input-element"
+                        placeholder="introduce your password">
+                    <div class="validation"></div>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
+                </div>
 
-                <label for="pass">Password:</label>
-                <input type="password" name="pass" id="pass" class="input-element"
-                    placeholder="introduce your password">
-                <div class="validation"></div>
 
-
-                <label for="confirmPass">Confirm password:</label>
-                <input type="password" name="confirmpass" class="input-element" id="confirmPass">
-                <div class="validation"></div>
+                <div class="input-container">
+                    <label for="confirmPass">Confirm password:</label>
+                    <i class="before-icon fas fa-lock"></i>
+                    <input type="password" name="confirmpass" class="input-element" id="confirmPass">
+                    <div class="validation"></div>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
+                </div>
 
 
                 <!-- Button reset and next -->
@@ -126,28 +149,43 @@
         <section id="Address-page" class="Hidden">
             <h1>Address</h1>
             <form onsubmit="handelAddressForm()" autocomplete="off">
-                <label for="First name">First name</label>
-                <div id="First-name-parent">
+
+                <div id="First-name-parent" class="input-container">
+                    <label for="First name">First name</label>
                     <input type="text" name="First name" id="First-name" required maxlength="20"
                         pattern="[A-Za-z]{0,20}" autocomplete=off>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Last-name">Last name</label>
-                <div id="Last-name-parent">
+
+                <div id="Last-name-parent" class="input-container">
+                    <label for="Last-name">Last name</label>
                     <input type="text" name="Last name" id="Last-name" required maxlength="20">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="birthday">birthday</label>
-                <div id="birthday-parent">
+
+                <div id="birthday-parent" class="input-container">
+                    <label for="birthday">birthday</label>
                     <input type="date" name="birthday" id="birthday" required>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Address 1">Address 1</label>
-                <div id="Address-1-parent">
+
+                <div id="Address-1-parent" class="input-container">
+                    <label for="Address 1">Address 1</label>
                     <input type="text" name="Address 1" id="Address-1" required maxlength="50">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
                 <label for="Address 2">Address 2</label>
                 <input type="text" name="Address 2" id="Address-2" maxlength="50" value="Optional">
-                <label for="Postal Code">Postal Code</label>
-                <div id="Postal-Code-parent">
+
+                <div id="Postal-Code-parent" class="input-container">
+                    <label for="Postal Code">Postal Code</label>
                     <input type="numbers" name="Postal Code" id="Postal-Code" required maxlength="5">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
                 <label for="Country">Country</label>
                 <div id="Country-parent">
@@ -171,10 +209,13 @@
                         <option id="PCCgrecia" value="+30">30 - GRC</option>
                     </select>
                 </div>
-                <label for="Phone">Phone</label>
-                <div id="Phone-parent">
+
+                <div id="Phone-parent" class="input-container">
+                    <label for="Phone">Phone</label>
                     <input type="tel" name="Phone" id="Phone" required maxlength="9" pattern="[0-9]{9,9}"
                         title="9 numbers, 1 letter">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
                 <input type="checkbox" name="regular-address" id="regular-address">
                 <label for="regular-address">This is my regular address</label>
@@ -193,15 +234,15 @@
             <h3>Shipping type</h3>
             <form action="" id="shipping-form">
                 <div class="shipping-option1">
-                    <input type="radio" name="shipping-option" id="free-shipping" required />
+                    <input type="radio" name="shipping-option" id="Free-shipping" required />
                     <label for="free-shipping">Free shipping (72h)</label>
                 </div>
                 <div class="shipping-option2">
-                    <input type="radio" name="shipping-option" id="extra-shipping" />
+                    <input type="radio" name="shipping-option" id="Extra-shipping" />
                     <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
                 </div>
                 <div class="shipping-option3">
-                    <input type="radio" name="shipping-option" id="premium-shipping" />
+                    <input type="radio" name="shipping-option" id="Premium-shipping" />
                     <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
                 </div>
                 <div class="gift-option">
@@ -220,7 +261,33 @@
         <!-- Shipping page -->
 
         <!-- finish page -->
-        <section id="Finish-page" class="Hidden"></section>
+        <section id="Finish-page" class="Hidden">
+            <h1>Thank you for your order!</h1>
+            <div class="product-recap">
+                <div class="estimated-delivery">
+
+                </div>
+                <div class="final-product">
+                    <img src="" alt="" id="purchased-product">
+                </div>
+                <div class="delivery-address">
+
+                </div>
+
+            </div>
+            <div id="payment-summary">
+                <h3><b>Order Summary</b></h3>
+                <span>Items:</span>
+                <span id="items-price"></span>
+                <span id="shipping-option"></span>
+                <span id="shipping-price"></span>
+                <hr>
+                <span >Order total:</span>
+                <span id="order-total"></span>
+                </span>
+
+            </div>
+        </section>
         <!-- finish page -->
     </main>
 

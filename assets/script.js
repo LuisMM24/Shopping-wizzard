@@ -8,6 +8,8 @@ const confirmPass=document.getElementById("confirmPass");
 const inputElement= document.querySelectorAll(".input-element")
 const displayError=document.getElementsByClassName("validation")
 const nextButton=document.getElementById("nextPage1");
+const errorIcon = document.querySelectorAll(".failure-icon");
+const successIcon = document.querySelectorAll(".success-icon");
 var arrayValided=[];
 var savedUserName,savedEmail,savedPassword;
 //step line declarations
@@ -32,9 +34,13 @@ function changeDisplayError(n){
     if (errorMsg!=""){
         displayError[n].innerText=errorMsg;
         displayError[n].style.display="block";
+        errorIcon[n].style.opacity="1";
+        successIcon[n].style.opacity="0";
         errorMsg="";
         return arrayValided[n]=false;
     }else{
+        errorIcon[n].style.opacity="0";
+        successIcon[n].style.opacity="1";
         return arrayValided[n]=true;
     }
     
@@ -99,6 +105,7 @@ function checkProfileForm(event){
         savedEmail=email.value;
         savedPassword=password.value;
         profileForm.style.display="none";
+        stepLineAnimation();
         console.log(savedPassword,savedUserName,savedEmail);
         addressPage.classList.remove("Hidden");
     }
@@ -169,7 +176,7 @@ let firstName=document.querySelector("#First-name"); //selector to html imput
 let firstNameParent = document.querySelector("#First-name-parent");//selector to parent
 firstName.addEventListener("click",firstNameValueCheck);// click function
 function firstNameValueCheck(){//validation function
-    if(firstNameParent.children.length>1){ //if parent has more than 1 child
+    if(firstNameParent.children.length>4){ //if parent has more than 1 child
     firstNameParent.removeChild(firstNameParent.lastChild);//delete the messege box
     }
     firstName.classList.remove("validated");//remove validated class to not have red stetics
@@ -195,7 +202,7 @@ let lastNameParent = document.querySelector("#Last-name-parent")
 lastName.addEventListener("blur",lastNameValue);
 lastName.addEventListener("click",lastNameValueCheck);
 function lastNameValueCheck(){
-    if(lastNameParent.children.length>1){
+    if(lastNameParent.children.length>4){
     lastNameParent.removeChild(lastNameParent.lastChild);
     }
     lastName.classList.remove("validated");
@@ -207,6 +214,7 @@ function lastNameValue(){
         lastName.classList.remove("validated");
         lastNameParent.appendChild(Val);
         LNV=false;
+        
     }else{
         lastName.classList.add("validated");
         lastName1=lastName.value;
@@ -222,7 +230,7 @@ let birthdayParent = document.querySelector("#birthday-parent")
 birthday.addEventListener("blur",birthdayValue);
 birthday.addEventListener("click",birthdayValueCheck);
 function birthdayValueCheck(){
-    if(birthdayParent.children.length>1){
+    if(birthdayParent.children.length>4){
     birthdayParent.removeChild(birthdayParent.lastChild);
     }
     birthday.classList.remove("validated");
@@ -249,7 +257,7 @@ let address1Parent = document.querySelector("#Address-1-parent")
 address1.addEventListener("blur",address1Value);
 address1.addEventListener("click",address1ValueCheck);
 function address1ValueCheck(){
-    if(address1Parent.children.length>1){
+    if(address1Parent.children.length>4){
     address1Parent.removeChild(address1Parent.lastChild);
     }
     address1.classList.remove("validated");
@@ -374,7 +382,7 @@ let PCCParent = document.querySelector("#PCC-parent")
 PCC.addEventListener("blur",PCCValue);
 PCC.addEventListener("click",PCCValueCheck);
 function PCCValueCheck(){
-    if(PCCParent.children.length>1){
+    if(PCCParent.children.length>4){
     PCCParent.removeChild(PCCParent.lastChild);
     }
     PCC.classList.remove("validated");
@@ -458,19 +466,29 @@ function nextPage2Fun(){
 }
 // SHIPPING
 const shippingPage=document.querySelector("#Shipping-page")
-const freeShipping = document.querySelector('#free-shipping');
+const freeShipping = document.querySelector('#Free-shipping');
 freeShipping.addEventListener('click',shippingTime);
-const extraShipping = document.querySelector('#extra-shipping');
+const extraShipping = document.querySelector('#Extra-shipping');
 extraShipping.addEventListener('click',shippingTime);
-const premiumShipping = document.querySelector('#premium-shipping');
+const premiumShipping = document.querySelector('#Premium-shipping');
 premiumShipping.addEventListener('click',shippingTime);
+
+let shippingChoice = '';
+let shippingCost;
+
 function shippingTime(){
     if (freeShipping.checked) {
         shippingWindow(72)
+        shippingChoice = freeShipping.id.split('-').join(' ');
+        shippingCost = 0.00;
     } else if (extraShipping.checked) {
         shippingWindow(48)
+        shippingChoice = extraShipping.id.split('-').join(' ');
+        shippingCost = 4.99;
     } else if (premiumShipping.checked) {
         shippingWindow(24)
+        shippingChoice = premiumShipping.id.split('-').join(' ');
+        shippingCost = 9.99;
     }
 
 }
@@ -514,5 +532,41 @@ const timerInterval = setInterval(function() {
     openPopup();
     setTimeout(function() {
         closePopup();
-    }, 15000);
-}, 15000);
+    }, 1000);
+}, 3000);
+
+// Finish page
+const purchasedProduct = document.querySelector('#purchased-product');
+const deliveryAddress = document.querySelector('.delivery-address');
+const finishPage = document.querySelector('#Finish-page');
+
+function checkoutAddress() {
+    let finalAddress = document.createElement('p');
+    finalAddress.innerText = 
+    `${firstName1} ${lastName1}
+    ${address11}
+    ${postalCode1} ${Country1}
+    Contact: ${PCC1}${Phone1}
+    `;
+    deliveryAddress.appendChild(finalAddress);
+}
+function estimatedDelivery() {
+
+}
+finishPage.addEventListener('click', () => {
+    checkoutAddress()
+    shippingOption.innerText = shippingChoice;
+    shippingPrice.innerText = `${shippingCost}$`;
+})
+purchasedProduct.src = '';
+
+// Order summary
+const itemsPrice = document.querySelector('#items-price');
+const shippingOption = document.querySelector('#shipping-option');
+const shippingPrice = document.querySelector('#shipping-price');
+const orderTotal = document.querySelector('#order-total');
+
+
+
+
+
