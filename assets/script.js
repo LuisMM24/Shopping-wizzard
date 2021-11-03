@@ -1,3 +1,5 @@
+//EXPORTS
+
 //PROFILE FORMS
 //declarations
 const profileForm = document.getElementById("Profile-page")
@@ -6,7 +8,7 @@ const email=document.getElementById("email");
 const password=document.getElementById("pass");
 const confirmPass=document.getElementById("confirmPass");
 const inputElement= document.querySelectorAll(".input-element")
-const displayError=document.getElementsByClassName("validation")
+const displayError=document.getElementsByClassName("error-container")
 const nextButton=document.getElementById("nextPage1");
 const errorIcon = document.querySelectorAll(".failure-icon");
 const successIcon = document.querySelectorAll(".success-icon");
@@ -105,7 +107,6 @@ function checkProfileForm(event){
         savedEmail=email.value;
         savedPassword=password.value;
         profileForm.style.display="none";
-        stepLineAnimation();
         console.log(savedPassword,savedUserName,savedEmail);
         addressPage.classList.remove("Hidden");
     }
