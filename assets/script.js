@@ -303,7 +303,7 @@ postalCode.addEventListener("blur",postalCodeValue);
 postalCode.addEventListener("click",postalCodeValueCheck);
 function postalCodeValueCheck(){
     ValidationValueCheck2()
-    if(postalCodeParent.children.length>1){
+    if(postalCodeParent.children.length>4){
     postalCodeParent.removeChild(postalCodeParent.lastChild);
     }
     postalCode.classList.remove("validated");
