@@ -638,6 +638,29 @@ const shippingOption = document.querySelector('#shipping-option');
 const shippingPrice = document.querySelector('#shipping-price');
 const itemSize = document.querySelector('#item-size');
 const itemQuantity = document.querySelector('#item-quantity');
+const placeOrderBtn = document.querySelector('#place-order');
+const timeElapsed = document.querySelector('#time-elapsed');
+
+let endDate;
+let millis;
+let minutes;
+let seconds
+
+function millisToMinutesAndSeconds(millis) {
+    minutes = Math.floor(millis / 60000);
+    seconds = ((millis % 60000) / 1000).toFixed(0);
+    // console.log(minutes + " minutes " + 'and ' + seconds + ' seconds');
+  }
+
+placeOrderBtn.addEventListener('click', () => {
+    endDate = new Date();
+    millis = endDate - startDate;
+    millisToMinutesAndSeconds(millis);
+    const totalTimeElapsed = document.createElement('p');
+    totalTimeElapsed.innerHTML = `Your registration took ${minutes} minutes and ${seconds} seconds`
+    // totalTimeElapsed.innerHTML = 'Your registration took' + minutes + " minutes " + 'and ' + seconds + ' seconds';
+    timeElapsed.appendChild(totalTimeElapsed);
+})
 
 function checkoutAddress() {
     let finalAddress = document.createElement('p');
@@ -649,10 +672,6 @@ function checkoutAddress() {
     `;
     deliveryAddress.appendChild(finalAddress);
 }
-
-// finishPage.addEventListener('click', () => {
-    
-// })
 
 
 

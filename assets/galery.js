@@ -9,6 +9,7 @@ var colorSelected= "";
 var colorSelectedValidation=false;
 var ProductPage=document.querySelector("#product-page")
 var quantity=document.getElementById('quantity');
+let startDate;
 
 
 
@@ -93,6 +94,8 @@ function buyNow(){
         stepLine.classList.remove("Hidden");
         profileForm.classList.remove("Hidden");
         stepLineAnimation();
+        startDate = new Date();
+        console.log(startDate);
         console.log("quantity.value "+quantity.value);
         console.log("colorSelected "+colorSelected);
         console.log("imgPrincipal.src "+imgPrincipal.src);

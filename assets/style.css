@@ -25,9 +25,9 @@ main {
   border-radius: 20px;
 }
 
-.Hidden{
+/* .Hidden{
   display: none !important;
-}
+} */
 
 section {
   display:flex;
