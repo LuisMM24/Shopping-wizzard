@@ -529,10 +529,9 @@ function shippingTime(){
 
 }
 function shippingWindow(hours) {
-    let shippingParagraph = document.querySelector('#Shipping-page p');
+    let shippingParagraph = document.querySelector('#delivery-msg p');
     if (shippingParagraph) {
-        const shippingForm = document.querySelector('.shipping-options');
-        shippingForm.removeChild(shippingParagraph);
+        deliveryMsg.removeChild(shippingParagraph);
     }
     let date1 = new Date();
     let date2 = new Date();
@@ -542,11 +541,12 @@ function shippingWindow(hours) {
     let lateArrival = date2.toString().slice(0, 21);
     let shippingOption3 = document.querySelector('.shipping-option3')
     let estimatedShippingTime = document.createElement('p');
-    estimatedShippingTime.classList.add("estimatedTime")
+    // estimatedShippingTime.classList.add("estimatedTime")
     estimatedShippingTime.innerHTML = `Your order will arrive between <b>${earlyArrival}h</b> and <b>${lateArrival}h</b>`;
-    shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime);
+    deliveryMsg.appendChild(estimatedShippingTime);
     deliveryTime = estimatedShippingTime;
 }
+
 //Validation Shipping-Page
 nextPage3=document.querySelector("#nextPage3");
 nextPage3.addEventListener("click",handelAddressForm2);
@@ -558,7 +558,7 @@ function handelAddressForm2(e){
 }
 function ValidationValueCheck3(){//validation function
     if(button3Parent.children.length>2){ //if parent has more than 1 child
-    button3Parent.removeChild(button3Parent.lastChild);//delete the messege box
+    giftOption.removeChild(giftOption.nextElementSibling);//delete the messege box
     }
 }
 function nextPage3Fun(){
@@ -575,43 +575,43 @@ function nextPage3Fun(){
         shippingPage.classList.add("Hidden");
         finishPage.classList.remove("Hidden");
         stepLineAnimation();
-        checkoutAddress()
+        // checkoutAddress();
         shippingOption.innerText = shippingChoice;
         shippingPrice.innerText = `${shippingCost}$`;
         estimatedDelivery.innerText = deliveryTime.innerText;
         purchasedProduct.src = imgPrincipal.src;
-        itemSize.innerHTML = '<b>Size:</b> M';
-        itemQuantity.innerHTML = '<b>Quantity:</b> 2'
-        itemsTotal.innerText = productPrice.innerText;
-        orderTotal.innerText = parseFloat(itemsTotal.innerText) + shippingCost + '$';
+        itemSize.innerHTML = `<b>Size:</b> ${sizeGlass1}`;
+        itemQuantity.innerHTML = `<b>Quantity:</b> ${quantity.value}`;
+        itemsTotal.innerText = (quantity.value * 38.90).toFixed(2) + '$';
+        orderTotal.innerText = (parseFloat(itemsTotal.innerText) + shippingCost).toFixed(2) + '$';
     }
 }
 
 // Timer box
-// const timerBox = document.querySelector('.timerBox');
-// const main = document.querySelector('#main');
-// let timerCount = 1;
-// function openPopup() {
-//     let timerMsg = document.createElement('div');
-//     timerMsg.id = 'timerBox';
-//     timerMsg.innerHTML = `You started registering <b>${timerCount} minutes ago</b>. Hurry up!`;
-//     main.insertAdjacentElement('afterbegin', timerMsg);
-//     timerCount +=1;
-// }
-// function closePopup() {
-//     if (timerCount === 6) {
-//         clearInterval(timerInterval);
-//     }
-//     const timerMsg = document.querySelector('#timerBox')
-//     timerMsg.style.display = 'none';
-//     main.removeChild(main.firstChild);
-// }
-// const timerInterval = setInterval(function() {
-//     openPopup();
-//     setTimeout(function() {
-//         closePopup();
-//     }, 1000);
-// }, 3000);
+const timerBox = document.querySelector('.timerBox');
+const body = document.querySelector('section');
+let timerCount = 1;
+function openPopup() {
+    let timerMsg = document.createElement('div');
+    timerMsg.id = 'timerBox';
+    timerMsg.innerHTML = `You started registering <b>${timerCount} minutes ago</b>. Hurry up!`;
+    body.insertAdjacentElement('afterbegin', timerMsg);
+    timerCount +=1;
+}
+function closePopup() {
+    if (timerCount === 6) {
+        clearInterval(timerInterval);
+    }
+    const timerMsg = document.querySelector('#timerBox')
+    timerMsg.style.display = 'none';
+    body.removeChild(main.firstChild);
+}
+const timerInterval = setInterval(function() {
+    openPopup();
+    setTimeout(function() {
+        closePopup();
+    }, 5000);
+}, 10000);
 
 // Finish page
 
@@ -641,6 +641,13 @@ const itemSize = document.querySelector('#item-size');
 const itemQuantity = document.querySelector('#item-quantity');
 const placeOrderBtn = document.querySelector('#place-order');
 const timeElapsed = document.querySelector('#time-elapsed');
+const giftOption = document.querySelector('.gift-option');
+const deliveryMsg = document.querySelector('#delivery-msg');
+const resetShippingMsg = document.querySelector('#reset-shipping');
+
+resetShippingMsg.addEventListener('click', () =>{
+    deliveryMsg.removeChild(deliveryMsg.lastChild)
+});
 
 let endDate;
 let millis;
@@ -663,16 +670,16 @@ placeOrderBtn.addEventListener('click', () => {
     timeElapsed.appendChild(totalTimeElapsed);
 })
 
-function checkoutAddress() {
-    let finalAddress = document.createElement('p');
-    finalAddress.innerText = 
-    `${firstName1} ${lastName1}
-    ${address11}
-    ${postalCode1} ${Country1}
-    Contact: ${PCC1}${Phone1}
-    `;
-    deliveryAddress.appendChild(finalAddress);
-}
+// function checkoutAddress() {
+//     let finalAddress = document.createElement('p');
+//     finalAddress.innerText =
+//     `${firstName1} ${lastName1}
+//     ${address11}
+//     ${postalCode1} ${Country1}
+//     Contact: ${PCC1}${Phone1}
+//     `;
+//     deliveryAddress.appendChild(finalAddress);
+// }
 
 
 
