@@ -15,7 +15,12 @@ let startDate;
 
 //Cambio imagen Principal Galería
 function showSlides(e){
-    imgPrincipal.src=e.target.src;
+    if (e.target.src) {
+        imgPrincipal.src=e.target.src;
+    } else {
+        imgPrincipal.src;
+    }
+    
 }
 //Cambio imagen principal color
 function changeColor(e){

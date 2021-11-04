@@ -3,10 +3,13 @@
   --main-text-color: rgb(60, 60, 60);
   --secondary-text-color: rgb(120, 120, 120);
   --main-color: rgb(115,155,224);
-  --main-color-opacity: rgb(115,155,224, 0.4)
+  --main-color-opacity: rgb(115,155,224, 0.8);
   --step-line-active:rgb(173, 216, 230);
   --step-line-color: rgb(202, 202, 202);
   --form-background-color:#FEE9ED;
+  --orange: #FF8766;
+  --light-orange: #FFB466;
+  --green: #B6EF99;
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
@@ -21,8 +24,8 @@ body {
 }
 
 main {
-  background-color: var(--main-bg-color);
-  border-radius: 20px;
+  /* background-color: var(--main-bg-color); */
+  /* border-radius: 20px; */
 }
 
 /* .Hidden{
@@ -105,6 +108,14 @@ text-align: center;
   text-shadow: 0px 0px 10px var(--step-line-active);
 }
 
+#Unds .fas {
+  font-size: 30px;
+  margin: 0px 5px;
+}
+#Unds .fas:active {
+  transform: scale(0.8);
+}
+
 /* Timer Box */
 #timerBox {
   position: absolute;
@@ -163,7 +174,7 @@ text-align: center;
 
 /* Current step actions */
 .active{
-  background-color: var(--step-line-active);
+  background-color: var(--main-color);
   width:25px;
   height:25px;
   transition:0.5s ease;
@@ -260,8 +271,26 @@ text-align: center;
 }
 
 .buyNow-parent{
-position: relative;
-}
+  position: relative;
+  width:40%;
+  }
+  #buyNow{
+    padding:10px;
+    width:100%;
+    font-size:1rem;
+    background-color: var(--orange);
+    transition: transform 0.5s ease;
+    font-weight: bold;
+    border: none;
+  }
+
+  #buyNow:hover{
+    transform: scale(1.1);
+    background-color:var(--light-orange);
+    transition:0.5s;
+    color: var(--main-text-color);
+    
+  }
 #button2-parent{
   position:relative;
   width:100%;
@@ -356,12 +385,17 @@ button:active{
   opacity:0.8;
 }
 
+#shopContainer{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 
 /*Style product Page*/
 #product-page{
   flex-direction: row;
   margin-top: 2%;
-  height: 90vh;
 }
 
 #principal{
@@ -378,19 +412,21 @@ button:active{
 .galery{
   display: flex;
   flex-direction: column;
-  margin: 0 5%;
+  justify-content: space-between;
 }
 
 .galery .miniSlide{
   display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
   padding: 0;
-  margin: 0;
+  margin-top: 5px;
   text-align: center;
 }
 
 .galery .miniature {
-  width: 20%;
-  opacity: 0.4;
+  width:49%;
+  opacity: 0.8;
   padding: 2px 0px;
   object-fit: cover;
 }
@@ -410,21 +446,43 @@ button:active{
   margin-left: 10px;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 800px) {
+  body {
+    width: 100%;
+    margin: 0;
+  }
+  section {
+    width: 100%;
+  }
+  .col-left {
+    width: 100%;
+    margin: 0;
+  }
+  .col-right {
+    width: 100%;
+    margin: 0;
+  }
+  .description {
+    border-radius:0px !important;
+    padding: 0px 20px;
+  }
   #product-page{
     flex-direction: column;
   }
 }
 
 .description {
-  background-color: rgba(202, 202, 202, 0.2);
+  /* background-color: rgba(202, 202, 202, 0.2); */
   border-radius: 20px;
-  padding: 2%;
-  height: 90%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.description p {
+  text-align: justify;
 }
 
 .description h1{
-  text-align: center;
+  text-align: left;
 }
 .colorLents{
   border-radius: 100%;
@@ -458,7 +516,8 @@ button:active{
 }
 
 #quantity{
-  width: 20px;
+  width: 40px;
+  padding: 5px 10px;
   text-align: center;
   background-color: var(--main-bg-color);
 }
@@ -514,7 +573,10 @@ button:active{
   position:relative;
   width:500px;
 }
-
+#Profile-page input{
+  width:150px;
+  line-height: 1.5;
+}
 
 #Profile-page .input-container{
   position:relative;
@@ -548,9 +610,14 @@ form div i{
   color: green;
 }
 
-.success-icon,
+/* .success-icon,
 .failure-icon {
-  right: 0;
+  left: 50%;
+  opacity:0;
+} */
+#Profile-page .success-icon,
+#Profile-page .failure-icon {
+  left: 100%;
   opacity:0;
 }
 
@@ -582,8 +649,16 @@ form div i{
 }
 
 /* Finish Page */
+#Finish-page {
+  background-image: url('/assets/img/shades-bg.jpg');
+  background-size: cover;
+  background-position: bottom 200px;
+}
 #finish-container{
   display:flex;
+}
+#payment-summary {
+  background: var(--main-color-opacity);
 }
 #payment-summary label{
   font-size:0.8rem;

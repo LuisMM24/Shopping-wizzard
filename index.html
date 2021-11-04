@@ -53,11 +53,12 @@
         <!-- Product page -->
         <section id="product-page">
             <nav class="galery col-left">
-                <img id="principal" src="assets\img\blue1.jpg" alt="" />
+                <div>
+                    <img id="principal" src="assets\img\blue-girl.jpg" alt="" />
+                </div>
                 <div class="miniSlide">
                     <img src="assets\img\blue3.jpg" alt="" class="miniature" />
                     <img src="assets\img\blue2.jpg" alt="" class="miniature" />
-                    <img src="assets\img\blue1.jpg" alt="" class="miniature" />
                     <img src="assets\img\blue-boy.jpg" alt="" class="miniature" />
                     <img src="assets\img\blue-girl.jpg" alt="" class="miniature" />
                 </div>
@@ -66,8 +67,7 @@
                 <h1>Sunglasses Square</h1>
                 <p class="price">38.90$</p>
                 <h2>Description</h2>
-                <p>text</p>
-                <h2>Features</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quia et accusamus sit consequatur fugiat, reiciendis ad eaque. Nemo minima ad praesentium dolorum inventore ipsam neque, fugit sapiente obcaecati.</p>
                 <h3>Lents colors</h3>
                 <div id="Lents">
                     <img class="colorLents" src="assets\img\blue.jpg" name="blue" />
@@ -88,13 +88,15 @@
                     <a href="https://www.lentiamo.es/correcta-talla-gafas-de-sol.html" target="_blank">click
                         here.</a>
                 </p>
-                <div id="Unds">
-                    <div onclick="decrement()">◄</div>
-                    <input value="1" id="quantity" readonly />
-                    <div onclick="increment()">►</div>
-                </div>
-                <div class="buyNow-parent">
-                    <button id="buyNow" onclick="buyNow()">Buy Now</button>
+                <div id="shopContainer">
+                    <div id="Unds">
+                        <div onclick="decrement()"><i class="fas fa-caret-left"></i></div>
+                        <input value="1" id="quantity" readonly />
+                        <div onclick="increment()"><i class="fas fa-caret-right"></i></div>
+                    </div>
+                    <div class="buyNow-parent">
+                        <button id="buyNow" onclick="buyNow()">Buy Now</button>
+                    </div>
                 </div>
             </article>
         </section>

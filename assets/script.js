@@ -479,7 +479,7 @@ function ValidationValueCheck2(){//validation function
 }
 function nextPage2Fun(){
     ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
-    if( ValidationAddressPageArr.includes(true)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
+    if( ValidationAddressPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationAddressPage=false;
             let Val;
             Val = document.createElement('div');
@@ -616,7 +616,7 @@ function nextPage3Fun(){
 // Finish page
 
 //TESTING DELETE
- quantity.value = 2;
+//  quantity.value = 2;
  colorSelected = 'blue';
  firstName1 = 'Ivan';
  lastName1 = 'Gunchev';
