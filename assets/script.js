@@ -473,7 +473,7 @@ function handelAddressForm(e){
     nextPage2Fun();
 }
 function ValidationValueCheck2(){//validation function
-    if(button2Parent.children.length>1){ //if parent has more than 1 child
+    if(button2Parent.children.length>2){ //if parent has more than 1 child
     button2Parent.removeChild(button2Parent.lastChild);//delete the messege box
     }
 }
@@ -531,7 +531,7 @@ function shippingTime(){
 function shippingWindow(hours) {
     let shippingParagraph = document.querySelector('#Shipping-page p');
     if (shippingParagraph) {
-        const shippingForm = document.querySelector('#shipping-form');
+        const shippingForm = document.querySelector('.shipping-options');
         shippingForm.removeChild(shippingParagraph);
     }
     let date1 = new Date();
@@ -542,6 +542,7 @@ function shippingWindow(hours) {
     let lateArrival = date2.toString().slice(0, 21);
     let shippingOption3 = document.querySelector('.shipping-option3')
     let estimatedShippingTime = document.createElement('p');
+    estimatedShippingTime.classList.add("estimatedTime")
     estimatedShippingTime.innerHTML = `Your order will arrive between <b>${earlyArrival}h</b> and <b>${lateArrival}h</b>`;
     shippingOption3.insertAdjacentElement("afterend", estimatedShippingTime);
     deliveryTime = estimatedShippingTime;
@@ -556,7 +557,7 @@ function handelAddressForm2(e){
     nextPage3Fun();
 }
 function ValidationValueCheck3(){//validation function
-    if(button3Parent.children.length>1){ //if parent has more than 1 child
+    if(button3Parent.children.length>2){ //if parent has more than 1 child
     button3Parent.removeChild(button3Parent.lastChild);//delete the messege box
     }
 }
@@ -615,15 +616,15 @@ function nextPage3Fun(){
 // Finish page
 
 //TESTING DELETE
-// quantity.value = 2;
-// colorSelected = 'blue';
-// firstName1 = 'Ivan';
-// lastName1 = 'Gunchev';
-// address11 = 'Avda Manuel de Falla 6';
-// postalCode1 = '46000';
-// Country1 = 'Espana';
-// PCC1 = '+34';
-// Phone1 = '600000000';
+ quantity.value = 2;
+ colorSelected = 'blue';
+ firstName1 = 'Ivan';
+ lastName1 = 'Gunchev';
+ address11 = 'Avda Manuel de Falla 6';
+ postalCode1 = '46000';
+ Country1 = 'Espana';
+ PCC1 = '+34';
+ Phone1 = '600000000';
 
 
 const purchasedProduct = document.querySelector('#purchased-product');
