@@ -410,6 +410,12 @@ button:active{
   margin-left: 10px;
 }
 
+@media only screen and (min-width: 600px) {
+  #product-page{
+    flex-direction: column;
+  }
+}
+
 .description {
   background-color: rgba(202, 202, 202, 0.2);
   border-radius: 20px;
