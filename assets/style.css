@@ -29,9 +29,9 @@ body {
   position:relative;
 }
 
-/* .Hidden{
+.Hidden{
   display: none !important;
-} */
+}
 
 section {
   display:flex;
@@ -800,8 +800,9 @@ grid-area: msg
 }
 
 .TCmsg {
-  border: 1px solid red;
-  background-color: rgba(255, 0, 0, 0.5);
+  border: 1px solid rgba(255, 0, 0, 0.747);
+  background-color: rgba(253, 103, 103, 0.3);
   color: black;
   padding: 5px 10px;
+  border-radius: 5px;
 }
