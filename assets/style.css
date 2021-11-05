@@ -34,8 +34,8 @@ body::before {
   background-repeat:repeat;
   background-size:cover;
   background-attachment: fixed;
-  /* filter: grayscale(100%); */
-  filter: hue-rotate(90deg);
+  filter: grayscale(100%);
+  /* filter: hue-rotate(90deg); */
 }
 main {
   position: relative;
