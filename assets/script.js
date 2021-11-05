@@ -2,14 +2,15 @@
 
 //PROFILE FORMS
 //declarations
+const productPage = document.getElementById("product-page")
 const profileForm = document.getElementById("Profile-page")
 const userName=document.getElementById("username");
 const email=document.getElementById("email");
 const password=document.getElementById("pass");
 const confirmPass=document.getElementById("confirmPass");
 const inputElement= document.querySelectorAll(".input-element")
-const displayError=document.getElementsByClassName("error-container")
-const nextButton=document.getElementById("nextPage1");
+const displayError=document.getElementsByClassName("error-container") //container for error message
+const nextButton=document.getElementById("nextPage1"); 
 const errorIcon = document.querySelectorAll(".failure-icon");
 const successIcon = document.querySelectorAll(".success-icon");
 var arrayValided=[];
@@ -348,11 +349,15 @@ function CountryValue(){
         ValidationMsg();
         Country.classList.remove("validated");
         CountryParent.appendChild(Val);
+        errorIcon[9].style.opacity="1";
+        successIcon[9].style.opacity="0";
         CountryV=false;
     }else{
         Country.classList.add("validated");
         Country1=Country.value;
         CountryV=true;
+        errorIcon[9].style.opacity="0";
+        successIcon[9].style.opacity="1";
         PhoneCountryCodeDefect();
     }
 }
@@ -439,14 +444,14 @@ function PhoneValue(){
         ValidationMsgPhone();
         Phone.classList.remove("validated");
         PhoneParent.appendChild(Val);
-        errorIcon[9].style.opacity="1";
-        successIcon[9].style.opacity="0";
+        errorIcon[10].style.opacity="1";
+        successIcon[10].style.opacity="0";
         PhoneV=false;
     }else{
         Phone.classList.add("validated");
         Phone1=Phone.value;
-        errorIcon[9].style.opacity="0";
-        successIcon[9].style.opacity="1";
+        errorIcon[10].style.opacity="0";
+        successIcon[10].style.opacity="1";
         PhoneV=true;
     }
 }
@@ -601,6 +606,13 @@ function openPopup() {
 function closePopup() {
     if (timerCount === 6) {
         clearInterval(timerInterval);
+        profileForm.classList.add("Hidden");
+        addressPage.classList.add("Hidden");
+        shippingPage.classList.add("Hidden");
+        finishPage.classList.add("Hidden");
+        stepLine.classList.add("Hidden");
+        counter=0;
+        productPage.classList.remove("Hidden");
     }
     const timerMsg = document.querySelector('#timerBox')
     timerMsg.style.display = 'none';
@@ -617,14 +629,14 @@ const timerInterval = setInterval(function() {
 
 //TESTING DELETE
 //  quantity.value = 2;
- colorSelected = 'blue';
- firstName1 = 'Ivan';
- lastName1 = 'Gunchev';
- address11 = 'Avda Manuel de Falla 6';
- postalCode1 = '46000';
- Country1 = 'Espana';
- PCC1 = '+34';
- Phone1 = '600000000';
+//  colorSelected = 'blue';
+//  firstName1 = 'Ivan';
+//  lastName1 = 'Gunchev';
+//  address11 = 'Avda Manuel de Falla 6';
+//  postalCode1 = '46000';
+//  Country1 = 'Espana';
+//  PCC1 = '+34';
+//  Phone1 = '600000000';
 
 
 const purchasedProduct = document.querySelector('#purchased-product');
@@ -685,16 +697,22 @@ acceptTC.addEventListener('click', () => {
     }
 })
 
-// function checkoutAddress() {
-//     let finalAddress = document.createElement('p');
-//     finalAddress.innerText =
-//     `${firstName1} ${lastName1}
-//     ${address11}
-//     ${postalCode1} ${Country1}
-//     Contact: ${PCC1}${Phone1}
-//     `;
-//     deliveryAddress.appendChild(finalAddress);
-// }
+
+//fix image button
+var imgButton=document.getElementById("gift-img-btn");
+imgButton.addEventListener("click",(e)=>{
+    e.preventDefault();
+})
+//  function checkoutAddress() {
+//      let finalAddress = document.createElement('p');
+//      finalAddress.innerText =
+//      `${firstName1} ${lastName1}
+//      ${address11}
+//      ${postalCode1} ${Country1}
+//      Contact: ${PCC1}${Phone1}
+//      `;
+//      deliveryAddress.appendChild(finalAddress);
+//  }
 
 
 

@@ -23,7 +23,7 @@ body {
   min-height: 100vh;
 }
 
-#main {
+#main{
   /* background-color: var(--main-bg-color);
   border-radius: 20px; */
   position:relative;
@@ -246,20 +246,28 @@ text-align: center;
 #birthday-parent input{
   width:100%;
 }
-#Address-page form div i{
+#Address-page .failure-icon,
+#Address-page .success-icon{
+  opacity:0;
   position:absolute;
   padding:10px;
+  right:20px;
   top:20px;
-  right:0px;
   z-index:2;
 }
+#Phone-parent i{
+  right:10px!important;
+}
+
 #Address-page #Country-parent select{
   width:100%;
 }
 /* Step line animation */
 
 /* Validation and error container classes */
-
+.validation{
+  width:140px;
+}
 .validation, .error-container{
   position:absolute;
   padding:6px;
@@ -270,10 +278,12 @@ text-align: center;
   color: red;
   border: 1px solid red;
   outline: none;
-  border-radius: 10px;
+  border-radius: 5px;
   z-index:3;
 }
-
+.error-container{
+  width:200px;
+}
 .buyNow-parent{
   position: relative;
   width:40%;
@@ -476,6 +486,9 @@ button:active{
     border-radius:0px !important;
     padding: 0px 20px;
   }
+  #address-form{
+    flex-direction:column;
+  }
   #product-page{
     flex-direction: column;
   }
@@ -610,7 +623,7 @@ button:active{
 }
 /* Icons profile form */
 
-form div i{
+#Profile-page form div i{
   position:absolute;
   padding:10px;
   top:20px;
@@ -626,11 +639,6 @@ form div i{
   color: green;
 }
 
-/* .success-icon,
-.failure-icon {
-  left: 50%;
-  opacity:0;
-} */
 #Profile-page .success-icon,
 #Profile-page .failure-icon {
   left: 100%;
