@@ -67,7 +67,9 @@
                 <h1>Sunglasses Square</h1>
                 <p class="price">38.90$</p>
                 <h2>Description</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quia et accusamus sit consequatur fugiat, reiciendis ad eaque. Nemo minima ad praesentium dolorum inventore ipsam neque, fugit sapiente obcaecati.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quia et accusamus sit consequatur
+                    fugiat, reiciendis ad eaque. Nemo minima ad praesentium dolorum inventore ipsam neque, fugit
+                    sapiente obcaecati.</p>
                 <h3>Lents colors</h3>
                 <div id="Lents">
                     <img class="colorLents" src="assets\img\blue.jpg" name="blue" />
@@ -210,6 +212,8 @@
                         <option value="Alemania">Alemania</option>
                         <option value="Grecia">Grecia</option>
                     </select>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
                 <div id="phone-code" class="input-container">
                     <div id="PCC-parent">
@@ -256,34 +260,37 @@
         <!-- Shipping page -->
         <section id="Shipping-page" class="Hidden">
             <h1>Shipping</h1>
-            <h3>Shipping type</h3>
             <form onsubmit="handelAddressForm2()" id="shipping-form">
                 <div class="shipping-options">
+                    <h2 id="shipping-h2">Shipping type</h2>
                     <div class="shipping-option1">
-                        <input type="radio" name="shipping-option" id="Free-shipping" required />
-                        <label for="free-shipping">Free shipping (72h)</label>
+                        <label for="free-shipping"> <input type="radio" name="shipping-option" id="Free-shipping"
+                                required /> Free shipping (72h)</label>
                     </div>
                     <div class="shipping-option2">
-                        <input type="radio" name="shipping-option" id="Extra-shipping" />
-                        <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
+
+                        <label for="extra-shipping"><input type="radio" name="shipping-option" id="Extra-shipping" />
+                            Extra shipping (48h) <b>4,99€</b></label>
                     </div>
                     <div class="shipping-option3">
-                        <input type="radio" name="shipping-option" id="Premium-shipping" />
-                        <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
+                        <label for="premium-shipping"><input type="radio" name="shipping-option"
+                                id="Premium-shipping" /> Premium (24h) <b>9,99€</b></label>
                     </div>
                 </div>
                 <div class="gift-option">
-                    <input type="checkbox" name="gift-selector" id="gift-selector" />
-                    <label for="gift-selector">Is it a gift?</label>
+                    <label for="gift-selector" id="checked-label"><input type="checkbox" name="gift-selector"
+                            id="gift-selector" /> Free gift card and message</label>
+                    <textarea name="gift-msg" id="gift-msg" cols="30" rows="5" maxlength="200"
+                        placeholder="Write your message here"></textarea>
+                    <span class="shipping-span">Gift wrapper image</span>
+                    <button id="gift-img-btn">Select image</button>
                 </div>
-                <label for="gift-msg">Gift message</label>
-                <textarea name="gift-msg" id="gift-msg" cols="30" rows="5" maxlength="200"></textarea>
-                <span class="shipping-span">Gift wrapper image</span>
-                <button id="gift-img-btn">Select image</button>
+                <div id='delivery-msg' class="estimatedTime">
+
+                </div>
                 <!-- Button reset and next -->
                 <div id="button3-Parent" class="buttonsElement">
-                    <input type="reset" name="reset-form" value="Reset" />
-
+                    <input type="reset" name="reset-form" value="Reset" id="reset-shipping" />
                     <input type="submit" id="nextPage3" value="Next">
                 </div>
             </form>
@@ -302,10 +309,11 @@
 
                 <div class="finish-content col-left">
                     <!-- <div class="final-product"> -->
-
                     <!-- </div> -->
                     <div class="final-product-name">
-                        <img src="" alt="" id="purchased-product">
+                        <div class="img-div">
+                            <img src="" alt="" id="purchased-product">
+                        </div>
                         <span><b>Sunglasses Square</b></span>
                         <span id="item-quantity"></span>
                         <span id="item-size"></span>
@@ -313,8 +321,7 @@
                 </div>
                 <div id="bottom-row" class="col-right">
                     <div id="payment-summary">
-                        <button id="place-order">Place your order</button>
-                        <h3><b>Order Summary</b></h3>
+                        <h2><b>Order Summary</b></h2>
                         <div class="finish-summary">
                             <span>Items:</span>
                             <span id="items-price"></span>
@@ -323,12 +330,12 @@
                             <span id="shipping-option"></span>
                             <span id="shipping-price"></span>
                         </div>
-                        <hr>
                         <div class="finish-summary">
-                            <span>Order total:</span>
-                            <span id="order-total"></span>
+                            <span class='total'>Order total:</span>
+                            <span id="order-total" class='total'></span>
                         </div>
-                        <label for="accept-tc"><input type="checkbox" id="accept-tc">
+                        <button id="place-order">Place your order</button>
+                        <label for="accept-tc"><input type="checkbox" id="accept-tc" required>
                             I have read and I accept the <a
                                 href="https://www.termsandconditionsgenerator.com/live.php?token=DD3h0gamZXkp9Pf63xUUCvO52I0Zke4R"
                                 target="_blank">terms
@@ -336,9 +343,9 @@
                                 conditions.
                             </a>
                         </label>
-                        <div class="delivery-address">
+                        <!-- <div class="delivery-address">
                             <h3><b>Shipping address:</b></h3>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
