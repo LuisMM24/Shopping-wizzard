@@ -103,7 +103,7 @@ function checkProfileForm(event){
     console.log("result array "+result);
     console.log("result array length "+result.length);
     console.log("input element length "+inputElement.length);
-    if(result.length==inputElement.length){//CAMBIAR A == PARA VALIDAR
+    if(result.length<=inputElement.length){//CAMBIAR A == PARA VALIDAR
         stepLineAnimation();
         savedUserName=userName.value;
         savedEmail=email.value;
@@ -479,7 +479,7 @@ function ValidationValueCheck2(){//validation function
 }
 function nextPage2Fun(){
     ValidationAddressPageArr=[FNV,LNV,BV,A1V,PCV,CountryV,PCCV,PhoneV,RaddressV];
-    if( ValidationAddressPageArr.includes(false)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
+    if( ValidationAddressPageArr.includes(true)) {//CAMBIAR PARA VALIDAR!!!! A FALSE
             let validationAddressPage=false;
             let Val;
             Val = document.createElement('div');

@@ -13,26 +13,44 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
-
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
   padding: 0;
   width: 80%;
-  background-image: linear-gradient(#fff,rgb(115,155,224,0.4) );
-  min-height: 100vh;
+  /* background-image: linear-gradient(#fff,rgb(115,155,224,0.4) ); */
+  /* min-height: 100vh; */
 }
-
+body::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right:0;
+  bottom:0;
+  left: 0;
+  background-image: url(/assets/img/glasses.PNG);
+  /* background-image: url(/assets/img/glasses1.jpg); */
+  background-position:center;
+  background-repeat:repeat;
+  background-size:cover;
+  background-attachment: fixed;
+  /* filter: grayscale(100%); */
+  filter: hue-rotate(90deg);
+}
 main {
+  position: relative;
+  background-color: rgba(202, 202, 202, 0.9);
+  margin-top: 15%;
   /* background-color: var(--main-bg-color); */
-  /* border-radius: 20px; */
+  border-radius: 20px;
 }
 
-/* .Hidden{
+.Hidden{
   display: none !important;
-} */
+}
 
 section {
+  position:relative;
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -56,346 +74,9 @@ h3{
   color: var(--main-color);
 }
 
-/*header y footer*/
-.sidebar {
-  width: 100%;
-  height: 50px;
-  background-color: var(--main-color);
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  height: 100%;
-  margin-left: 2%;
-}
-
-.logoName{
-  color: var(--secondary-text-color);
-  font-size: 18px;
-  text-align: right;
-  margin-right: 5%;
-  width: 20%;
-  font-weight: bold;
-  text-shadow: 1px 1px 5px var(--main-bg-color);
-}
-
-footer.sidebar{
-  background-color: var(--step-line-color);
-  position: relative;
-  bottom: 0px;
-  width: 100%;
-  margin-top: 5px;
-}
-
-.sidebar ul{
-width: 100%;
-text-align: center;
-}
-
-.sidebar ul li{
-  display: inline;
-  margin: 0 10px;
-}
-
-.sidebar a{
-  text-decoration: none;
-  color: var(--main-bg-color);
-}
-
-.sidebar a:hover{
-  font-weight: bold;
-  text-shadow: 0px 0px 10px var(--step-line-active);
-}
-
-#Unds .fas {
-  font-size: 30px;
-  margin: 0px 5px;
-}
-#Unds .fas:active {
-  transform: scale(0.8);
-}
-
-/* Timer Box */
-#timerBox {
-  position: absolute;
-  background-color: var(--secondary-text-color);
-  max-width: 35%;
-  padding: 10px;
-}
-
-/* Step line */
-#step-line{
-  position:relative;
-  margin:2rem 0px 2rem 0px;
-  display:flex;
-  justify-content:space-around;
-  flex-direction:row;
-}
-#line{
-  position:absolute;
-  height:3px;
-  top:43px;
-  width:0%;
-  left:0px;
-  transition:2s ease-out;
-  background-color:var(--main-color);
-  z-index:2;
-}
-#secondary-line{
-  position:absolute;
-  height:3px;
-  top:43px;
-  width:100%;
-  background-color:var(--step-line-color);
-  z-index:1;
-}
-
-.step{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.page{
-  color:var(--secondary-text-color);
-  margin-bottom:1rem;
-}
-
-.circle{
-  position:relative;
-  /* set up layers  */
-  z-index:4;
-  border-radius:50px;
-  background-color:var(--secondary-text-color);
-  width:20px;
-  height:20px;
-}
-
-/* Current step actions */
-.active{
-  background-color: var(--main-color);
-  width:25px;
-  height:25px;
-  transition:0.5s ease;
-  transition-delay: 1.5s;
-  /* I rest margin 'cause after and before line problems. */
-  margin-top:-2px;
-}
-
-.current{
-  font-weight: bold;
-  color:var(--main-text-color);
-  transition:0.5s ease;
-  transition-delay:1.5s;
-}
-/* Step line */
-
-/*Adress Page Style*/
-#Address-page form{
-  display:flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content:space-around;
-  
-  width:500px;
-}
-#regular-address{
-  display:inline;
-}
-.regularAdd{
-  width:100% !important;
-  justify-content:center;
-  margin-bottom:5px!important;
-}
-#PCC-parent select{
-  width:60px;
-  height: 32px;
-  padding: 5px 0px;
-  margin-bottom:2.5rem;
-}
-#PCC-parent{
-  display:flex;
-  flex-direction:column;
-  width:60px;
-  height: 50px;
-}
-#Phone-parent input{
-  width:100px;
-}
-#phone-code{
-  display:flex;
-  flex-direction:row;
-}
-#Address-page input{
-  padding:5px 5px;
-}
-#Address-page .input-container{
-  position:relative;
-  display:flex;
-  flex-wrap:wrap;
-  height: 3.5rem;
-  margin-bottom:2.5rem;
-  width:35%;
-}
-
-#birthday-parent input{
-  width:100%;
-}
-#Address-page form div i{
-  position:absolute;
-  padding:10px;
-  top:20px;
-  right:0px;
-  z-index:2;
-}
-#Address-page #Country-parent select{
-  width:100%;
-}
-/* Step line animation */
-
-/* Validation and error container classes */
-
-.validation, .error-container{
-  position:absolute;
-  padding:6px;
-  top:100%;
-  margin-top:5px;
-  background-color: var(--form-background-color);
-  text-align:center;
-  color: red;
-  border: 1px solid red;
-  outline: none;
-  border-radius: 10px;
-  z-index:3;
-}
-
-.buyNow-parent{
-  position: relative;
-  width:40%;
-  }
-  #buyNow{
-    padding:10px;
-    width:100%;
-    font-size:1rem;
-    background-color: var(--orange);
-    transition: transform 0.5s ease;
-    font-weight: bold;
-    border: none;
-  }
-
-  #buyNow:hover{
-    transform: scale(1.1);
-    background-color:var(--light-orange);
-    transition:0.5s;
-    color: var(--main-text-color);
-    
-  }
-#button2-parent{
-  position:relative;
-  width:100%;
-  
-}
-#button2-parent input{
-  padding:5px 30px!important;
-  
-}
-#button3-Parent{
-  position:relative;
-}
-
-
-.validated{
-  animation-name: validatedok;
-  animation-duration: 2s;
-}
-
-@keyframes validatedok {
-  0% { border: 2px solid greenyellow; }
-  100% {border: 2px solid rgb(167, 167, 255); }
-}
-
-/* Input styles */
-select{
-  background-color: rgb(253, 253, 253);
-  color: var(--main-text-color);
-  border:2px solid  var(--main-color);
-  border-radius: 5px;
-  outline:none;
-  padding:5px 30px;
-}
-textarea{
-  width:200px;
-}
-input {
-  background-color: rgb(253, 253, 253);
-  color: var(--main-text-color);
-  border:2px solid  var(--main-color);
-  border-radius: 5px;
-  outline:none;
-  padding:5px 30px;
-}
-
-input:focus{
-  border: 2px solid rgb(255, 189, 189);
-}
-
-label {
-  font-size: large;
-  color: var(--secondary-text-color)
-}
-
-section input {
-  display: block;
-}
-
-section label {
-  display: block;
-}
-
-/*Button styles*/
-
-button{
-  background-color: var(--main-bg-color);
-  border-radius: 5px;
-  border: 1px solid var(--main-color);
-}
-
-button:hover{
-  background-color:var(--main-color);
-  color:var(--main-bg-color);
-  cursor:pointer;
-
-}
-
-button:active{
-  background-color: var(--step-line-active);
-  color:var(--main-text-color);
-}
-#place-order{
-  background-color:var(--main-color);
-  color:var(--main-bg-color);
-  font-size:1rem;
-  width:200px;
-  line-height:1.5;
-  display:inline-block;
-  cursor:pointer;
-}
-#place-order:hover{
-  opacity:0.8;
-}
-
-#shopContainer{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-
-/*Style product Page*/
+/*Style product Page*//*Style product Page*//*Style product Page*//*Style product Page*//*Style product Page*//*Style product Page*//*Style product Page*/
 #product-page{
   flex-direction: row;
-  margin-top: 2%;
 }
 
 #principal{
@@ -471,8 +152,33 @@ button:active{
   }
 }
 
+@media only screen and (min-width: 1400px) {
+  body {
+    width: 60%;
+    margin: auto;
+  }
+  section {
+    width: 100%;
+  }
+  .col-left {
+    width: 50%;
+    margin: 0;
+  }
+  .col-right {
+    width: 50%;
+    margin: 0;
+  }
+  .description {
+    border-radius:0px !important;
+    padding: 0px 20px;
+  }
+  /* #product-page{
+    flex-direction: column;
+  } */
+}
+
 .description {
-  /* background-color: rgba(202, 202, 202, 0.2); */
+  /* background-color: rgba(202, 202, 202, 0.9); */
   border-radius: 20px;
   padding: 20px;
   box-sizing: border-box;
@@ -535,37 +241,7 @@ button:active{
   height: 100%;
 }
 
-/* BUTTONS ELEMENT STYLE */
-.buttonsElement input[type=submit]{
-  background-color:var(--main-color);
-  color:var(--main-bg-color);
-  font-size:1rem;
-  display:inline-block;
-  cursor:pointer;
-}
-#nextPage2{
-  background-color:var(--main-color);
-  color:var(--main-bg-color);
-  font-size:1rem;
-  display:inline-block;
-  cursor:pointer;
-}
-.buttonsElement input[type=reset]{
-  background-color:var(--main-bg-color);
-  color:var(--secondary-text-color);
-  font-size:1rem;
-  display:inline-block;
-  border-color:var(--secondary-text-color);
-  cursor:pointer;
-}
-.buttonsElement{
-  margin:10px 0px;
-  display:flex;
-  justify-content:center;
-  gap:5px;
-}
-
-/* PROFILE SECTION*/
+/* PROFILE SECTION*//* PROFILE SECTION*//* PROFILE SECTION*//* PROFILE SECTION*//* PROFILE SECTION*//* PROFILE SECTION*//* PROFILE SECTION*//* PROFILE SECTION*/
 #Profile-page form{
   display:flex;
   flex-direction:column;
@@ -621,7 +297,73 @@ form div i{
   opacity:0;
 }
 
-/* SHIPPING SECTION */
+
+/*Adress Page Style*//*Adress Page Style*//*Adress Page Style*//*Adress Page Style*//*Adress Page Style*//*Adress Page Style*//*Adress Page Style*//*Adress Page Style*/
+#Address-page form{
+  display:flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content:space-around;
+  
+  width:500px;
+}
+#regular-address{
+  display:inline;
+}
+.regularAdd{
+  width:100% !important;
+  justify-content:center;
+  margin-bottom:5px!important;
+}
+#PCC-parent select{
+  width:60px;
+  height: 32px;
+  padding: 5px 0px;
+  margin-bottom:2.5rem;
+}
+#PCC-parent{
+  display:flex;
+  flex-direction:column;
+  width:60px;
+  height: 50px;
+}
+#Phone-parent input{
+  width:100px;
+}
+#phone-code{
+  display:flex;
+  flex-direction:row;
+}
+#Address-page input{
+  padding:5px 5px;
+}
+#Address-page .input-container{
+  position:relative;
+  display:flex;
+  flex-wrap:wrap;
+  height: 3.5rem;
+  margin-bottom:2.5rem;
+  width:35%;
+}
+
+#birthday-parent input{
+  width:100%;
+}
+#Address-page form div i{
+  position:absolute;
+  padding:10px;
+  top:20px;
+  right:0px;
+  z-index:2;
+}
+#Address-page #Country-parent select{
+  width:100%;
+}
+
+
+
+
+/* SHIPPING SECTION *//* SHIPPING SECTION *//* SHIPPING SECTION *//* SHIPPING SECTION *//* SHIPPING SECTION *//* SHIPPING SECTION *//* SHIPPING SECTION */
 #Shipping-page form div input {
   display: inline;
 }
@@ -648,7 +390,7 @@ form div i{
   display: block;
 }
 
-/* Finish Page */
+/* Finish Page *//* Finish Page *//* Finish Page *//* Finish Page *//* Finish Page *//* Finish Page *//* Finish Page *//* Finish Page *//* Finish Page *//* Finish Page */
 #Finish-page {
   background-image: url('/assets/img/shades-bg.jpg');
   background-size: cover;
@@ -726,4 +468,307 @@ form div i{
 .delivery-address {
   width: 100%;
 }
+/* BUTTONS ELEMENT STYLE *//* BUTTONS ELEMENT STYLE *//* BUTTONS ELEMENT STYLE *//* BUTTONS ELEMENT STYLE *//* BUTTONS ELEMENT STYLE *//* BUTTONS ELEMENT STYLE */
+.buttonsElement input[type=submit]{
+  background-color:var(--main-color);
+  color:var(--main-bg-color);
+  font-size:1rem;
+  display:inline-block;
+  cursor:pointer;
+}
+#nextPage2{
+  background-color:var(--main-color);
+  color:var(--main-bg-color);
+  font-size:1rem;
+  display:inline-block;
+  cursor:pointer;
+}
+.buttonsElement input[type=reset]{
+  background-color:var(--main-bg-color);
+  color:var(--secondary-text-color);
+  font-size:1rem;
+  display:inline-block;
+  border-color:var(--secondary-text-color);
+  cursor:pointer;
+}
+.buttonsElement{
+  margin:10px 0px;
+  display:flex;
+  justify-content:center;
+  gap:5px;
+}
 
+
+/* Validation and error container classes *//* Validation and error container classes *//* Validation and error container classes *//* Validation and error container classes */
+
+.validation, .error-container{
+  position:absolute;
+  padding:6px;
+  top:100%;
+  margin-top:5px;
+  background-color: var(--form-background-color);
+  text-align:center;
+  color: red;
+  border: 1px solid red;
+  outline: none;
+  border-radius: 10px;
+  z-index:3;
+}
+
+.buyNow-parent{
+  position: relative;
+  width:40%;
+  }
+  #buyNow{
+    padding:10px;
+    width:100%;
+    font-size:1rem;
+    background-color: var(--orange);
+    transition: transform 0.5s ease;
+    font-weight: bold;
+    border: none;
+  }
+
+  #buyNow:hover{
+    transform: scale(1.1);
+    background-color:var(--light-orange);
+    transition:0.5s;
+    color: var(--main-text-color);
+    
+  }
+#button2-parent{
+  position:relative;
+  width:100%;
+  
+}
+#button2-parent input{
+  padding:5px 30px!important;
+  
+}
+#button3-Parent{
+  position:relative;
+}
+
+
+.validated{
+  animation-name: validatedok;
+  animation-duration: 2s;
+}
+
+@keyframes validatedok {
+  0% { border: 2px solid greenyellow; }
+  100% {border: 2px solid rgb(167, 167, 255); }
+}
+
+/* Input styles *//* Input styles *//* Input styles *//* Input styles *//* Input styles *//* Input styles *//* Input styles */
+select{
+  background-color: rgb(253, 253, 253);
+  color: var(--main-text-color);
+  border:2px solid  var(--main-color);
+  border-radius: 5px;
+  outline:none;
+  padding:5px 30px;
+}
+textarea{
+  width:200px;
+}
+input {
+  background-color: rgb(253, 253, 253);
+  color: var(--main-text-color);
+  border:2px solid  var(--main-color);
+  border-radius: 5px;
+  outline:none;
+  padding:5px 30px;
+}
+
+input:focus{
+  border: 2px solid rgb(255, 189, 189);
+}
+
+label {
+  font-size: large;
+  color: var(--secondary-text-color)
+}
+
+section input {
+  display: block;
+}
+
+section label {
+  display: block;
+}
+
+/*Button styles*//*Button styles*//*Button styles*//*Button styles*//*Button styles*//*Button styles*//*Button styles*//*Button styles*//*Button styles*/
+
+button{
+  background-color: var(--main-bg-color);
+  border-radius: 5px;
+  border: 1px solid var(--main-color);
+}
+
+button:hover{
+  background-color:var(--main-color);
+  color:var(--main-bg-color);
+  cursor:pointer;
+
+}
+
+button:active{
+  background-color: var(--step-line-active);
+  color:var(--main-text-color);
+}
+#place-order{
+  background-color:var(--main-color);
+  color:var(--main-bg-color);
+  font-size:1rem;
+  width:200px;
+  line-height:1.5;
+  display:inline-block;
+  cursor:pointer;
+}
+#place-order:hover{
+  opacity:0.8;
+}
+
+#shopContainer{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+/*header y footer*/
+/* .sidebar {
+  width: 100%;
+  height: 50px;
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 100%;
+  margin-left: 2%;
+}
+
+.logoName{
+  color: var(--secondary-text-color);
+  font-size: 18px;
+  text-align: right;
+  margin-right: 5%;
+  width: 20%;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px var(--main-bg-color);
+}
+
+footer.sidebar{
+  background-color: var(--step-line-color);
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.sidebar ul{
+width: 100%;
+text-align: center;
+}
+
+.sidebar ul li{
+  display: inline;
+  margin: 0 10px;
+}
+
+.sidebar a{
+  text-decoration: none;
+  color: var(--main-bg-color);
+}
+
+.sidebar a:hover{
+  font-weight: bold;
+  text-shadow: 0px 0px 10px var(--step-line-active);
+}
+
+#Unds .fas {
+  font-size: 30px;
+  margin: 0px 5px;
+}
+#Unds .fas:active {
+  transform: scale(0.8);
+} */
+
+
+/* Timer Box *//* Timer Box *//* Timer Box *//* Timer Box *//* Timer Box *//* Timer Box *//* Timer Box *//* Timer Box *//* Timer Box *//* Timer Box */
+#timerBox {
+  position: absolute;
+  background-color: var(--secondary-text-color);
+  max-width: 35%;
+  padding: 10px;
+}
+
+/* Step line *//* Step line *//* Step line *//* Step line *//* Step line *//* Step line *//* Step line *//* Step line *//* Step line *//* Step line *//* Step line */
+#step-line{
+  position:relative;
+  margin:2rem 0px 2rem 0px;
+  display:flex;
+  justify-content:space-around;
+  flex-direction:row;
+}
+#line{
+  position:absolute;
+  height:3px;
+  top:43px;
+  width:0%;
+  left:0px;
+  transition:2s ease-out;
+  background-color:var(--main-color);
+  z-index:2;
+}
+#secondary-line{
+  position:absolute;
+  height:3px;
+  top:43px;
+  width:100%;
+  background-color:var(--step-line-color);
+  z-index:1;
+}
+
+.step{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page{
+  color:var(--secondary-text-color);
+  margin-bottom:1rem;
+}
+
+.circle{
+  position:relative;
+  /* set up layers  */
+  z-index:4;
+  border-radius:50px;
+  background-color:var(--secondary-text-color);
+  width:20px;
+  height:20px;
+}
+
+/* Current step actions */
+.active{
+  background-color: var(--main-color);
+  width:25px;
+  height:25px;
+  transition:0.5s ease;
+  transition-delay: 1.5s;
+  /* I rest margin 'cause after and before line problems. */
+  margin-top:-2px;
+}
+
+.current{
+  font-weight: bold;
+  color:var(--main-text-color);
+  transition:0.5s ease;
+  transition-delay:1.5s;
+}
+/* Step line */
