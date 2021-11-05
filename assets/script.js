@@ -604,14 +604,14 @@ function closePopup() {
     }
     const timerMsg = document.querySelector('#timerBox')
     timerMsg.style.display = 'none';
-    body.removeChild(main.firstChild);
+    body.removeChild(body.firstChild);
 }
 const timerInterval = setInterval(function() {
     openPopup();
     setTimeout(function() {
         closePopup();
     }, 5000);
-}, 10000);
+}, 60000);
 
 // Finish page
 
@@ -644,6 +644,8 @@ const timeElapsed = document.querySelector('#time-elapsed');
 const giftOption = document.querySelector('.gift-option');
 const deliveryMsg = document.querySelector('#delivery-msg');
 const resetShippingMsg = document.querySelector('#reset-shipping');
+const acceptTC = document.querySelector('#accept-tc');
+const paymentSummary = document.querySelector('#payment-summary');
 
 resetShippingMsg.addEventListener('click', () =>{
     deliveryMsg.removeChild(deliveryMsg.lastChild)
@@ -661,13 +663,26 @@ function millisToMinutesAndSeconds(millis) {
   }
 
 placeOrderBtn.addEventListener('click', () => {
-    endDate = new Date();
-    millis = endDate - startDate;
-    millisToMinutesAndSeconds(millis);
-    const totalTimeElapsed = document.createElement('p');
-    totalTimeElapsed.innerHTML = `Your registration took ${minutes} minutes and ${seconds} seconds`
-    // totalTimeElapsed.innerHTML = 'Your registration took' + minutes + " minutes " + 'and ' + seconds + ' seconds';
-    timeElapsed.appendChild(totalTimeElapsed);
+    if (!acceptTC.checked) {
+        const TCmsg = document.createElement('p');
+        TCmsg.innerText = 'Please accept the terms and conditions';
+        TCmsg.classList.add('TCmsg')
+        placeOrderBtn.insertAdjacentElement('afterend', TCmsg);
+    } else {
+        endDate = new Date();
+        millis = endDate - startDate;
+        millisToMinutesAndSeconds(millis);
+        const totalTimeElapsed = document.createElement('p');
+        totalTimeElapsed.innerHTML = `Your registration took ${minutes} minutes and ${seconds} seconds`
+        // totalTimeElapsed.innerHTML = 'Your registration took' + minutes + " minutes " + 'and ' + seconds + ' seconds';
+        timeElapsed.appendChild(totalTimeElapsed);
+    }
+})
+
+acceptTC.addEventListener('click', () => {
+    if (acceptTC.checked) {
+        paymentSummary.removeChild(placeOrderBtn.nextElementSibling)
+    }
 })
 
 // function checkoutAddress() {
