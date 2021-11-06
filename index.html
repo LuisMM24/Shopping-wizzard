@@ -6,20 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping wizzard</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css" />
     <script src="assets/script.js" defer></script>
     <script src="assets/galery.js" defer></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 
 <body>
     <header class="sidebar">
         <img src="assets\img\logo.png" class="logo" />
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <p class="logoName">Óptica IVALUC</p>
     </header>
 
-    <main>
+    <main id='main'>
+        <!-- Timer Box -->
         <!-- Step line -->
-        <section id="step-line">
+        <section id="step-line" class="Hidden">
             <div class="step">
                 <div class="page">Profile</div>
                 <div class="circle"></div>
@@ -44,95 +53,157 @@
         <!-- Product page -->
         <section id="product-page">
             <nav class="galery col-left">
-                <img id="principal" src="assets\img\blue1.jpg" alt="">
+                <div>
+                    <img id="principal" src="assets\img\blue-girl.jpg" alt="" />
+                </div>
                 <div class="miniSlide">
-                    <img src="assets\img\blue.jpg" alt="" class="miniature">
-                    <img src="assets\img\blue2.jpg" alt="" class="miniature">
-                    <img src="assets\img\blue1.jpg" alt="" class="miniature">
-                    <img src="assets\img\blue-boy.jpg" alt="" class="miniature">
-                    <img src="assets\img\blue-girl.jpg" alt="" class="miniature">
+                    <img src="assets\img\blue3.jpg" alt="" class="miniature" />
+                    <img src="assets\img\blue2.jpg" alt="" class="miniature" />
+                    <img src="assets\img\blue-boy.jpg" alt="" class="miniature" />
+                    <img src="assets\img\blue-girl.jpg" alt="" class="miniature" />
                 </div>
             </nav>
-            <article class="col-right">
-                <h1>Gafas de Sol super Azul Plus 3000</h1>
-                <h2>Descripcion</h2>
-                <p>Descripción bla bla bla....</p>
-                <h2>Características</h2>
-                <details>
-                    <summary>Lentes</summary>
-                    <p>Colors</p>
-                </details>
-                <details>
-                    <summary>Sizes</summary>
-                    <p>Sizes</p>
-                </details>
+            <article class="col-right description">
+                <h1>Sunglasses Square</h1>
+                <h2>Description</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quia et accusamus sit consequatur
+                    fugiat, reiciendis ad eaque. Nemo minima ad praesentium dolorum inventore ipsam neque, fugit
+                    sapiente obcaecati.</p>
+                <p class="price">38.90$</p>
+                <h3>Lents colors</h3>
+                <div id="Lents">
+                    <img class="colorLents" src="assets\img\blue.jpg" name="blue" />
+                    <img class="colorLents" src="assets\img\green.jpg" name="green" />
+                    <img class="colorLents" src="assets\img\orange.jpg" name="orange" />
+                </div>
+                <div id="divSizes">
+                    <h3>Sizes</h3>
+                    <select name="sizes" id="sizes-glass">
+                        <option selected="true" value="" disabled>Choose your size</option>
+                        <option value="S">S &lt;50mm / 135mm</option>
+                        <option value="M">M 51mm-54mm / 140mm</option>
+                        <option value="L">L &gt;55mm / 145mm</option>
+                    </select>
+                </div>
+                <p class="enlace">
+                    If you don't know your glasses size,
+                    <a href="https://www.lentiamo.es/correcta-talla-gafas-de-sol.html" target="_blank">click
+                        here.</a>
+                </p>
+                <div id="shopContainer">
+                    <div id="Unds">
+                        <div onclick="decrement()"><i class="fas fa-caret-left"></i></div>
+                        <input value="1" id="quantity" readonly />
+                        <div onclick="increment()"><i class="fas fa-caret-right"></i></div>
+                    </div>
+                    <div class="buyNow-parent">
+                        <button id="buyNow" onclick="buyNow()">Buy Now</button>
+                    </div>
+                </div>
             </article>
         </section>
         <!-- Product page -->
-
         <!-- Profile page -->
-        <section id="Profile-page">
+        <section id="Profile-page" class="Hidden">
+            <h1>Profile Page</h1>
             <form name="profile" action="">
+                <div class="input-container">
+                    <label for="username">Username:</label>
+                    <i class="before-icon fas fa-user"></i>
+                    <input type="text" name="username" id="username" class="input-element"
+                        placeholder="introduce your username">
+                    <div class="error-container"></div>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
+                </div>
 
 
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" class="input-element"
-                    placeholder="introduce your username">
-                <div class="validation"></div>
+                <div class="input-container">
+                    <label for="email">Email:</label>
+                    <i class="before-icon fa fa-envelope icon"></i>
+                    <input type="email" name="email" class="input-element" id="email"
+                        placeholder="introduce your email">
+                    <div class="error-container"></div>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
+                </div>
 
 
-                <label for="email">Email:</label>
-                <input type="email" name="email" class="input-element" id="email" placeholder="introduce your email">
-                <div class="validation"></div>
+                <div class="input-container">
+                    <label for="pass">Password:</label>
+                    <i class="before-icon fas fa-lock"></i>
+                    <input type="password" name="pass" id="pass" class="input-element"
+                        placeholder="introduce your password">
+                    <div class="error-container"></div>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
+                </div>
 
 
-                <label for="pass">Password:</label>
-                <input type="password" name="pass" id="pass" class="input-element"
-                    placeholder="introduce your password">
-                <div class="validation"></div>
-
-
-                <label for="confirmPass">Confirm password:</label>
-                <input type="password" name="confirmpass" class="input-element" id="confirmPass">
-                <div class="validation"></div>
+                <div class="input-container">
+                    <label for="confirmPass">Confirm password:</label>
+                    <i class="before-icon fas fa-lock"></i>
+                    <input type="password" name="confirmpass" class="input-element" id="confirmPass">
+                    <div class="error-container"></div>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
+                </div>
 
 
                 <!-- Button reset and next -->
-                <input type="reset" name="reset-form" id="reset-button">
-                <input type="submit" id="nextPage1" value="Next">
+                <div class="buttonsElement">
+                    <input type="reset" name="reset-form" id="reset-button" value="Reset">
+                    <input type="submit" id="nextPage1" value="Next">
+                </div>
             </form>
 
         </section>
         <!-- Profile page -->
         <!-- Address page -->
-        <section id="Address-page">
+        <section id="Address-page" class="Hidden">
             <h1>Address</h1>
-            <form action="" autocomplete="off">
-                <label for="First name">First name</label>
-                <div id="First-name-parent">
+            <form id="address-form" onsubmit="handelAddressForm()" autocomplete="off">
+
+                <div id="First-name-parent" class="input-container">
+                    <label for="First name">First name</label>
                     <input type="text" name="First name" id="First-name" required maxlength="20"
                         pattern="[A-Za-z]{0,20}" autocomplete=off>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Last-name">Last name</label>
-                <div id="Last-name-parent">
+
+                <div id="Last-name-parent" class="input-container">
+                    <label for="Last-name">Last name</label>
                     <input type="text" name="Last name" id="Last-name" required maxlength="20">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="birthday">birthday</label>
-                <div id="birthday-parent">
+
+                <div id="birthday-parent" class="input-container">
+                    <label for="birthday">birthday</label>
                     <input type="date" name="birthday" id="birthday" required>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Address 1">Address 1</label>
-                <div id="Address-1-parent">
+
+                <div id="Address-1-parent" class="input-container">
+                    <label for="Address 1">Address 1</label>
                     <input type="text" name="Address 1" id="Address-1" required maxlength="50">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Address 2">Address 2</label>
-                <input type="text" name="Address 2" id="Address-2" maxlength="50" value="Optional">
-                <label for="Postal Code">Postal Code</label>
-                <div id="Postal-Code-parent">
+                <div class="input-container">
+                    <label for="Address 2">Address 2</label>
+                    <input type="text" name="Address 2" id="Address-2" maxlength="50" value="Optional">
+                </div>
+                <div id="Postal-Code-parent" class="input-container">
+                    <label for="Postal Code">Postal Code</label>
                     <input type="numbers" name="Postal Code" id="Postal-Code" required maxlength="5">
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Country">Country</label>
-                <div id="Country-parent">
+                <div id="Country-parent" class="input-container">
+                    <label for="Country">Country</label>
                     <select name="Country" id="Country" required>
                         <option value="" disabled selected="true"></option>
                         <option value="Andorra">Andorra</option>
@@ -141,74 +212,158 @@
                         <option value="Alemania">Alemania</option>
                         <option value="Grecia">Grecia</option>
                     </select>
+                    <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                    <i class="after-icon far fa-check-circle success-icon"></i>
                 </div>
-                <label for="Phone country code">Phone country code</label>
-                <div id="PCC-parent">
-                    <select name="Phone country code" id="PCC" required>
-                        <option value="" disabled selected="true"></option>
-                        <option id="PCCandorra" value="+376">376 - AND</option>
-                        <option id="PCCespaña" value="+34">34 - ESP</option>
-                        <option id="PCCfrancia" value="+33">33 - FRA</option>
-                        <option id="PCCalemania" value="+49">49 - DEU</option>
-                        <option id="PCCgrecia" value="+30">30 - GRC</option>
-                    </select>
+                <div id="phone-code" class="input-container">
+                    <div id="PCC-parent">
+                        <label for="Phone country code">Phone</label>
+                        <select name="Phone country code" id="PCC" required>
+                            <option value="" disabled selected="true"></option>
+                            <option id="PCCandorra" value="+376">+376 </option>
+                            <option id="PCCespaña" value="+34">+34</option>
+                            <option id="PCCfrancia" value="+33">+33</option>
+                            <option id="PCCalemania" value="+49">+49</option>
+                            <option id="PCCgrecia" value="+30">+30</option>
+                        </select>
+                    </div>
+
+                    <div id="Phone-parent">
+                        <label for="Phone">Number</label>
+                        <input type="tel" name="Phone" id="Phone" required maxlength="9" pattern="[0-9]{9,9}"
+                            title="9 numbers, 1 letter">
+                        <i class="after-icon fas fa-exclamation-circle failure-icon"></i>
+                        <i class="after-icon far fa-check-circle success-icon"></i>
+                    </div>
                 </div>
-                <label for="Phone">Phone</label>
-                <div id="Phone-parent">
-                    <input type="tel" name="Phone" id="Phone" required maxlength="9" pattern="[0-9]{9,9}[A-Za-z]"
-                        title="9 numbers, 1 letter">
+                <div class="input-container regularAdd">
+
+                    <label for="regular-address">This is my regular address<input type="checkbox" name="regular-address"
+                            id="regular-address"></label>
                 </div>
-                <input type="checkbox" name="regular-address" id="regular-address">
-                <label for="regular-address">This is my regular address</label>
-
-
-
                 <!-- Button reset and next -->
-                <input type="reset" name="reset-form">
-                <button id="nextPage2">Next</button>
+                <div class="buttonsElement" id="button2-parent">
+                    <input type="reset" name="reset-form" id="reset-button" value="Reset">
+                    <input type="submit" id="nextPage2" value="Next">
+                </div>
+                <!-- <div class="input-container">
+                    <input type="reset" name="reset-form">
+                </div>
+                <div id="button2-parent" class="input-container">
+                    <input type="submit" id="nextPage2" value="next">
+                </div> -->
             </form>
         </section>
         <!-- Address page -->
 
+
         <!-- Shipping page -->
-        <section id="Shipping-page">
+        <section id="Shipping-page" class="Hidden">
             <h1>Shipping</h1>
-            <h3>Shipping type</h3>
-            <form action="" id='shipping-form'>
-                <div class="shipping-option1">
-                    <input type="radio" name="shipping-option" id="free-shipping" required>
-                    <label for="free-shipping">Free shipping (72h)</label>
-                </div>
-                <div class="shipping-option2">
-                    <input type="radio" name="shipping-option" id="extra-shipping">
-                    <label for="extra-shipping">Extra shipping (48h) <b>4,99€</b></label>
-                </div>
-                <div class="shipping-option3">
-                    <input type="radio" name="shipping-option" id="premium-shipping">
-                    <label for="premium-shipping">Premium (24h) <b>9,99€</b></label>
+            <form onsubmit="handelAddressForm2()" id="shipping-form">
+                <div class="shipping-options">
+                    <h2 id="shipping-h2">Shipping type</h2>
+                    <div class="shipping-option1">
+                        <label for="free-shipping"> <input type="radio" name="shipping-option" id="Free-shipping"
+                                required /> Free shipping (72h)</label>
+                    </div>
+                    <div class="shipping-option2">
+
+                        <label for="extra-shipping"><input type="radio" name="shipping-option" id="Extra-shipping" />
+                            Extra shipping (48h) <b>4,99€</b></label>
+                    </div>
+                    <div class="shipping-option3">
+                        <label for="premium-shipping"><input type="radio" name="shipping-option"
+                                id="Premium-shipping" /> Premium (24h) <b>9,99€</b></label>
+                    </div>
                 </div>
                 <div class="gift-option">
-                    <input type="checkbox" name="gift-selector" id="gift-selector">
-                    <label for="gift-selector">Is it a gift?</label>
+                    <label for="gift-selector" id="checked-label"><input type="checkbox" name="gift-selector"
+                            id="gift-selector" /> Free gift card and message</label>
+                    <textarea name="gift-msg" id="gift-msg" cols="30" rows="5" maxlength="200"
+                        placeholder="Write your message here"></textarea>
+                    <span class="shipping-span">Gift wrapper image</span>
+                    <button id="gift-img-btn">Select image</button>
                 </div>
-                <label for="gift-msg">Gift message</label>
-                <textarea name="gift-msg" id="gift-msg" cols="30" rows="10" maxlength="200"></textarea>
-                <span class='shipping-span'>Gift wrapper image</span>
-                <button type="button" id="gift-img-btn">Select image</button>
-                <!-- Button reset and next -->
-                <input type="reset" name="reset-form">
-                <button id="nextPage3">Next</button>
+                <div id='delivery-msg' class="estimatedTime">
 
+                </div>
+                <!-- Button reset and next -->
+                <div id="button3-Parent" class="buttonsElement">
+                    <input type="reset" name="reset-form" value="Reset" id="reset-shipping" />
+                    <input type="submit" id="nextPage3" value="Next">
+                </div>
             </form>
         </section>
         <!-- Shipping page -->
 
         <!-- finish page -->
-        <section id="Finish-page"></section>
+        <section id="Finish-page" class="Hidden">
+            <div class="finish-h1">
+                <h1>Review your order</h1>
+                <div id="estimated-delivery"></div>
+
+                <hr>
+            </div>
+            <div id="finish-container">
+
+                <div class="finish-content col-left">
+                    <!-- <div class="final-product"> -->
+                    <!-- </div> -->
+                    <div class="final-product-name">
+                        <div class="img-div">
+                            <img src="" alt="" id="purchased-product">
+                        </div>
+                        <span><b>Sunglasses Square</b></span>
+                        <span id="item-quantity"></span>
+                        <span id="item-size"></span>
+                    </div>
+                </div>
+                <div id="bottom-row" class="col-right">
+                    <div id="payment-summary">
+                        <h2><b>Order Summary</b></h2>
+                        <div class="finish-summary">
+                            <span>Items:</span>
+                            <span id="items-price"></span>
+                        </div>
+                        <div class="finish-summary">
+                            <span id="shipping-option"></span>
+                            <span id="shipping-price"></span>
+                        </div>
+                        <div class="finish-summary">
+                            <span class='total'>Order total:</span>
+                            <span id="order-total" class='total'></span>
+                        </div>
+                        <button id="place-order">Place your order</button>
+                        <label for="accept-tc"><input type="checkbox" id="accept-tc" required>
+                            I have read and I accept the <a
+                                href="https://www.termsandconditionsgenerator.com/live.php?token=DD3h0gamZXkp9Pf63xUUCvO52I0Zke4R"
+                                target="_blank">terms
+                                and
+                                conditions.
+                            </a>
+                        </label>
+                        <!-- <div class="delivery-address">
+                            <h3><b>Shipping address:</b></h3>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div id="time-elapsed">
+            </div>
+        </section>
         <!-- finish page -->
     </main>
 
-    <footer></footer>
+    <!-- <footer class="sidebar">
+        <img src="assets\img\logo.png" class="logo" />
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <p class="logoName">Óptica IVALUC</p>
+    </footer> -->
 </body>
 
 </html>
