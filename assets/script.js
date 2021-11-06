@@ -39,7 +39,20 @@ confirmPass.addEventListener("blur",validConfirmPass);
 
 nextButton.addEventListener("click",checkProfileForm)
 
-
+function account(){
+    return {
+        username:"",
+        email:"",
+        password:"",
+        Name:"",
+        Lastname:"",
+        Address:"",
+        sec_Address:"",
+        Country:"",
+        Phone:""
+    }
+}
+const profile= account();
 
 var errorMsg="";
 //hide error
@@ -117,11 +130,11 @@ function checkProfileForm(event){
     console.log("input element length "+inputElement.length);
     if(result.length==inputElement.length){
         stepLineAnimation();
-        savedUserName=userName.value;
-        savedEmail=email.value;
-        savedPassword=password.value;
+        profile.username=userName.value
+        profile.email=email.value
+        profile.password=password.value
         profileForm.style.display="none";
-        console.log(savedPassword,savedUserName,savedEmail);
+        console.log(profile);
     }
 }
 //STEP LINE SECTION
