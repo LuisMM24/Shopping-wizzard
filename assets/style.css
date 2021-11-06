@@ -13,6 +13,13 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
+/* @media only screen and (max-width: 1400px) {
+
+  body {
+    width: 60%;
+    margin: auto;
+  }
+} */
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -23,7 +30,7 @@ body {
   min-height: 100vh;
 }
 
-#main {
+#main{
   /* background-color: var(--main-bg-color);
   border-radius: 20px; */
   position:relative;
@@ -60,7 +67,7 @@ h3{
 /*header y footer*/
 .sidebar {
   width: 100%;
-  height: 50px;
+  height: 30px;
   background-color: var(--main-color);
   display: flex;
   align-items: center;
@@ -201,7 +208,6 @@ text-align: center;
   flex-wrap: wrap;
   align-items: center;
   justify-content:space-around;
-  
   width:500px;
 }
 #regular-address{
@@ -246,20 +252,28 @@ text-align: center;
 #birthday-parent input{
   width:100%;
 }
-#Address-page form div i{
+#Address-page .failure-icon,
+#Address-page .success-icon{
+  opacity:0;
   position:absolute;
   padding:10px;
+  right:20px;
   top:20px;
-  right:0px;
   z-index:2;
 }
+#Phone-parent i{
+  right:10px!important;
+}
+
 #Address-page #Country-parent select{
   width:100%;
 }
 /* Step line animation */
 
 /* Validation and error container classes */
-
+.validation{
+  width:140px;
+}
 .validation, .error-container{
   position:absolute;
   padding:6px;
@@ -270,13 +284,16 @@ text-align: center;
   color: red;
   border: 1px solid red;
   outline: none;
-  border-radius: 10px;
+  border-radius: 5px;
   z-index:3;
 }
-
+.error-container{
+  width:200px;
+}
 .buyNow-parent{
   position: relative;
-  width:40%;
+  width: 75%;
+  margin-left: 2%;
   }
   #buyNow{
     padding:10px;
@@ -293,22 +310,18 @@ text-align: center;
     background-color:var(--light-orange);
     transition:0.5s;
     color: var(--main-text-color);
-    
   }
 #button2-parent{
   position:relative;
   width:100%;
-  
 }
 #button2-parent input{
   padding:5px 30px!important;
-  
 }
 #button3-Parent{
   position:relative;
   margin: 30px 0px;
 }
-
 
 .validated{
   animation-name: validatedok;
@@ -414,9 +427,10 @@ button:active{
 }
 
 .price{
-  color: red;
+  color: var(--orange);
   font-weight: bold;
-  font-size: 20px ;
+  font-size: 250% ;
+  margin: 0;
 }
 
 .galery{
@@ -464,6 +478,9 @@ button:active{
   section {
     width: 100%;
   }
+  .logoName{
+    font-size: 12px;
+  }
   .col-left {
     width: 100%;
     margin: 0;
@@ -475,6 +492,9 @@ button:active{
   .description {
     border-radius:0px !important;
     padding: 0px 20px;
+  }
+  #address-form{
+    flex-direction:column;
   }
   #product-page{
     flex-direction: column;
@@ -499,7 +519,9 @@ button:active{
 
 .description h1{
   text-align: left;
+  font-size: 250%;
 }
+
 .colorLents{
   border-radius: 100%;
   border: 2px solid var(--secondary-text-color) ;
@@ -549,6 +571,15 @@ button:active{
   border-radius: 10px;
   margin-left: 15px;
   height: 100%;
+}
+
+.enlace{
+  font-size: 96%;
+  color: var(--main-text-color);
+}
+.enlace a{
+  text-decoration: none;
+  color: var(--orange);
 }
 
 /* BUTTONS ELEMENT STYLE */
@@ -610,7 +641,7 @@ button:active{
 }
 /* Icons profile form */
 
-form div i{
+#Profile-page form div i{
   position:absolute;
   padding:10px;
   top:20px;
@@ -626,11 +657,6 @@ form div i{
   color: green;
 }
 
-/* .success-icon,
-.failure-icon {
-  left: 50%;
-  opacity:0;
-} */
 #Profile-page .success-icon,
 #Profile-page .failure-icon {
   left: 100%;
