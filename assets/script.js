@@ -24,7 +24,7 @@ var counter=0;
 userName.addEventListener("blur",validUserName);
 email.addEventListener("blur",validEmail);
 password.addEventListener("blur",validPass);
-confirmPass.addEventListener("blur",validConfirmPass);
+confirmPass.addEventListener("keyup",validConfirmPass)
 nextButton.addEventListener("click",checkProfileForm)
 
 function account(){
@@ -44,6 +44,7 @@ const profile= account();
 
 var errorMsg="";
 //hide error
+
     inputElement.forEach(input=>{
         input.addEventListener("focus",()=>{
             input.nextElementSibling.style.display="none";
@@ -60,6 +61,7 @@ function changeDisplayError(n){
         return arrayValided[n]=false;
     }else{
         errorIcon[n].style.opacity="0";
+        displayError[n].style.display="none";
         successIcon[n].style.opacity="1";
         inputElement[n].style.borderColor="green";
         return arrayValided[n]=true;
