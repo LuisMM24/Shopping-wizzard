@@ -672,7 +672,7 @@ function millisToMinutesAndSeconds(millis) {
     minutes = Math.floor(millis / 60000);
     seconds = ((millis % 60000) / 1000).toFixed(0);
     // console.log(minutes + " minutes " + 'and ' + seconds + ' seconds');
-  }
+}
 
 placeOrderBtn.addEventListener('click', () => {
     if (!acceptTC.checked) {
